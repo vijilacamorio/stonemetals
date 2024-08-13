@@ -28,8 +28,6 @@
   <link href="<?php echo base_url();?>assets/vendor/datatables/colReorder.dataTables.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href=" <?php echo base_url();?>assets/vendor/datatables/buttons.dataTables.min.css">
   <link href="<?php echo base_url();?>backend/assets/css/style.css" rel="stylesheet">
-
-
 </head>
 
 <body>
