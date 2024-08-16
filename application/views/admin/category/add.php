@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo base_url('admin/category/category_index'); ?>">Manage Category</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url('admin/category/category_index'); ?>">Manage Pages</a></li>
                 <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -26,8 +26,8 @@
                          <form name="addcategory" method="post" class="addcategory">
                          <div class="displaymessage"></div>
                             <div class="form-group">
-                                    <label for="exampleInputEmail1">Category Name<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="categoryname" name="category_name" placeholder="Category Name">
+                                    <label for="exampleInputEmail1">Page Name<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="categoryname" name="category_name" placeholder="Page Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="status">Status<span class="text-danger">*</span></label>

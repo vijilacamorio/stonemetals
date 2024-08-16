@@ -16,7 +16,7 @@ class Subcategory extends CI_Controller {
         $getsubcategory_data    = $this->subcategory_model->getsubcategory_data();
 
         $data = array(
-            'page_title' => 'Subcategory',
+            'page_title' => 'Sub Pages',
             'getsubcategory_data'   => $getsubcategory_data
 
         );
@@ -29,7 +29,7 @@ class Subcategory extends CI_Controller {
 	{   
         $subcategoryname    = $this->subcategory_model->getcategory_name();
         $data = array(
-            'page_title' => 'Add subcategory',
+            'page_title' => 'Add Sub Pages',
              'categoryname'   => $subcategoryname
         );
  		$this->load->view('admin/subcategory/add', $data);
@@ -40,9 +40,9 @@ class Subcategory extends CI_Controller {
 
     public function create_subcategory()
     {
-        $this->form_validation->set_rules('category_name', 'Category Name', 'required|trim');
-        $this->form_validation->set_rules('subcategory_name', 'Subcategory Name', 'required|trim');
-        $this->form_validation->set_rules('is_active', 'Subcategory Status', 'required');
+        $this->form_validation->set_rules('category_name', 'Page Name', 'required|trim');
+        $this->form_validation->set_rules('subcategory_name', 'Sub Pages Name', 'required|trim');
+        $this->form_validation->set_rules('is_active', 'SSub Pages Status', 'required');
         $this->form_validation->set_error_delimiters('', '<br/>');
         $response = array();
         if ($this->form_validation->run() == FALSE) {
@@ -54,7 +54,7 @@ class Subcategory extends CI_Controller {
             $existing_category = $this->subcategory_model->getsubcategory_data($subname);
             if ($existing_category) {
                 $response['status'] = 'failure';
-                $response['msg'] = '<p>Subcategory name already exists.</p>';
+                $response['msg'] = '<p>Sub Pages name already exists.</p>';
             } else {
                 $slug = url_title($subname, 'dash', TRUE);
                 $isactive = $this->input->post('is_active');
@@ -67,7 +67,7 @@ class Subcategory extends CI_Controller {
                 $result = $this->subcategory_model->subcategory_data_insert('subcategories', $data);
                 if ($result) {
                     $response['status'] = 'success';
-                    $response['msg'] = 'Subcategory has been added successfully';
+                    $response['msg'] = 'Sub Pages has been added successfully';
                 } else {
                     $response['status'] = 'failure';
                     $response['msg'] = '<p>Something happened</p>';
@@ -98,7 +98,7 @@ class Subcategory extends CI_Controller {
         $subcategoryname    = $this->subcategory_model->getcategory_name();
 
         $data = array(
-            'page_title' => 'Edit Subcategory',
+            'page_title' => 'Edit Sub Pages',
             'getsubcategory'   => $subcategorydata,
             'categoryname'   => $subcategoryname
 
@@ -116,12 +116,12 @@ class Subcategory extends CI_Controller {
 	   if ($result) {
 	      $response = array(
 	         'success' => true,
-	         'message' => 'Subcategories deleted successfully.'
+	         'message' => 'Sub Pages deleted successfully.'
 	      );
 	   } else {
 	      $response = array(
 	         'success' => false,
-	         'message' => 'Failed Subcategories as deleted.'
+	         'message' => 'Failed Sub Pages as deleted.'
 	      );
 	   }
 	   echo json_encode($response);
@@ -135,9 +135,9 @@ class Subcategory extends CI_Controller {
 
     public function subcategory_data_update()
     {
-        $this->form_validation->set_rules('category_name', 'Category Name', 'required|trim');
-        $this->form_validation->set_rules('subcategory_name', 'Subcategory Name', 'required|trim');
-        $this->form_validation->set_rules('is_active', 'Category Status', 'required');
+        $this->form_validation->set_rules('category_name', 'Page Name', 'required|trim');
+        $this->form_validation->set_rules('subcategory_name', 'Sub Pages Name', 'required|trim');
+        $this->form_validation->set_rules('is_active', 'Sub Pages Status', 'required');
         $this->form_validation->set_error_delimiters('', '<br/>');
         $response = array();
     
@@ -153,7 +153,7 @@ class Subcategory extends CI_Controller {
             $existing_category = $this->subcategory_model->getsubcategory_data($subname, $subcategory_id);
             if ($existing_category) {
                 $response['status'] = 'failure';
-                $response['msg'] = '<p>Subcategory name already exists.</p>';
+                $response['msg'] = '<p>Sub Pages name already exists.</p>';
             } else {
                 $slug = url_title($subname, 'dash', TRUE);
                 $data = array(
@@ -167,7 +167,7 @@ class Subcategory extends CI_Controller {
     
                 if ($result) {
                     $response['status'] = 'success';
-                    $response['msg'] = 'Category has been updated successfully';
+                    $response['msg'] = 'Sub Pages has been updated successfully';
                 } else {
                     $db_error = $this->db->error(); // Log the error
                     $response['status'] = 'failure';

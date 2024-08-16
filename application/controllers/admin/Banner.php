@@ -41,7 +41,7 @@ class Banner extends CI_Controller {
 	    $this->form_validation->set_rules('banner_title', 'Title', 'required|trim');
 	    $this->form_validation->set_rules('sub_title', 'Subtitle', 'required|trim');
 	    $this->form_validation->set_rules('banner_content', 'Content', 'required|trim');
-	    $this->form_validation->set_rules('button_url', 'Url', 'required|trim|valid_url');
+	    // $this->form_validation->set_rules('button_url', 'Url', 'required|trim|valid_url');
 	    $this->form_validation->set_rules('is_active', 'Banner Status', 'required');
 	    $this->form_validation->set_error_delimiters('', '<br/>');
 
@@ -118,7 +118,7 @@ public function updateBanners()
 	{
  	    $this->form_validation->set_rules('banner_title', 'Title', 'required|trim');
 	    $this->form_validation->set_rules('sub_title', 'Subtitle', 'required|trim');
-	    $this->form_validation->set_rules('banner_content', 'Content', 'required|trim');
+	    // $this->form_validation->set_rules('banner_content', 'Content', 'required|trim');
 	    $this->form_validation->set_rules('button_url', 'Url', 'required|trim|valid_url');
 	    $this->form_validation->set_rules('is_active', 'Banner Status', 'required');
 	    $this->form_validation->set_error_delimiters('', '<br/>');
@@ -135,7 +135,8 @@ public function updateBanners()
 	        $url = $this->input->post('button_url');
 	        $is_active = $this->input->post('is_active');
 	        $image_name = $this->input->post('old_bannerimage'); 
-	        if (!empty($_FILES['images']['name'])) {
+	     
+			if (!empty($_FILES['images']['name'])) {
 	            $image_upload = bannerImageUpload('images', BANNER_IMG_PATH, BANNER_IMG_WIDTH, BANNER_IMG_HEIGHT);
 	            if ($image_upload['error']) {
 	                $response['status'] = 'failure';

@@ -22,8 +22,9 @@ class Category_model extends CI_Model {
         }
         $this->db->where('is_deleted', 0);
         $this->db->where('is_active', 1); 
+        $this->db->order_by('order_val', 'ASC');
         $query = $this->db->get();
-        
+        //echo $this->db->last_query(); exit;
         if ($query->num_rows() > 0) {
             return $query->result_array();
         }

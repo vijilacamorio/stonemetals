@@ -23,15 +23,25 @@
                     <p class="text-muted m-b-30 font-13"></p>
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
-                         <form name="editsetting" method="post" class="editsetting">
+                         <form name="editsetting" method="post" class="editsetting" enctype="multipart/form-data">
                          <div class="displaymessage"></div>
                           
-                                <?php if (!empty($settings[0]['logo'])): ?>
-                                <div class="form-group">
-                                    <label for="current_logo">Current Logo:</label><br>
-                                    <img src="<?php echo base_url('uploads/logos/' . $settings[0]['logo']); ?>" alt="Current Logo" style="max-width: 150px;">
-                                </div>
-                                <?php endif; ?>
+                           
+
+                         <div class="form-group">
+                        <label for="formFile">Image<span class="text-danger">*</span></label>
+                            <div class="col-sm-6">
+                                <input class="form-control" type="file" name="logo" id="formFile" style="width: 209%;margin-left: -14px;"  >
+                                <input type="hidden" name="old_image" value="<?php echo $settings[0]['logo'];?>">
+                                <br>
+                                <?php
+                                $image_url = !empty($settings[0]['logo']) ? base_url().LOGO_IMG_PATH.$settings[0]['logo'] : '';
+                                $alt_text = !empty($settings[0]['logo']) ? $settings[0]['setting_id'] : '';
+                                ?>
+                                <img src="<?php echo $image_url; ?>" alt="<?php echo $alt_text; ?>" width="100">
+                            </div>
+                            </div>
+
  
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email Address<span class="text-danger">*</span></label>
@@ -92,12 +102,14 @@
 <script>
 $('.editsetting').on('submit', function(event) {
     event.preventDefault(); 
-    var formData = $(this).serialize();
+    var formData = new FormData($(this)[0]);
     $.ajax({
         url: '<?php echo base_url('admin/setting/updateSettings'); ?>', 
         type: 'POST',
         data: formData,
         dataType:'json',
+        contentType: false,
+        processData: false,
         success: function(response) {
           if(response.status =='success'){
             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');

@@ -34,61 +34,150 @@ class Setting extends CI_Controller {
 	}
 
 
-
-
-
-
-    // updateSettings
-
-    public function updateSettings() 
+	public function updateSettings() 
 	{  
-	    $this->form_validation->set_rules('email_address', 'Email Address', 'required|valid_email');
-	    $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'required|trim');
-	    $this->form_validation->set_rules('location', 'Location', 'required|trim');
-	    $this->form_validation->set_rules('is_active', 'Setting Status', 'required');
-	    $this->form_validation->set_error_delimiters('', '<br/>');
-	    
-	    $response = array();
-	    
-	    if ($this->form_validation->run() == FALSE) {
-	        $response['status'] = 'failure';
-	        $response['msg']    = validation_errors();
-	    } else {
-	        $setting_id = $this->input->post('settingid');
-            // $logo = $this->input->post('logo');
-	        $email_address = $this->input->post('email_address');
-	        $mobile_number = $this->input->post('mobile_number');
-	        $location = $this->input->post('location');
-	        $facebook_url = $this->input->post('facebook_url');
-	        $instagram_url = $this->input->post('instagram_url');
-	        $linkedin_url = $this->input->post('linkedin_url');
-	        $is_active = $this->input->post('is_active');
-	        
-	        $data = array(
-                
-                // 'logo' => $logo,
-	            'email_address' => $email_address,
-	            'mobile_number' => $mobile_number,
-	            'location' => $location,
-	            'facebook_url' => $facebook_url,
-	            'instagram_url' => $instagram_url,
-	            'linkedin_url' => $linkedin_url,
-	            'is_active' => $is_active,
-	        );
-	        
-	        $result = $this->setting_model->update_settings($setting_id, $data, 'settings');
-	        
-	        if ($result) {
-	            $response['status'] = 'success';
-	            $response['msg']    = 'Settings were updated successfully';
-	        } else {
-	            $response['status'] = 'failure';
-	            $response['msg']    = '<p>Something went wrong. Please try again.</p>';
+		// print_r($_FILES); die;
+		$this->form_validation->set_rules('email_address', 'Email Address', 'required|valid_email');
+		$this->form_validation->set_rules('mobile_number', 'Mobile Number', 'required|trim');
+		$this->form_validation->set_rules('location', 'Location', 'required|trim');
+		$this->form_validation->set_rules('is_active', 'Setting Status', 'required');
+		$this->form_validation->set_error_delimiters('', '<br/>');
+		
+		$response = array();
+		
+		if ($this->form_validation->run() == FALSE) {
+			$response['status'] = 'failure';
+			$response['msg']    = validation_errors();
+		} else {
+			$setting_id = $this->input->post('settingid');
+			$email_address = $this->input->post('email_address');
+			$mobile_number = $this->input->post('mobile_number');
+			$location = $this->input->post('location');
+			$facebook_url = $this->input->post('facebook_url');
+			$instagram_url = $this->input->post('instagram_url');
+			$linkedin_url = $this->input->post('linkedin_url');
+			$is_active = $this->input->post('is_active');
+			$image_name = $this->input->post('old_image');
+
+			if (!empty($_FILES['logo']['name'])) {
+	            $image_upload = logoImageUpload('logo', LOGO_IMG_PATH, LOGO_IMG_WIDTH, LOGO_IMG_HEIGHT);
+	            if ($image_upload['error']) {
+	                $response['status'] = 'failure';
+	                $response['msg']    = $image_upload['error'];
+	                echo json_encode($response);
+	                return;
+	            }
+	            $uploaded_image_path = LOGO_IMG_PATH . $image_upload['image_metadata']['file_name'];
+	            list($width, $height) = getimagesize($uploaded_image_path);
+	            if ($width != LOGO_IMG_WIDTH || $height != LOGO_IMG_HEIGHT) {
+	                unlink($uploaded_image_path);
+	                $response['status'] = 'failure';
+	                $response['msg']    = 'The image width and height should be ' . LOGO_IMG_WIDTH . '*' . LOGO_IMG_HEIGHT;
+	                echo json_encode($response);
+	                return;
+	            }
+	            $image_name = $image_upload['image_metadata']['file_name'];
 	        }
-	    }
-	    
-	    echo json_encode($response);
+	
+			$data = array(
+				'logo' => $image_name,
+				'email_address' => $email_address,
+				'mobile_number' => $mobile_number,
+				'location' => $location,
+				'facebook_url' => $facebook_url,
+				'instagram_url' => $instagram_url,
+				'linkedin_url' => $linkedin_url,
+				'is_active' => $is_active,
+			);
+			
+			$result = $this->setting_model->update_settings($setting_id, $data, 'settings');
+			
+			if ($result) {
+				$response['status'] = 'success';
+				$response['msg']    = 'Settings were updated successfully';
+			} else {
+				$response['status'] = 'failure';
+				$response['msg']    = '<p>Something went wrong. Please try again.</p>';
+			}
+		}
+		
+		echo json_encode($response);
 	}
+	
+
+
+    // public function updateSettings() 
+	// {  
+	//     $this->form_validation->set_rules('email_address', 'Email Address', 'required|valid_email');
+	//     $this->form_validation->set_rules('mobile_number', 'Mobile Number', 'required|trim');
+	//     $this->form_validation->set_rules('location', 'Location', 'required|trim');
+	//     $this->form_validation->set_rules('is_active', 'Setting Status', 'required');
+	//     $this->form_validation->set_error_delimiters('', '<br/>');
+	    
+	//     $response = array();
+	    
+	//     if ($this->form_validation->run() == FALSE) {
+	//         $response['status'] = 'failure';
+	//         $response['msg']    = validation_errors();
+	//     } else {
+	//         $setting_id = $this->input->post('settingid');
+    //         $logo = $this->input->post('logo');
+	//         $email_address = $this->input->post('email_address');
+	//         $mobile_number = $this->input->post('mobile_number');
+	//         $location = $this->input->post('location');
+	//         $facebook_url = $this->input->post('facebook_url');
+	//         $instagram_url = $this->input->post('instagram_url');
+	//         $linkedin_url = $this->input->post('linkedin_url');
+	//         $is_active = $this->input->post('is_active');
+	       
+ 
+
+	// 		if (!empty($_FILES['images']['name'])) {
+	//             $image_upload = logoImageUpload('images', LOGO_IMG_PATH, LOGO_IMG_WIDTH, LOGO_IMG_HEIGHT);
+	//             if ($image_upload['error']) {
+	//                 $response['status'] = 'failure';
+	//                 $response['msg']    = $image_upload['error'];
+	//                 echo json_encode($response);
+	//                 return;
+	//             }
+	//             $uploaded_image_path = LOGO_IMG_PATH . $image_upload['image_metadata']['file_name'];
+	//             list($width, $height) = getimagesize($uploaded_image_path);
+	//             if ($width != LOGO_IMG_WIDTH || $height != LOGO_IMG_HEIGHT) {
+	//                 unlink($uploaded_image_path);
+	//                 $response['status'] = 'failure';
+	//                 $response['msg']    = 'The image width and height should be ' . LOGO_IMG_WIDTH . '*' . LOGO_IMG_HEIGHT;
+	//                 echo json_encode($response);
+	//                 return;
+	//             }
+	//             $image_name = $image_upload['image_metadata']['file_name'];
+	//         }
+
+
+	//         $data = array(
+                
+    //             'logo' => $image_name,
+	//             'email_address' => $email_address,
+	//             'mobile_number' => $mobile_number,
+	//             'location' => $location,
+	//             'facebook_url' => $facebook_url,
+	//             'instagram_url' => $instagram_url,
+	//             'linkedin_url' => $linkedin_url,
+	//             'is_active' => $is_active,
+	//         );
+	        
+	//         $result = $this->setting_model->update_settings($setting_id, $data, 'settings');
+	        
+	//         if ($result) {
+	//             $response['status'] = 'success';
+	//             $response['msg']    = 'Settings were updated successfully';
+	//         } else {
+	//             $response['status'] = 'failure';
+	//             $response['msg']    = '<p>Something went wrong. Please try again.</p>';
+	//         }
+	//     }
+	    
+	//     echo json_encode($response);
+	// }
 
 	// public function updateSettings() 
 	// {  

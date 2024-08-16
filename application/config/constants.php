@@ -89,10 +89,14 @@ define('BANNER_IMG_PATH','./uploads/homebanners/');
 define('BANNER_IMG_WIDTH','1980');
 define('BANNER_IMG_HEIGHT','1080');
 
-define('PAGES_BANNER_HEIGHT',1080);
-define('PAGES_BANNER_WIDTH',1980);
+define('PAGES_BANNER_HEIGHT','1080');
+define('PAGES_BANNER_WIDTH','1980');
 define('PAGES_IMG_PATH','./uploads/pagebanners/');
 
 define('BLOG_IMG_PATH','./uploads/blogs/');
 define('BLOG_IMG_WIDTH','1200');
 define('BLOG_IMG_HEIGHT','700');
+
+define('LOGO_IMG_PATH','./uploads/logos/');
+define('LOGO_IMG_WIDTH','1000');
+define('LOGO_IMG_HEIGHT','200');

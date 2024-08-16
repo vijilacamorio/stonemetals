@@ -14,7 +14,7 @@ class Category extends CI_Controller {
 	{   
         $categorydata = $this->category_model->getcategory_data();
         $data = array(
-            'page_title' => 'Category',
+            'page_title' => 'Pages',
             'categorydata'   => $categorydata
         );
  		$this->load->view('admin/category/index', $data);
@@ -22,14 +22,14 @@ class Category extends CI_Controller {
       
 	public function add_category()
 	{   
-        $data = array('page_title' => 'Add Category');
+        $data = array('page_title' => 'Add Page');
 		$this->load->view('admin/category/add', $data);
 	}
 
     public function create_category()
 	{
- 	   $this->form_validation->set_rules('category_name', 'Category Name', 'required|trim');
-	   $this->form_validation->set_rules('is_active', 'Category Status', 'required');
+ 	   $this->form_validation->set_rules('category_name', 'Page Name', 'required|trim');
+	   $this->form_validation->set_rules('is_active', 'Page Status', 'required');
 	   $this->form_validation->set_error_delimiters('', '<br/>');
 		$response = array();
 	    if ($this->form_validation->run() == FALSE) {
@@ -41,7 +41,7 @@ class Category extends CI_Controller {
 			if ($existing_category) {
 	            
 	            $response['status'] = 'failure';
-				$response['msg']	= '<p>Category name already exists.</p>';
+				$response['msg']	= '<p>Page name already exists.</p>';
 	        } else {
 				$slug = url_title($name, 'dash', TRUE);
 				$isactive = $this->input->post('is_active');
@@ -55,7 +55,7 @@ class Category extends CI_Controller {
 
 	            if ($result) {
 					$response['status'] = 'success';
-					$response['msg'] 	= 'Category has been added successfully';
+					$response['msg'] 	= 'Page has been added successfully';
 	            } else {
 					$response['status'] = 'failure';
 					$response['msg']	= '<p>Something happened</p>';
@@ -73,7 +73,7 @@ class Category extends CI_Controller {
         $category_id = $this->input->get('id');
         $categorydata = $this->category_model->category_get_edit($category_id);
         $data = array(
-            'page_title' => 'Edit Category',
+            'page_title' => 'Edit Page',
             'getCategory'   => $categorydata
         );
 		$this->load->view('admin/category/edit', $data);
@@ -84,8 +84,8 @@ class Category extends CI_Controller {
      
     public function category_data_update()
     {
-         $this->form_validation->set_rules('category_name', 'Category Name', 'required|trim');
-         $this->form_validation->set_rules('is_active', 'Category Status', 'required');
+         $this->form_validation->set_rules('category_name', 'Page Name', 'required|trim');
+         $this->form_validation->set_rules('is_active', 'Page Status', 'required');
          $this->form_validation->set_error_delimiters('', '<br/>');
          $response = array();
          if ($this->form_validation->run() == FALSE) {
@@ -98,7 +98,7 @@ class Category extends CI_Controller {
             $existing_category = $this->category_model->getcategory_data($name, $category_id);
             if ($existing_category) {
                 $response['status'] = 'failure';
-                $response['msg'] = '<p>Category name already exists.</p>';
+                $response['msg'] = '<p>Page name already exists.</p>';
             } else {
                 $slug = url_title($name, 'dash', TRUE);
                 $data = array(
@@ -110,7 +110,7 @@ class Category extends CI_Controller {
 
                 if ($result) {
                     $response['status'] = 'success';
-                    $response['msg'] = 'Category has been updated successfully';
+                    $response['msg'] = 'Page has been updated successfully';
                 } else {
                     $response['status'] = 'failure';
                     $response['msg'] = '<p>Something went wrong.</p>';
@@ -132,12 +132,12 @@ class Category extends CI_Controller {
 	   if ($result) {
 	      $response = array(
 	         'success' => true,
-	         'message' => 'Categories deleted successfully.'
+	         'message' => 'Page deleted successfully.'
 	      );
 	   } else {
 	      $response = array(
 	         'success' => false,
-	         'message' => 'Failed categories as deleted.'
+	         'message' => 'Failed Page as deleted.'
 	      );
 	   }
 

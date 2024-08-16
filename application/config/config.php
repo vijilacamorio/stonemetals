@@ -40,6 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // $config['base_url'] = $root;
 // $config['base_url'] = 'http://localhost/stonemetals/';
+
 $root=(isset($_SERVER["HTTPS"]) ? "https://" : "http://").$_SERVER["HTTP_HOST"];
 $root=(isset($_SERVER["HTTPS"]) ? "https://" : "http://").$_SERVER["HTTP_HOST"];
 $root.= str_replace(basename($_SERVER["SCRIPT_NAME"]), "", $_SERVER["SCRIPT_NAME"]);

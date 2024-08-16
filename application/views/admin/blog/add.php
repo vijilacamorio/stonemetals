@@ -35,7 +35,7 @@
                                 <div class="form-group">
                                     <label for="title">Content <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                    <textarea id="mymce"  name="content"></textarea>
+                                    <textarea class="tinymce-editor" id="mymce" name="content"></textarea>
                                     </div>
                                 </div>  
  
@@ -62,7 +62,7 @@
  
                                 <div class="form-group">
                                     <label for="status">Blog Status<span class="text-danger">*</span></label>
-                                    <select name="is_active" id="status" class="form-control">
+                                    <select name="is_active" class="form-control">
                                         <option value="" disabled selected>Select Option</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
@@ -81,48 +81,10 @@
 
 <?php $this->load->view('admin/layout/footer'); ?>
  
-
-
-
 <script>
-
-
-// $('.addblog').on('submit', function(event) {
-//     event.preventDefault(); 
-//     tinymce.triggerSave();
-//     var formData = new FormData($(this)[0]);
-//     $.ajax({
-//         url: '<?php echo base_url('admin/blog/create_blog'); ?>', 
-//         type: 'POST',
-//         data: formData,
-//         dataType: 'json',
-//         contentType: false,
-//         processData: false,
-//         success: function(response) {
-//           if(response.status =='success'){
-//             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
-//             setTimeout(function() {
-//               $('.addblog')[0].reset();
-//               window.location.href = '<?php echo base_url("admin/blog/blog_index"); ?>';
-//             }, 3000); 
-//           }else{
-//             $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
-//           }
-//         },
-//         error: function(xhr, status, error) {
-//           alert('An error occurred: ' + error);
-//         }
-//     });
-
-// });
-
-
-
-
-
-
 $('.addblog').on('submit', function(event) {
     event.preventDefault(); 
+    tinymce.triggerSave();
     var formData = new FormData($(this)[0]);
     $.ajax({
         url: '<?php echo base_url('admin/blog/create_blog'); ?>', 
@@ -132,6 +94,7 @@ $('.addblog').on('submit', function(event) {
         contentType: false,
         processData: false,
         success: function(response) {
+            console.log(response, "response");
           if(response.status =='success'){
             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             setTimeout(function() {

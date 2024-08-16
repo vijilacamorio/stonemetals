@@ -38,39 +38,30 @@
                                     <input type="text" class="form-control" id="inputText" name="sub_title" value="<?php echo $getBanners[0]['sub_title']; ?>" >
                                 </div>
 
-
-
+ 
                                 <div class="form-group">
                                     <label for="exampleInput1">Content <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="banner_content" name="banner_content" value="<?php echo $getBanners[0]['banner_content']; ?>" >
                                 </div>
-
-
+ 
                                 <div class="form-group">
                                     <label for="exampleInput1">Image (1980px 1080px)<span class="text-danger">*</span></label>
-                                    <!-- <input type="file" class="form-control" id="formFile" name="images"  > -->
-            
-
                                     <div class="col-sm-6">
-                    <input class="form-control" type="file" name="images" id="formFile" style="width: 209%;margin-left: -14px;"  >
-                    <input type="hidden" name="old_bannerimage" value="<?php echo $getBanners[0]['images'];?>">
-                    <br>
-                    <?php
-                      $image_url = !empty($getBanners[0]['images']) ? base_url().BANNER_IMG_PATH.$getBanners[0]['images'] : '';
-                      $alt_text = !empty($getBanners[0]['images']) ? $getBanners[0]['banner_title'] : '';
-                      ?>
-                   <img src="<?php echo $image_url; ?>" alt="<?php echo $alt_text; ?>" width="100">
-                </div>
-                          
-                          
-                          
-                          
+                                            <input class="form-control" type="file" name="images" id="formFile" style="width: 209%;margin-left: -14px;"  >
+                                            <input type="hidden" name="old_bannerimage" value="<?php echo $getBanners[0]['images'];?>">
+                                            <br>
+                                            <?php
+                                            $image_url = !empty($getBanners[0]['images']) ? base_url().BANNER_IMG_PATH.$getBanners[0]['images'] : '';
+                                            $alt_text = !empty($getBanners[0]['images']) ? $getBanners[0]['banner_title'] : '';
+                                            ?>
+                                            <img src="<?php echo $image_url; ?>" alt="<?php echo $alt_text; ?>" width="100">
+                                  </div>
                                 </div>
 
 
 
                                 <div class="form-group">
-                                    <label for="exampleInput1">Url <span class="text-danger">*</span></label>
+                                    <label for="exampleInput1">Url <span class="text-danger"></span></label>
                                     <input type="text" class="form-control" id="inputText" name="button_url"  value="<?php echo $getBanners[0]['button_url']; ?>" >
                                 </div>
 

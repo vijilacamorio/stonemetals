@@ -52,7 +52,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="exampleInput1">Url <span class="text-danger">*</span></label>
+                                    <label for="exampleInput1">Url <span class="text-danger"></span></label>
                                     <input type="text" class="form-control" id="inputText" name="button_url" placeholder="Url">
                                 </div>
 

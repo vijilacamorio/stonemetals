@@ -26,7 +26,7 @@
                          <form name="editsubcategory" method="post" class="editsubcategory">
                          <div class="displaymessage"></div>
                             <div class="form-group">
-                                    <label for="categoryname">Category Name<span class="text-danger">*</span></label>
+                                    <label for="categoryname">Page Name<span class="text-danger">*</span></label>
 
                                     <select name="category_name" id="categoryname" class="form-control"  >
                                         <option value="<?php echo $getsubcategory[0]['category_name']; ?>"> <?php echo $getsubcategory[0]['category_name']; ?></option>
@@ -37,7 +37,7 @@
                                   </div>
   
                                 <div class="form-group">
-                                    <label for="subcategory">Subcategory Name<span class="text-danger">*</span></label>
+                                    <label for="subcategory">Sub Pages Name<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="subcategory" name="subcategory_name" value="<?php echo $getsubcategory[0]['subcategory_name']; ?>"  placeholder="Subategory Name">
                                 </div>
  

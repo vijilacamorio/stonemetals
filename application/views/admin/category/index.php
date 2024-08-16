@@ -3,11 +3,11 @@
 <div class="page-wrapper">
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Manage Category</h3>
+            <h3 class="text-themecolor">Manage Pages</h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/category/category_index'); ?>">Manage Category</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/category/category_index'); ?>">Manage Pages</a></li>
             <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -21,13 +21,13 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- <h4 class="card-title">Data Table</h4> -->
-                        <a href="<?php echo base_url('admin/category/add_category'); ?>" class="btn btn-primary">Add Category</a>
+                        <a href="<?php echo base_url('admin/category/add_category'); ?>" class="btn btn-primary">Add Pages</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <!-- <th>Sl</th> -->
-                                        <th>Category Name</th>
+                                        <th>Page Name</th>
                                         <th>Status</th>
                                         <th>Created Date</th>
                                         <th>Action</th>
@@ -70,7 +70,7 @@
      function deleteCategory(id) {
          Swal.fire({
              title: "Delete",
-             text: "Are you sure want to delete this Category?",
+             text: "Are you sure want to delete this Page?",
              icon: "warning",
              showCancelButton: true,
              confirmButtonColor: "#3085d6",
