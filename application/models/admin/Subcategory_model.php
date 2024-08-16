@@ -12,7 +12,7 @@ class Subcategory_model extends CI_Model {
     
  
     public function getcategory_name(){
-        $this->db->select('category_name');
+        $this->db->select('category_name,id');
         $this->db->from('categories');
         $this->db->where('is_deleted', 0);
         $this->db->where('is_active', 1); 
@@ -72,16 +72,19 @@ class Subcategory_model extends CI_Model {
 
  // Get All Categories
  public function getsubcategory_data($subname='', $subcategory_id=''){
-    $this->db->select('*');
-    $this->db->from('subcategories');
+    $this->db->select('sub.*,cat.category_name');
+    $this->db->from('subcategories sub');
+    $this->db->join('categories cat', 'cat.id = sub.category_id','left');
     if ($subname != '') {
-        $this->db->where('subcategory_name', $subname);
+        $this->db->where('sub.subcategory_name', $subname);
     }
     if($subcategory_id !=""){
-        $this->db->where('id !=', $subcategory_id);
+        $this->db->where('sub.id !=', $subcategory_id);
     }
-    $this->db->where('is_deleted', 0);
-    $this->db->where('is_active', 1); 
+    $this->db->where('sub.is_deleted', 0);
+    $this->db->where('sub.is_active', 1); 
+    $this->db->where('cat.is_deleted', 0);
+    $this->db->where('cat.is_active', 1); 
     $query = $this->db->get();
     
     if ($query->num_rows() > 0) {

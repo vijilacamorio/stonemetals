@@ -31,7 +31,7 @@
                                     <select name="category_name" id="categoryname" class="form-control"  >
                                         <option value=""> <?php echo ('Select Page Name') ?></option>
                                         <?php foreach($categoryname as $category) { ?>
-                                        <option value="<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></option>
+                                        <option value="<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></option>
                                         <?php } ?>
                                     </select>
                                   </div>

@@ -59,7 +59,7 @@ class Subcategory extends CI_Controller {
                 $slug = url_title($subname, 'dash', TRUE);
                 $isactive = $this->input->post('is_active');
                 $data = array(
-                    'category_name' => $catname,
+                    'category_id' => $catname,
                     'subcategory_name' => $subname,
                     'subcategory_slug' => $slug,
                     'is_active' => $isactive,
@@ -76,20 +76,6 @@ class Subcategory extends CI_Controller {
         }
         echo json_encode($response);
     }
-    
-
-
-
-
-
-
-
-
-
-
-
-    
-
     
     public function subcategory_data_edit( )
 	{   
@@ -157,7 +143,7 @@ class Subcategory extends CI_Controller {
             } else {
                 $slug = url_title($subname, 'dash', TRUE);
                 $data = array(
-                    'category_name' => $catname,
+                    'category_id' => $catname,
                     'subcategory_name' => $subname,
                     'subcategory_slug' => $slug,
                     'is_active' => $isactive,

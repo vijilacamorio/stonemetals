@@ -103,7 +103,7 @@ class Category extends CI_Controller {
                 $slug = url_title($name, 'dash', TRUE);
                 $data = array(
                     'category_name' => $name,
-                    'category_slug' => $slug,
+                    //'category_slug' => $slug,
                     'is_active' => $isactive,
                 );
                 $result = $this->category_model->category_data_update('categories', $category_id, $data);

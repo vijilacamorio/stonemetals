@@ -8,7 +8,10 @@ class Home extends CI_Controller {
         $this->load->model('home_model');
 	}
     public function index(){
-        $this->load->view('layout/header');
+        $header_data['menus'] = $this->home_model->getPages();
+        $header_data['submenus'] = $this->home_model->getSubPages();
+        $header_data['settings'] = $this->home_model->settingData();
+        $this->load->view('layout/header',$header_data);
         $this->load->view('home');
         $this->load->view('layout/footer');
     }

@@ -28,10 +28,10 @@
                             <div class="form-group">
                                     <label for="categoryname">Page Name<span class="text-danger">*</span></label>
 
-                                    <select name="category_name" id="categoryname" class="form-control"  >
-                                        <option value="<?php echo $getsubcategory[0]['category_name']; ?>"> <?php echo $getsubcategory[0]['category_name']; ?></option>
-                                        <?php foreach($categoryname as $category) { ?>
-                                        <option value="<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></option>
+                                    <select name="category_name" id="categoryname" class="form-control">
+                                        <?php foreach($categoryname as $category) { 
+                                            $selectcat = $category['id'] == $getsubcategory[0]['category_id'] ? 'selected' : ''; ?>
+                                        <option <?php echo $selectcat; ?> value="<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></option>
                                         <?php } ?>
                                     </select>
                                   </div>

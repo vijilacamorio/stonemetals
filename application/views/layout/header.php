@@ -101,7 +101,7 @@
                             </div>
                             <div class="icon-content">
                                 <strong>Office:&nbsp;<span><a href="">044-48057448</a></span></strong>   
-                                <strong>Mob:&nbsp;<span><a href="">+91-8072671066</a></span></strong>   
+                                <strong>Mob:&nbsp;<span><a href=""><?php echo $settings[0]['mobile_number']; ?></a></span></strong>   
                                 
                             </div>
                         </li>
@@ -110,7 +110,7 @@
                                 <span class="icon-cell"><i class="far fa-envelope"></i></i></span>
                             </div>
                             <div class="icon-content">
-                                <strong>mail@stonemetal.in</strong>                                
+                                <strong><?php echo $settings[0]['email_address']; ?></strong>                                
                             </div>                        
                         </li>
                         <li>
@@ -140,90 +140,38 @@
                              
                             <!-- MAIN Vav -->
                             <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
-                        
+                                <?php
+                                $menu_array = array();
+                                if($menus !=""){
+                                  foreach($menus as $mdata){
+                                    $menu_array[$mdata['id']] =  array('name'=>$mdata['category_name'],'slug'=>$mdata['category_slug']);
+                                  }
+                                }
+                                if($submenus !=""){
+                                  foreach($submenus as $smdata){
+                                    if(array_key_exists($smdata['category_id'],$menu_array)){
+                                      $menu_array[$smdata['category_id']]['submenu'][]= array('name'=>$smdata['subcategory_name'],'slug'=>$smdata['subcategory_slug']);
+                                    }
+                                  }
+                                }  
+                              
+                                 ?>
                                 <ul class=" nav navbar-nav">
-                                    <li><a href="javascript:;">Home</a>
-                                       
+                                  <?php foreach($menu_array as $menu_val){ ?>
+                                    <li><a href="<?php echo $menu_val['slug']; ?>"><?php echo $menu_val['name']; ?></a>
+                                       <?php
+                                       if($menu_val['submenu']){
+                                        ?>
+                                        <ul class="sub-menu">
+                                          <?php foreach($menu_val['submenu'] as $submemu){
+                                            echo '<li class="active"><a href="#">'.$submemu['name'].'</a></li>';
+                                          } ?>
+                                        </ul>
+                                      <?php }
+                                      ?>
                                     </li>
-                                    
-                                    <li><a href="javascript:;">About</a>
-                                        <ul class="sub-menu">
-                                            <!-- <li><a href="about-1.html">About 1</a></li>                                        
-                                            <li><a href="about-2.html">About 2</a></li> -->
-                                        </ul>                                
-                                    </li>                                    
-                                    <li><a href="javascript:;">Applications</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="services-1.html">Metal screens / jalis</a></li>                                        
-                                            <li><a href="services-2.html">Wall art</a></li>
-                                            <li><a href="s-agricultural.html">Stone Inlays/Medallions/Stone Borders </a></li>
-                                            <li><a href="s-automotive.html">Stone Water Features / Landscaping</a></li>
-                                            <li><a href="s-chemical.html">Metal Railings & Gates</a></li>
-                                            <li><a href="s-civil.html"> Metal & Stone  Furniture </a></li>
-                                            <li><a href="s-mechanical.html">Stone Ribbing/Flute</a></li>
-                                            <!-- <li><a href="s-oilgas.html">Oil & Gas Engineering</a></li>
-                                            <li><a href="s-power-energy.html">Power & Energy Sector</a></li>-->
-                                                                                       
-                                        </ul>                                
-                                    </li>
-                                    <li><a href="javascript:;">Services</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="services-1.html">Powder coating</a></li>                                        
-                                            <li><a href="services-2.html">Fabrication </a></li>
-                                            <li><a href="s-agricultural.html"> Installation </a></li>
-                                            <!-- <li><a href="s-automotive.html">Automotive Manufacturing</a></li>
-                                            <li><a href="s-chemical.html">Chemical Research</a></li>
-                                            <li><a href="s-civil.html">Civil Engineering</a></li>
-                                            <li><a href="s-mechanical.html">Mechanical Engineering</a></li>
-                                            <li><a href="s-oilgas.html">Oil & Gas Engineering</a></li>
-                                            <li><a href="s-power-energy.html">Power & Energy Sector</a></li>-->
-                                                                                       
-                                        </ul>                                
-                                    </li>
-                                    <li><a href="javascript:;">Gallery</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="project-grid.html">Project Grid</a></li>                                        
-                                            <li><a href="project-masonry.html">Project Masonry</a></li>
-                                            <li><a href="project-carousel.html">Project Carousel</a></li>
-                                            <li><a href="project-detail.html">Project Detail</a>
-                                        </ul>                                
-                                   </li>
-                                    <li><a href="javascript:;">Patterns</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="product.html">Shop</a></li>                                        
-                                            <li><a href="product-detail.html">Shop Detail</a></li>
-                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Checkut</a></li>
-                                            <li><a href="wish-list.html">Wishlist</a></li>                                            
-                                        </ul>                                
-                                   </li>
-                                   <li><a href="javascript:;">Materials</a>
-                                        <ul class="sub-menu">
-                                            <!-- <li><a href="about-1.html">About 1</a></li>                                        
-                                            <li><a href="about-2.html">About 2</a></li> -->
-                                        </ul>                                
-                                    </li>                                    
-                                    <li><a href="javascript:;">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>                                        
-                                            <li><a href="blog-list-sidebar.html">Blog List</a></li>
-                                            <li><a href="blog-post-right-sidebar.html">Blog Post</a></li>
-                                        </ul>                                
-                                    </li>                                                                
-                                    <li>
-                                        <a href="javascript:;">FAQ </a>
-                                        <!-- <ul class="sub-menu">
-                                            <li><a href="our-prices.html">Pricing Plan</a></li>
-                                            <li><a href="icon-font.html">Icon Font</a></li>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="team-single.html">Team Single</a></li>                                            
-                                            <li><a href="Faq.html">FAQ</a></li>
-                                            <li><a href="error-403.html">Error 403</a></li>
-                                            <li><a href="error-404.html">Error 404</a></li>
-                                            <li><a href="error-405.html">Error 405</a></li>                                                 
-                                        </ul> -->
-                                    </li>
-                                    <li><a href="contact-1.html">Contact us</a></li>                                
+                                    <?php } ?>
+                                                                   
                                 </ul>
     
                             </div>
