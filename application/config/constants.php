@@ -83,3 +83,20 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+define('BANNER_IMG_PATH','./uploads/homebanners/');
+define('BANNER_IMG_WIDTH','1980');
+define('BANNER_IMG_HEIGHT','1080');
+
+define('PAGES_BANNER_HEIGHT','1080');
+define('PAGES_BANNER_WIDTH','1980');
+define('PAGES_IMG_PATH','./uploads/pagebanners/');
+
+define('BLOG_IMG_PATH','./uploads/blogs/');
+define('BLOG_IMG_WIDTH','1200');
+define('BLOG_IMG_HEIGHT','700');
+
+define('LOGO_IMG_PATH','./uploads/logos/');
+define('LOGO_IMG_WIDTH','500');
+define('LOGO_IMG_HEIGHT','500');
