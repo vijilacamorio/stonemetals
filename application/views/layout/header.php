@@ -12,8 +12,8 @@
     <meta name="description" content="" />
     
     <!-- FAVICONS ICON -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="icon" href="<?php echo base_url(); ?>assets/frontend/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url(); ?>assets/frontend/images/favicon.png" />
     
     <!-- PAGE TITLE HERE -->
     <title>Stone & Metal</title>
@@ -70,7 +70,6 @@
                     
         <!-- HEADER START -->
         <header class="site-header header-style-1 mobile-sider-drawer-menu">
-
             <!-- SITE Search -->
             <div id="search-toggle-block">
                 <div id="search"> 
@@ -86,9 +85,9 @@
             <div class="container header-middle clearfix">
                 <div class="logo-header">
                     <div class="logo-header-inner logo-header-one">
-                        <a href="index.html">
-                        <!-- <img src="images/logo-4.png" alt="" /> -->
-                        <h3>STONE & METAL</h3>
+                        <a href="<?php echo base_url(); ?>">
+
+                         <img style="height:50px; width:100px" src ="<?php echo base_url().LOGO_IMG_PATH.$settings[0]['logo']; ?>" alt="Stone & Metal"/>
                         </a>
                     </div>
                 </div>
@@ -141,19 +140,7 @@
                             <!-- MAIN Vav -->
                             <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
                                 <?php
-                                $menu_array = array();
-                                if($menus !=""){
-                                  foreach($menus as $mdata){
-                                    $menu_array[$mdata['id']] =  array('name'=>$mdata['category_name'],'slug'=>$mdata['category_slug']);
-                                  }
-                                }
-                                if($submenus !=""){
-                                  foreach($submenus as $smdata){
-                                    if(array_key_exists($smdata['category_id'],$menu_array)){
-                                      $menu_array[$smdata['category_id']]['submenu'][]= array('name'=>$smdata['subcategory_name'],'slug'=>$smdata['subcategory_slug']);
-                                    }
-                                  }
-                                }  
+                                
                               
                                  ?>
                                 <ul class=" nav navbar-nav">

@@ -98,5 +98,5 @@ define('BLOG_IMG_WIDTH','1200');
 define('BLOG_IMG_HEIGHT','700');
 
 define('LOGO_IMG_PATH','./uploads/logos/');
-define('LOGO_IMG_WIDTH','1000');
-define('LOGO_IMG_HEIGHT','200');
+define('LOGO_IMG_WIDTH','500');
+define('LOGO_IMG_HEIGHT','500');

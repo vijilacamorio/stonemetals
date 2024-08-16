@@ -4,10 +4,10 @@
             <div class="slider-outer">
                
                 <div id="welcome_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="goodnews-header" data-source="gallery" style="background:#eeeeee;padding:0px;">
-                    <div id="welcome" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.3.1">
-                        <ul>    
-                        
-                            <!-- SLIDE 1 -->
+                    <div id="welcome" class="rev_slider fullscreenbanner"  data-version="5.4.3.1">
+                        <ul>
+                            
+                        <!-- SLIDE 1 -->
                             <li data-index="rs-901" 
                             data-transition="fade" 
                             data-slotamount="default" 
@@ -35,12 +35,12 @@
                             data-param10="" 
                             data-description="">
                                 <!-- MAIN IMAGE -->
-                                <img src="images/main-slider/slider5/slide-6.png"  alt=""  data-lazyload="images/main-slider/slider5/slide1.jpg" data-bgposition="center center" 
-                                data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
+                                <img src="<?php echo base_url();?>assets/frontend/images/main-slider/slider5/slide-4.png" class="image-overlay " alt=""  data-lazyload="images/main-slider/slider5/slide1.jpg" data-bgposition="center center" 
+                                data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina >
                                 <!-- LAYERS -->
                                 
                                 <!-- LAYER NR. 1 [ for overlay ] -->
-                                <div class="tp-caption tp-shape tp-shapewrapper " 
+                                <div class="tp-caption tp-shape tp-shapewrapper  image-overlay" 
                                 id="slide-901-layer-0" 
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
                                 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
@@ -61,7 +61,7 @@
                                 data-paddingbottom="[0,0,0,0]"
                                 data-paddingleft="[0,0,0,0]"
                                 
-                                style="z-index: 1;background-color:rgba(0, 0, 0, 0);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
+                                style="z-index: 1;background-color:rgba(0, 0, 0, 0.5);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
                                 </div>
                                
                                 <!-- LAYER NR. 2 [ Black Box ] -->
@@ -90,7 +90,7 @@
                                 style="z-index: 13; 
                                 white-space: normal; 
                                 font-weight: 500;
-                                font-family: 'Teko', sans-serif;">Get A Good Looking Lawn , At An Affordable Price</div>
+                                font-family: 'Teko', sans-serif; ">Get A Good Looking Lawn , At An Affordable Price</div>
                                                             
                                 <!-- LAYER NR. 3 [ for title ] -->
                                 <div class="tp-caption   tp-resizeme" 
@@ -177,7 +177,7 @@
                             data-param10="" 
                             data-description="">
                                 <!-- MAIN IMAGE -->
-                                <img src="images/main-slider/slider5/slide-4.png"  alt=""  data-lazyload="images/main-slider/slider5/slide2.jpg" data-bgposition="center center" 
+                                <img src="<?php echo base_url();?>assets/frontend/images/main-slider/slider5/slide-5.png"  alt=""  data-lazyload="images/main-slider/slider5/slide2.jpg" data-bgposition="center center" 
                                 data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
                                 <!-- LAYERS -->
                                 
@@ -203,7 +203,7 @@
                                 data-paddingbottom="[0,0,0,0]"
                                 data-paddingleft="[0,0,0,0]"
                                 
-                                style="z-index: 1;background-color:rgba(0, 0, 0, 0);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
+                                style="z-index: 1;background-color:rgba(0, 0, 0, 0.5);;border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
                                 </div>
                                
                                 <!-- LAYER NR. 2 [ Black Box ] -->
@@ -320,7 +320,7 @@
                             data-param10="" 
                             data-description="">
                                 <!-- MAIN IMAGE -->
-                                <img src="images/main-slider/slider5/slide-5.png"  alt=""  data-lazyload="images/main-slider/slider5/slide3.jpg" data-bgposition="center center" 
+                                <img src="<?php echo base_url();?>assets/frontend/images/main-slider/slider5/slide-6.png"  alt=""  data-lazyload="images/main-slider/slider5/slide3.jpg" data-bgposition="center center" 
                                 data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
                                 <!-- LAYERS -->
                                 
@@ -346,7 +346,7 @@
                                 data-paddingbottom="[0,0,0,0]"
                                 data-paddingleft="[0,0,0,0]"
                                 
-                                style="z-index: 1;background-color:rgba(0, 0, 0, 0);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
+                                style="z-index: 1;background-color:rgba(0, 0, 0, 0.5);border-color:rgba(0, 0, 0, 0);border-width:0px;"> 
                                 </div>
                                
                                 <!-- LAYER NR. 2 [ Black Box ] -->
@@ -446,16 +446,16 @@
             <!-- SLIDER END -->
                              
             <!-- SERVICES SECTION START -->
-            <div class="section-full p-t80 p-b50 bg-gray bg-cover" style="background-image:url(images/background/bg-12.jpg);">
+            <div class="section-full p-t80 p-b50 bg-gray bg-cover" style="background-image:url(<?php echo base_url();?>assets/frontend/images/background/bg-12.jpg);">
                     <div class="container">
                         <!-- TITLE START-->
                         <div class="section-head center wt-small-separator-outer text-center">
                             <div class="wt-small-separator site-text-primary">
                                 <div  class="sep-leaf-left"></div>
-                                <div>Welcome to Industro</div>
+                                <div>Welcome to Stone & Metal</div>
                                 <div  class="sep-leaf-right"></div>
                             </div>
-                            <h2>Professional Gardening, Landscaping Services By Industro</h2>
+                            <h2>Expert Stonework & Metal Crafting Services by Stone & Metal</h2>
                         </div>
                         <!-- TITLE END--> 
 
@@ -465,12 +465,12 @@
                             <div class="item">
                                 <div class="line-filter-outer">
                                     <div class="line-filter-media">
-                                         <img src="images/gallery/portrait-3/pic1.jpg" alt="">
+                                         <img src="<?php echo base_url();?>assets/frontend/images/gallery/portrait-3/pic1.jpg" alt="">
                                         <div class="hover-effect-1">
                                             <div class="hover-effect-content text-white">
                                                 <h3 class="m-tb0 h-category">Shrub Care</h3>
                                                 <p>Lorem ipsum dolor sit amet,tetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                <a href="images/gallery/portrait-2/pic1.jpg" class="mfp-link"><i class="fa fa-search-plus"></i></a>
+                                                <a href="<?php echo base_url();?>assets/frontend/images/gallery/portrait-2/pic1.jpg" class="mfp-link"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                         </div>     
                                     </div>
@@ -488,7 +488,7 @@
                             <div class="item">
                                 <div class="line-filter-outer ">
                                     <div class="line-filter-media">                                
-                                        <img src="images/gallery/portrait-3/pic2.jpg" alt="">
+                                        <img src="<?php echo base_url();?>assets/frontend/images/gallery/portrait-3/pic2.jpg" alt="">
                                         <div class="hover-effect-1">
                                             <div class="hover-effect-content text-white">
                                                 <h3 class="m-tb0 h-category">Renovation</h3>
@@ -512,7 +512,7 @@
                             <div class="item">
                                 <div class="line-filter-outer">
                                     <div class="line-filter-media">
-                                        <img src="images/gallery/portrait-3/pic3.jpg" alt="">
+                                        <img src="<?php echo base_url();?>assets/frontend/images/gallery/portrait-3/pic3.jpg" alt="">
                                         <div class="hover-effect-1">
                                             <div class="hover-effect-content text-white">
                                                 <h3 class="m-tb0 h-category">Maintenance</h3>
@@ -536,7 +536,7 @@
                             <div class="item">
                                 <div class="line-filter-outer">
                                     <div class="line-filter-media">                                 
-                                        <img src="images/gallery/portrait-3/pic4.jpg" alt="">
+                                        <img src="<?php echo base_url();?>assets/frontend/images/gallery/portrait-3/pic4.jpg" alt="">
                                         <div class="hover-effect-1">
                                             <div class="hover-effect-content text-white">
                                                 <h3 class="m-tb0 h-category">Landscape</h3>
@@ -628,7 +628,7 @@
                             </div>
                      </div>
                      
-                    <div class="video-counter-bg-image overlay-wraper bg-cover bg-no-repeat" style="background-image:url(images/background/bg-15.jpg);">
+                    <div class="video-counter-bg-image overlay-wraper bg-cover bg-no-repeat" style="background-image:url(<?php echo base_url();?>assets/frontend/images/background/bg-15.jpg);">
                         <div class="overlay-main site-bg-secondry opacity-05"></div>
 
                             <div class="video-section-outer mfp-gallery">
@@ -866,121 +866,7 @@
             </div>   
             <!-- ALL PROJECTS SECTION END -->  
 
-            <!-- TESTIMONIAL SECTION START -->
-            <div class="section-full  p-t80 p-b50 bg-no-repeat bg-center bg-gray" style="background-image:url(images/background/bg-13.jpg)">
-                            <div class="container">
-            
-                                <!-- TITLE START-->
-                                <div class="section-head center wt-small-separator-outer">
-                                    <div class="wt-small-separator site-text-primary">
-                                        <div  class="sep-leaf-left"></div>
-                                        <div>What our client say</div>
-                                        <div  class="sep-leaf-right"></div>
-                                    </div>
-                                    <h2>Happy WIth Customers & Clients</h2>
-                                </div>
-                                <!-- TITLE END-->
-                                
-                                <div class="testimonial-2-content-outer">
-                                    <div class="testimonial-3-content owl-carousel  owl-btn-vertical-center long-arrow-next-prev">
-                                        <div class="item">
-                                            <div class="testimonial-2 bg-white">
-                                                <div class="testimonial-content">
-                                               
-                                                    <div class="testimonial-text">
-                                                        <i class="fa fa-quote-left"></i>
-                                                        <p>This is not just another nail salon! These ladies are super talented! My nails have never looked/felt more amazing!! the environment here is so happy and cheery!</p>
-                                                    </div>
-                                                    <div class="testimonial-detail clearfix">
-                                                        <div class="testimonial-pic-block"> 
-                                                            <div class="testimonial-pic">
-                                                                <img src="images/testimonials/pic1.jpg" alt="">
-                                                            </div>
-                                                        </div>                                                 
-                                                        <div class="testimonial-info">
-                                                            <span class="testimonial-name  title-style-2 site-text-secondry">Malcolm Franzcrip</span>
-                                                            <span class="testimonial-position title-style-2 site-text-primary">Contractor</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item">
-                                            <div class="testimonial-2 bg-white">
-                                                <div class="testimonial-content">
-                                               
-                                                    <div class="testimonial-text">
-                                                        <i class="fa fa-quote-left"></i>
-                                                        <p>This is not just another nail salon! These ladies are super talented! My nails have never looked/felt more amazing!! the environment here is so happy and cheery!</p>
-                                                    </div>
-                                                    <div class="testimonial-detail clearfix">
-                                                        <div class="testimonial-pic-block"> 
-                                                            <div class="testimonial-pic">
-                                                                <img src="images/testimonials/pic2.jpg" alt="">
-                                                            </div>
-                                                        </div>                                                 
-                                                        <div class="testimonial-info">
-                                                            <span class="testimonial-name  title-style-2 site-text-secondry">Malcolm Franzcrip</span>
-                                                            <span class="testimonial-position title-style-2 site-text-primary">Contractor</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item">
-                                            <div class="testimonial-2 bg-white">
-                                                <div class="testimonial-content">
-                                               
-                                                    <div class="testimonial-text">
-                                                        <i class="fa fa-quote-left"></i>
-                                                        <p>This is not just another nail salon! These ladies are super talented! My nails have never looked/felt more amazing!! the environment here is so happy and cheery!</p>
-                                                    </div>
-                                                    <div class="testimonial-detail clearfix">
-                                                        <div class="testimonial-pic-block"> 
-                                                            <div class="testimonial-pic">
-                                                                <img src="images/testimonials/pic3.jpg" alt="">
-                                                            </div>
-                                                        </div>                                                 
-                                                        <div class="testimonial-info">
-                                                            <span class="testimonial-name  title-style-2 site-text-secondry">Malcolm Franzcrip</span>
-                                                            <span class="testimonial-position title-style-2 site-text-primary">Contractor</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="item">
-                                            <div class="testimonial-2 bg-white">
-                                                <div class="testimonial-content">
-                                               
-                                                    <div class="testimonial-text">
-                                                        <i class="fa fa-quote-left"></i>
-                                                        <p>This is not just another nail salon! These ladies are super talented! My nails have never looked/felt more amazing!! the environment here is so happy and cheery!</p>
-                                                    </div>
-                                                    <div class="testimonial-detail clearfix">
-                                                        <div class="testimonial-pic-block"> 
-                                                            <div class="testimonial-pic">
-                                                                <img src="images/testimonials/pic4.jpg" alt="">
-                                                            </div>
-                                                        </div>                                                 
-                                                        <div class="testimonial-info">
-                                                            <span class="testimonial-name  title-style-2 site-text-secondry">Malcolm Franzcrip</span>
-                                                            <span class="testimonial-position title-style-2 site-text-primary">Contractor</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>                                                                                                            
-                                    </div>
-                                </div> 
-            
-                            </div>
-                        </div>
-            <!-- TESTIMONIAL SECTION END --> 
- 
+         
                          
             <!-- OUR TEAM START -->
             <div class="section-full p-t80 p-b50 bg-white team-bg-section-outer">
@@ -1087,7 +973,7 @@
             <!-- OUR TEAM SECTION END -->  
              
             <!-- SELF INTRO SECTION START -->
-            <div class="section-full self-intro-section-outer overlay-wraper bg-cover" style="background-image:url(images/background/bg-14.jpg)">                                 
+            <div class="section-full self-intro-section-outer overlay-wraper bg-cover" style="background-image:url(<?php echo base_url();?>assets/frontend/images/background/bg-14.jpg)">                                 
                 <div class="overlay-main site-bg-secondry opacity-07"></div>
                 <div class="self-intro-top bg-white p-t80 p-b50">
                     <div class="container">
@@ -1254,107 +1140,4 @@
              </div>   
             <!-- OUR BLOG END -->
        
-            <!-- CLIENT LOGO SECTION START -->
-            <div class="section-full bg-gray">
-                <div class="container">
-                    <div class="section-content">
-                    
-                        <!-- TESTIMONIAL 4 START ON BACKGROUND -->   
-                        <div class="section-content">
-                             <div class="section-content p-tb30 owl-btn-vertical-center">
-                                <div class="owl-carousel home-client-carousel-2">
-                                
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w1.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w2.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w3.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w4.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w5.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w6.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w1.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w2.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w3.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w4.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w5.png" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="item">
-                                        <div class="ow-client-logo">
-                                            <div class="client-logo client-logo-media">
-                                            <a href="javascript:void(0);"><img src="images/client-logo2/w6.png" alt=""></a></div>
-                                        </div>
-                                    </div>  
-                                                                                                       
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- CLIENT LOGO  SECTION End -->                            
-        </div>
-        <!-- CONTENT END -->
+            

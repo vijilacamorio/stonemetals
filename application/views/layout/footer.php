@@ -16,9 +16,9 @@
                      </div>
                     <div class="widget recent-posts-entry">
                        <ul class="widget_address"> 
-                            <li><i class="fa fa-map-marker"></i>San Francisco City Hall, San Francisco, CA</li>
-                            <li><i class="fa fa-envelope"></i>contact123@gmail.com</li>
-                            <li> <i class="fa fa-phone"></i>(654) 321-7654 </li>
+                            <li><i class="fa fa-map-marker"></i><?php echo $settings[0]['location']; ?></li>
+                            <li><i class="fa fa-envelope"></i><?php echo $settings[0]['email_address']; ?></li>
+                            <li> <i class="fa fa-phone"></i><?php echo $settings[0]['mobile_number']; ?> </li>
                         </ul>  
                     </div>
                     <ul class="social-icons  wt-social-links footer-social-icon">
@@ -38,11 +38,9 @@
                         <div class="widget widget_services">
                             <h3 class="widget-title">Useful links</h3>
                             <ul>
-                                <li><a href="about-1.html">About</a></li>
-                                <li><a href="our-prices.html">Pricing Plan </a></li>
-                                <li><a href="Faq.html">FAQ</a></li>
-                                <li><a href="team-single.html">Our Team </a></li>
-                                <li><a href="services-1.html">Services </a></li>
+                                <li><a href="<?php echo base_url('about'); ?>">About</a></li>
+                                <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
+                                <li><a href="<?php echo base_url('services'); ?>">Services </a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,11 +49,13 @@
                         <div class="widget widget_services">
                             <h3 class="widget-title">Our Services</h3>
                             <ul>
-                                <li><a href="s-oilgas.html">Oil & Gas Factory</a><a href="s-chemical.html">Chemical Research</a></li>
-                                <li><a href="s-chemical.html">Chemical Research</a><a href="s-agricultural.html">Agricultural</a></li>
-                                <li><a href="s-mechanical.html">Mechanical</a><a href="s-agricultural.html">Agricultural </a></li>
-                                <li><a href="s-civil.html">Manufacturing</a><a href="s-civil.html">Civil Engineering</a></li>
-                                <li><a href="s-automotive.html">Mechanical </a><a href="s-automotive.html">Auto Motive  </a></li>
+                              <?php foreach($menu_array as $menuval){ 
+                                if($menuval['slug'] == 'services'){
+                                    foreach($menuval['submenu'] as $ssmenu){ ?>
+                                <li><a href="<?php echo base_url('services#'.$ssmenu['slug']); ?>"><?php echo $ssmenu['name']; ?></a></li>
+                                <?php } 
+                                } 
+                              }?>
                             </ul>
                         </div>
                     </div>                                
@@ -85,7 +85,7 @@
 <div class="footer-bottom">
   <div class="container">
     <div class="wt-footer-bot-left d-flex justify-content-between">
-        <span class="copyrights-text">Copyright © 2020 <span class="site-text-primary">Thewebmax</span></span>
+        <span class="copyrights-text">Copyright © <?php echo date('Y'); ?> <span class="site-text-primary">Amorio Technologies</span></span>
         <ul class="copyrights-nav"> 
             <li><a href="javascript:void(0);">Terms  &amp; Condition</a></li>
             <li><a href="javascript:void(0);">Privacy Policy</a></li>
@@ -166,8 +166,7 @@
                                     <div class="wt-icon-box-wraper left icon-shake-outer">
                                         <div class="icon-content">
                                             <h4 class="m-t0">Phone number</h4>
-                                            <p>(456) 789 10 12</p>
-                                            <p>(456) 789 10 15</p>
+                                            <p><?php echo $settings[0]['mobile_number']; ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -175,8 +174,7 @@
                                     <div class="wt-icon-box-wraper left icon-shake-outer">
                                         <div class="icon-content">
                                             <h4 class="m-t0">Email address</h4>
-                                            <p>demo@gmail.com</p>
-                                            <p>indusinfo@gmail.com</p>
+                                            <p><?php echo $settings[0]['email_address']; ?></p>
                                         </div>
                                     </div>
                                 </div>    
@@ -184,7 +182,7 @@
                                     <div class="wt-icon-box-wraper left icon-shake-outer">
                                         <div class="icon-content">
                                             <h4 class="m-t0">Address info</h4>
-                                            <p>1363-1385 Sunset Blvd Los Angeles</p>
+                                            <p><?php echo $settings[0]['location']; ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -252,14 +250,14 @@
 
 <!-- REVOLUTION JS FILES -->
 
-<script  src="plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script  src="plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/frontend/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/frontend/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->    
-<script  src="plugins/revolution/revolution/js/extensions/revolution-plugin.js"></script>
+<script  src="<?php echo base_url(); ?>assets/frontend/plugins/revolution/revolution/js/extensions/revolution-plugin.js"></script>
 
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
-<script  src="js/rev-script-5.js"></script>
+<script  src="<?php echo base_url(); ?>assets/frontend/js/rev-script-5.js"></script>
 
 
 <!-- STYLE SWITCHER  ======= --> 
