@@ -40,7 +40,7 @@ class Page extends CI_Controller {
 	{
 	    // Set validation rules
 	    $this->form_validation->set_rules('category_name', 'Page', 'required|trim');
-	    $this->form_validation->set_rules('subcategory_name', 'Sub Pages', 'required|trim');
+	    //$this->form_validation->set_rules('subcategory_name', 'Sub Pages', 'required|trim');
 	    $this->form_validation->set_rules('content', 'Content', 'required|trim');
 	    $this->form_validation->set_rules('title', 'Title', 'required|trim');
 	    $this->form_validation->set_rules('is_active', 'Banner Status', 'required');
