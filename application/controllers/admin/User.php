@@ -55,7 +55,7 @@ class User extends CI_Controller {
 	            $this->session->set_userdata('admin_id', $user->admin_id);
 	            $this->session->set_userdata('email_admin', $user->email_admin);
 	            $response['status'] = 'success';
-	            $response['msg'] = 'Login Successfully';
+	            $response['msg'] = 'Logged in successfully';
 	        } else {
 	            $response['status'] = 'failure';
 	            $response['msg'] = 'Invalid email address or password.';

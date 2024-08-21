@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/seosetting/seosetting_index'); ?>">Manage Seo Setting</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/seosetting'); ?>">Manage Seo Setting</a></li>
             <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                         <a href="<?php echo base_url('admin/seosetting/add_seosetting'); ?>" class="btn btn-primary">Add Seo Setting</a>
+                         <a href="<?php echo base_url('admin/seosetting'); ?>" class="btn btn-primary">Add Seo Setting</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>

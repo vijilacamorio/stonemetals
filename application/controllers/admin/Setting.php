@@ -15,7 +15,7 @@ class Setting extends CI_Controller {
 	}
      
      
-    public function setting_index()
+    public function index()
 	{   
         $settingdata = $this->setting_model->setting_get_index();
         $data = array(

@@ -14,7 +14,7 @@ class Subcategory extends CI_Controller {
 	}
      
 
-    public function subcategory_index()
+    public function index()
 	{   
          
         $getsubcategory_data    = $this->subcategory_model->getsubcategory_data();

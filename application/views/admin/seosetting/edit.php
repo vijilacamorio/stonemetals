@@ -7,7 +7,7 @@
          </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/seosetting/seosetting_index'); ?>">Manage Seo Setting</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/seosetting'); ?>">Manage Seo Setting</a></li>
             <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -28,11 +28,13 @@
 
                          <div class="displaymessage"></div>
                                 <div class="form-group">
-                                    <label for="title">Category<span class="text-danger">*</span></label> 
-                                    <select name="category_name" id="categoryname" class="form-control"  >
-                                        <option value="<?php echo $data_seosetting[0]['category_name']; ?>"> <?php echo $data_seosetting[0]['category_name']; ?></option>
-                                        <?php foreach($categoryname as $category) { ?>
-                                        <option value="<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></option>
+                                    <label for="title">Page<span class="text-danger">*</span></label> 
+                                    <select name="category_name" id="categoryname" class="form-control">
+                                        <option value="">Select Page</option>
+                                        <?php foreach($categoryname as $category){ 
+                                        $selectcat = ($data_seosetting[0]['category_name'] == $category['id']) ? 'selected' : ''; 
+                                        ?>
+                                        <option <?php echo $selectcat; ?> value="<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -65,7 +67,7 @@
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">Submit</button>
-                                <a href="<?php echo base_url('admin/seosetting/seosetting_index'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
+                                <a href="<?php echo base_url('admin/seosetting'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
                                 </form>
                         </div>
                     </div>
@@ -90,7 +92,7 @@ $('.editseosetting').on('submit', function(event) {
           if(response.status =='success'){
             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             setTimeout(function() {
-               window.location.href = '<?php echo base_url("admin/seosetting/seosetting_index"); ?>';
+               window.location.href = '<?php echo base_url("admin/seosetting"); ?>';
             }, 3000); 
           }else{
             $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
