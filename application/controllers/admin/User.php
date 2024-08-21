@@ -4,6 +4,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
+	public function __construct() {
+        parent::__construct();
+
+
+        
+		$current_method = $this->router->fetch_method();
+
+        $excluded_methods = ['login','authLogin','logout']; // Add the method(s) to be excluded
+
+        if (!in_array($current_method, $excluded_methods) && !$this->session->userdata('admin_id')) {
+            redirect('admin/user/login');
+        }
+    }
 
 	public function dashboard()
 	{   

@@ -9,7 +9,10 @@ class Seosetting extends CI_Controller {
         parent::__construct();
         $this->load->model('admin/seosetting_model');
         $this->load->model('admin/subcategory_model');
-
+        if (!$this->session->userdata('admin_id')) {
+			// If user is not logged in, redirect to login page
+			redirect('admin');
+		}
 	}
      
     

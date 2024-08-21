@@ -8,6 +8,10 @@ class Blog extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('admin/blog_model');
+        if (!$this->session->userdata('admin_id')) {
+			// If user is not logged in, redirect to login page
+			redirect('admin');
+		}
 	}
      
     public function blog_index()
