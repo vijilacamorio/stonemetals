@@ -14,7 +14,7 @@ class Category extends CI_Controller {
 		}
 	}
      
-    public function category_index()
+    public function index()
 	{   
         $categorydata = $this->category_model->getcategory_data();
         $data = array(

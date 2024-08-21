@@ -15,7 +15,7 @@ class Banner extends CI_Controller {
 		}
 	}
      
-    public function banner_index()
+    public function index()
 	{   
         
         $bannerdata = $this->banner_model->getbanner_data();

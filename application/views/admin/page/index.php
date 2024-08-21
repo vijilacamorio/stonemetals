@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/page/page_index'); ?>">Manage Page Content</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/page'); ?>">Manage Page Content</a></li>
             <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>

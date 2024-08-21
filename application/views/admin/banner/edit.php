@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo base_url('admin/banner/banner_index'); ?>">Manage Banner</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url('admin/banner'); ?>">Manage Banner</a></li>
                 <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -78,7 +78,7 @@
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">Submit</button>
-                                <a href="<?php echo base_url('admin/banner/banner_index'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
+                                <a href="<?php echo base_url('admin/banner'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
                             </form>
                         </div>
                     </div>

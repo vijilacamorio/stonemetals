@@ -15,7 +15,7 @@ class Page extends CI_Controller {
 		}
 	}
     
-    public function page_index()
+    public function index()
 	{   
          $getpages_data = $this->page_model->getallpages_data();
         $data = array(

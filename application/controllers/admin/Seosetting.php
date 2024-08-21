@@ -16,7 +16,7 @@ class Seosetting extends CI_Controller {
 	}
      
     
-    public function seosetting_index()
+    public function index()
 	{   
 
         $get_data = $this->seosetting_model->getseosetting_data();

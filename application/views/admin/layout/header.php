@@ -61,7 +61,9 @@
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url(); ?>backend/assets/images/logo.JPEG" alt="user" class="profile-pic" /></a>
+                        <?php if($this->session->userdata('admin_id') !=""){ ?>
                         <div class="dropdown-menu dropdown-menu-right scale-up">
+                            
                             <ul class="dropdown-user">
                                 <li>
                                     <div class="dw-user-box">
@@ -74,7 +76,9 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="<?php echo base_url(); ?>admin/user/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
+                            
                         </div>
+                        <?php } ?>
                     </li>
                 </ul>
             </div>
