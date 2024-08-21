@@ -39,14 +39,17 @@
   
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Sub Pages Name</label>
-                                    <select name="subcategory_name" id="subcategory_name" class="form-control"  >
-                                        <option value="">Select Sub pages</option>
+                                    <select name="subcategory_name" id="subcategory_name" class="form-control">
+                                    <option value="">Select Sub pages</option>
                                     <?php foreach($subcategoryname as $sub) { 
-                                        $selectedsub = $sub['id'] = $page_data[0]['subcategory_name'] ? 'selected' : '';
-                                        ?>
-                                        <option <?php echo $selectedsub; ?> value="<?php echo $sub['id']; ?>"><?php echo $sub['subcategory_name']; ?></option>
-                                        <?php } ?>
-                                    </select>                                </div>
+                                        $selectedsub = ($sub['id'] == $page_data[0]['subcategory_name']) ? 'selected' : '';
+                                    ?>
+                                        <option value="<?php echo $sub['id']; ?>" <?php echo $selectedsub; ?>><?php echo $sub['subcategory_name']; ?></option>
+                                    <?php } ?>
+                                </select>
+                         
+                                
+                                </div>
 
 
                                 <div class="form-group">

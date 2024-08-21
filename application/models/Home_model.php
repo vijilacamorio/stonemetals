@@ -39,15 +39,23 @@ class Home_model extends CI_Model {
         }
     }
 
-   public function blog(){
-        $this->db->select('*');
-        $this->db->from('blog');
+
+   public function wallart(){
+        $this->db->select('content');
+        $this->db->from('pages');
         $this->db->where('is_active',1);
+        $this->db->where('is_active',1);
+        $this->db->where('category_name',12);
+        $this->db->where('subcategory_name',13);
         $this->db->where('is_deleted',0);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             return $query->result_array();
         }
     }
+
+
+
+
 
 }

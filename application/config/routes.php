@@ -13,10 +13,13 @@ $route['pages/stone-ribbingflute'] = 'pages/stoneribbing_marbleflute';
 $route['pages/powder-coating'] = 'pages/powdercoating';
 $route['pages/fabrication'] = 'pages/fabrication';
 $route['pages/installation'] = 'pages/installation';
-$route['pages/gallery'] = 'pages/gallery';
-$route['pages/patterns'] = 'pages/patterns';
-$route['pages/materials'] = 'pages/materials';
+$route['gallery'] = 'pages/gallery';
+$route['patterns'] = 'pages/patterns';
+$route['materials'] = 'pages/materials';
 $route['blog'] = 'pages/blog';
+$route['faq'] = 'pages/faq';
+$route['contact-us'] = 'pages/contact_us';
+
 
 // admin Routes
 $route['admin'] = 'admin/user/dashboard';
