@@ -14,7 +14,7 @@ class Page extends CI_Controller {
     
     public function page_index()
 	{   
-         $getpages_data = $this->page_model->getpages_data();
+         $getpages_data = $this->page_model->getallpages_data();
         $data = array(
             'page_title' => 'Page Content',
             'pages_data'   => $getpages_data
@@ -40,7 +40,7 @@ class Page extends CI_Controller {
 	{
 	    // Set validation rules
 	    $this->form_validation->set_rules('category_name', 'Page', 'required|trim');
-	    $this->form_validation->set_rules('subcategory_name', 'Sub Pages', 'required|trim');
+	    //$this->form_validation->set_rules('subcategory_name', 'Sub Pages', 'required|trim');
 	    $this->form_validation->set_rules('content', 'Content', 'required|trim');
 	    $this->form_validation->set_rules('title', 'Title', 'required|trim');
 	    $this->form_validation->set_rules('is_active', 'Banner Status', 'required');
@@ -108,11 +108,21 @@ class Page extends CI_Controller {
     
 
     public function page_data_edit(){
-        $getpages_data = $this->page_model->getpages_data();
-         $data = array(
+		$id = $this->input->get('id');
+		if($id ==""){
+			redirect(base_url('admin'));
+		}
+		$get_category = $this->page_model->getcategory_data();
+        $get_subcategory = $this->page_model->getsubcategory_data();
+		$getpages_data = $this->page_model->getpages_data($id);
+        $data = array(
             'page_title' => "Edit Page Content",
-            'page_data' => $getpages_data
+            'categoryname' => $get_category,
+            'subcategoryname' => $get_subcategory,
+			'page_data' => $getpages_data
         );
+        
+        
         $this->load->view('admin/page/edit',$data);
     }
 
@@ -124,7 +134,7 @@ class Page extends CI_Controller {
 	{
 	    // Set validation rules
         $this->form_validation->set_rules('category_name', 'Page', 'required|trim');
-	    $this->form_validation->set_rules('subcategory_name', 'Sub Pages', 'required|trim');
+	    //$this->form_validation->set_rules('subcategory_name', 'Sub Pages', 'required|trim');
 	    $this->form_validation->set_rules('content', 'Content', 'required|trim');
 	    $this->form_validation->set_rules('title', 'Title', 'required|trim');
 	    $this->form_validation->set_rules('is_active', 'Banner Status', 'required');
@@ -147,7 +157,15 @@ class Page extends CI_Controller {
 	        $is_active = $this->input->post('is_active');
 
 	        $image_name = $this->input->post('old_image'); 
-
+			$data = array(
+				'category_name' => $category_name,
+				'subcategory_name' => $subcategory_name,
+				'content' => $content,
+				'meta_title' => $title,
+				'meta_description' => $description,
+				'meta_keywords' => $keyword,
+				'is_active' => $is_active
+			  );
 	        if (!empty($_FILES['images']['name'])) {
 	            $image_upload = blogImageUpload('images', BANNER_IMG_PATH, BANNER_IMG_WIDTH, BANNER_IMG_HEIGHT);
 
@@ -167,21 +185,15 @@ class Page extends CI_Controller {
 	                $response['msg']    = 'The image width and height should be ' . BANNER_IMG_WIDTH . '*' . BANNER_IMG_HEIGHT;
 	                echo json_encode($response);
 	                return;
-	            }
+	            }else{
+					$image_name = $image_upload['image_metadata']['file_name'];
+					$data['logo'] = $image_name;
+				}
 
-	            $image_name = $image_upload['image_metadata']['file_name'];
+	            
 	        }
 
-	         $data = array(
-              'category_name' => $category_name,
-              'subcategory_name' => $subcategory_name,
-              'content' => $content,
-              'meta_title' => $title,
-              'meta_description' => $description,
-              'meta_keywords' => $keyword,
-              'logo' => $image_upload['image_metadata']['file_name'],
-              'is_active' => $is_active
-            );
+	         
 
 	        $result = $this->page_model->update_page($pageid, $data, 'pages');
 

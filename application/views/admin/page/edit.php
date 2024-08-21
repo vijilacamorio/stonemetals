@@ -29,19 +29,22 @@
                                     <div class="form-group">
                                     <label for="categoryname">Page Name<span class="text-danger">*</span></label>
                                     <select name="category_name" id="categoryname" class="form-control"  >
-                                        <option value="<?php echo $page_data[0]['category_name']; ?>"><?php echo $page_data[0]['category_name']; ?></option>
-                                        <?php foreach($categoryname as $category) { ?>
-                                        <option value="<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></option>
+                                        
+                                        <?php foreach($categoryname as $category) {
+                                        $selectedc  =  $page_data[0]['category_name'] == $category['id'] ? 'selected' : ''; ?>
+                                        <option <?php echo $selectedc; ?> value="<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></option>
                                         <?php } ?>
                                     </select>
                                   </div>
   
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Sub Pages Name<span class="text-danger">*</span></label>
+                                    <label for="exampleInputEmail1">Sub Pages Name</label>
                                     <select name="subcategory_name" id="subcategory_name" class="form-control"  >
-                                    <option value="<?php echo $page_data[0]['subcategory_name']; ?>"><?php echo $page_data[0]['subcategory_name']; ?></option>
-                                    <?php foreach($subcategoryname as $sub) { ?>
-                                        <option value="<?php echo $sub['subcategory_name']; ?>"><?php echo $sub['subcategory_name']; ?></option>
+                                        <option value="">Select Sub pages</option>
+                                    <?php foreach($subcategoryname as $sub) { 
+                                        $selectedsub = $sub['id'] = $page_data[0]['subcategory_name'] ? 'selected' : '';
+                                        ?>
+                                        <option <?php echo $selectedsub; ?> value="<?php echo $sub['id']; ?>"><?php echo $sub['subcategory_name']; ?></option>
                                         <?php } ?>
                                     </select>                                </div>
 
@@ -65,7 +68,7 @@
                                 <div class="form-group">
                                     <label for="title">Content <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                     <input type="text" class="tinymce-editor"  id="mymce" name="content" value="<?php echo $page_data[0]['content']; ?>" >
+                                     <textarea class="tinymce-editor"  id="mymce" name="content"><?php echo $page_data[0]['content']; ?></textarea>
                                 </div>
                                 </div>  
  
@@ -96,6 +99,7 @@
                                     <option value="0" <?= $page_data[0]['is_active'] == 0 ? 'selected' : '' ?>>In Active</option>
                                 </select>        
                                 </div>
+                                <input type="hidden" name="update_id" id="update_id" value="<?php $page_data[0]['id'] ?>">
                                 <br>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">Submit</button>
                                 <a href="<?php echo base_url('admin/page/page_index'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
