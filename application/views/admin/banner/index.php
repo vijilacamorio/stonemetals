@@ -21,7 +21,7 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- <h4 class="card-title">Data Table</h4> -->
-                        <a href="<?php echo base_url('admin/banner/add_banner'); ?>" class="btn btn-primary">Add Banner</a>
+                        <a href="<?php echo base_url('admin/banner/add'); ?>" class="btn btn-primary">Add Banner</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
@@ -42,7 +42,7 @@
                                     <td><?php echo $ban['sub_title']; ?></td>
                                     <td><img src="<?php echo base_url(BANNER_IMG_PATH . $ban['images']); ?>" width="100px" alt="Banner Image"/></td>
                                     <td><?php echo ($ban['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                    <td><?php echo $ban['created_date']; ?></td>
+                                    <td><?php echo date('d-m-Y H:i:s', strtotime($ban['created_date'])); ?></td>
                                     <td>
                                         <a href="<?php echo base_url('admin/banner/editBanners?id=' . $ban['banner_id']); ?>" 
                                         class="table  table-striped" data-toggle="tooltip" data-placement="left"> 

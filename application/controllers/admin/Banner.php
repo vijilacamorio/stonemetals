@@ -31,7 +31,7 @@ class Banner extends CI_Controller {
 
 
 
-	public function add_banner()
+	public function add()
 	{   
         $data = array('page_title' => 'Add Banner');
 		$this->load->view('admin/banner/add', $data);

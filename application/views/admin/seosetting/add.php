@@ -28,11 +28,11 @@
 
                          <div class="displaymessage"></div>
                                 <div class="form-group">
-                                    <label for="title">Category<span class="text-danger">*</span></label>
+                                    <label for="title">Page<span class="text-danger">*</span></label>
                                     <select name="category_name" id="categoryname" class="form-control"  >
                                         <option value=""> <?php echo ('Select Category') ?></option>
                                         <?php foreach($categoryname as $category) { ?>
-                                        <option value="<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></option>
+                                        <option value="<?php echo $category['id']; ?>"><?php echo $category['category_name']; ?></option>
                                         <?php } ?>
                                     </select>
  
@@ -89,12 +89,12 @@ $('.addseosetting').on('submit', function(event) {
         dataType:'json',
         success: function(response) {
           if(response.status =='success'){
-            $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+            $('.displaymessage').html('<div class="alert alert-success alert-rounded"><button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>'+response.msg+'</div>');
             setTimeout(function() {
                window.location.href = '<?php echo base_url("admin/seosetting"); ?>';
             }, 3000); 
           }else{
-            $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+            $('.displaymessage').html('<div class="alert alert-danger alert-rounded"><button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>'+response.msg+'</div>');
           }
         },
         error: function(xhr, status, error) {

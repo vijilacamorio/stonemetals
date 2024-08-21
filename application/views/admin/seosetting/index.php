@@ -20,12 +20,12 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                         <a href="<?php echo base_url('admin/seosetting'); ?>" class="btn btn-primary">Add Seo Setting</a>
+                         <a href="<?php echo base_url('admin/seosetting/add'); ?>" class="btn btn-primary">Add Seo Setting</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Category Name</th>
+                                        <th>Page Name</th>
                                         <th>Meta Title</th>
                                         <th>Meta Description</th>
                                         <th>Meta Keyword</th>
@@ -38,12 +38,12 @@
                                
                                 <?php foreach ($seo as $data): ?>
                                                 <tr>
-                                                    <td><?php echo $data['category_name']; ?></td>
+                                                    <td><?php echo $data['cat_name']; ?></td>
                                                     <td><?php echo $data['meta_title']; ?></td>
                                                     <td><?php echo $data['meta_description']; ?></td>
                                                     <td><?php echo $data['meta_description']; ?></td>
                                                     <td><?php echo ($data['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                                    <td><?php echo $data['created_date']; ?></td>
+                                                    <td><?php echo date('d-m-Y H:i:s',strtotime($data['created_date'])); ?></td>
                                                     <td>
                                                         <a href="<?php echo base_url('admin/seosetting/seosetting_data_edit?id=' . $data['id']); ?>" 
                                                          class="table  table-striped"data-toggle="tooltip"  data-placement="left"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
