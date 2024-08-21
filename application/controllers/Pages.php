@@ -72,21 +72,29 @@ class Pages extends CI_Controller {
   		$this->load->view('applications', $data);
         $this->load->view('layout/footer',$footer_data);
     }
+
+
+
+
+
     public function wallart() {
-            $menus = $this->home_model->getPages();
-            $submenus = $this->home_model->getSubPages();
-            $menu_array = array();
-            if($menus!=""){
-                foreach($menus as $mdata){
-                $menu_array[$mdata['id']] =  array('name'=>$mdata['category_name'],'slug'=>$mdata['category_slug']);
-                }
+
+        $wallart = $this->home_model->wallart();
+   
+        $menus = $this->home_model->getPages();
+        $submenus = $this->home_model->getSubPages();
+        $menu_array = array();
+        if($menus!=""){
+            foreach($menus as $mdata){
+            $menu_array[$mdata['id']] =  array('name'=>$mdata['category_name'],'slug'=>$mdata['category_slug']);
             }
+        }
         if($submenus !=""){
             foreach($submenus as $smdata){
             if(array_key_exists($smdata['category_id'],$menu_array)){
                 $menu_array[$smdata['category_id']]['submenu'][]= array('name'=>$smdata['subcategory_name'],'slug'=>$smdata['subcategory_slug']);
             }
-            }
+                }
         } 
         $header_data['menu_array'] = $menu_array;
         $header_data['settings'] = $this->home_model->settingData();
@@ -94,11 +102,14 @@ class Pages extends CI_Controller {
         $footer_data['settings'] = $this->home_model->settingData();
         $data = array(
             'page_title' => 'Wall Art',
+            'data' =>  $wallart
         );
-        $this->load->view('layout/header',$header_data);
+         $this->load->view('layout/header',$header_data);
   		$this->load->view('wallart', $data);
         $this->load->view('layout/footer',$footer_data);
     }
+
+ 
         public function metalscreens_jalis() {
             $menus = $this->home_model->getPages();
             $submenus = $this->home_model->getSubPages();
@@ -452,7 +463,7 @@ class Pages extends CI_Controller {
     public function blog() {
         $menus = $this->home_model->getPages();
         $submenus = $this->home_model->getSubPages();
-        $blog = $this->home_model->blog();
+        // $blog = $this->home_model->blog();
         $menu_array = array();
         if($menus!=""){
             foreach($menus as $mdata){
@@ -479,4 +490,106 @@ class Pages extends CI_Controller {
     $this->load->view('blog', $data);
     $this->load->view('layout/footer',$footer_data);
     }
+
+
+
+    
+
+    public function faq() {
+        $menus = $this->home_model->getPages();
+        $submenus = $this->home_model->getSubPages();
+         $menu_array = array();
+        if($menus!=""){
+            foreach($menus as $mdata){
+            $menu_array[$mdata['id']] =  array('name'=>$mdata['category_name'],'slug'=>$mdata['category_slug']);
+            }
+        }
+        if($submenus !=""){
+            foreach($submenus as $smdata){
+            if(array_key_exists($smdata['category_id'],$menu_array)){
+                $menu_array[$smdata['category_id']]['submenu'][]= array('name'=>$smdata['subcategory_name'],'slug'=>$smdata['subcategory_slug']);
+            }
+            }
+        } 
+        $header_data['menu_array'] = $menu_array;
+        $header_data['settings'] = $this->home_model->settingData();
+        $footer_data['menu_array'] = $menu_array;
+        $footer_data['settings'] = $this->home_model->settingData();
+    
+        $data = array(
+            'page_title' => 'FAQ',
+         );
+        $this->load->view('layout/header',$header_data);
+        $this->load->view('faq', $data);
+        $this->load->view('layout/footer',$footer_data);
+        }
+
+
+         
+        public function contact_us() {
+
+            $menus = $this->home_model->getPages();
+            $submenus = $this->home_model->getSubPages();
+            
+            $contactus = $this->pages_model->contactus();
+
+             $menu_array = array();
+            if($menus!=""){
+                foreach($menus as $mdata){
+                $menu_array[$mdata['id']] =  array('name'=>$mdata['category_name'],'slug'=>$mdata['category_slug']);
+                }
+            }
+            if($submenus !=""){
+                foreach($submenus as $smdata){
+                if(array_key_exists($smdata['category_id'],$menu_array)){
+                    $menu_array[$smdata['category_id']]['submenu'][]= array('name'=>$smdata['subcategory_name'],'slug'=>$smdata['subcategory_slug']);
+                }
+                }
+            } 
+            $header_data['menu_array'] = $menu_array;
+            $header_data['settings'] = $this->home_model->settingData();
+            $footer_data['menu_array'] = $menu_array;
+            $footer_data['settings'] = $this->home_model->settingData();
+        
+            $data = array(
+                'page_title' => 'Contact Us',
+                 'data' => $contactus
+             );
+            $this->load->view('layout/header',$header_data);
+            $this->load->view('contact_us', $data);
+            $this->load->view('layout/footer',$footer_data);
+            }
+
+
+
+
+            
+            public function getdata_insert() {
+ 
+                // Load form validation library
+                $this->load->library('form_validation');
+                // Set validation rules
+                $this->form_validation->set_rules('name', 'Name', 'required|trim');
+                $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim');
+                $this->form_validation->set_rules('phone', 'Phone', 'required|trim');
+                $this->form_validation->set_rules('message', 'Message', 'required|trim');
+                if ($this->form_validation->run() === FALSE) {
+                    return array('status' => 'error', 'message' => validation_errors());
+                }
+                $data = array(
+                    'name' => $this->input->post('name', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                    'phone' => $this->input->post('phone', TRUE),
+                    'message' => $this->input->post('message', TRUE)
+                );
+                // print_r($data);  
+                if ($this->db->insert('contactus', $data)) {
+                    return array('status' => 'success', 'message' => 'Data inserted successfully.');
+                    
+                } else {
+                    return array('status' => 'error', 'message' => 'Data insertion failed.');
+                }
+            }
+            
+
 }
