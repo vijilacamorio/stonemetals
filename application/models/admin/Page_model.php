@@ -75,4 +75,11 @@ class Page_model extends CI_Model {
         $this->db->where('id', $pageid);
         return  $this->db->update($table_name, $data);
      }
+
+
+
+     
+
+
+
 }

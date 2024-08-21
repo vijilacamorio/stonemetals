@@ -25,9 +25,11 @@
     ></script>
   </head>
   <body>
+  <!-- assets\img -->
     <div class="container">
-      <span class="big-circle"></span>
-      <img src="img/shape.png" class="square" alt="" />
+       <!-- <img src="img/shape.png" class="square" alt="" /> -->
+      <img src="<?php echo base_url();?>assets/img/news-5.jpg" alt="" style="height: 215px;width: 600px;" >
+      <br><br><br>
       <div class="form">
         <div class="contact-info">
           <h3 class="title">Let's get in touch</h3>
@@ -37,34 +39,34 @@
 
           <div class="info">
             <div class="information">
-              <i class="fas fa-map-marker-alt"></i> &nbsp; &nbsp;
-              <p>76A/1, 11th st, Sidco Industrial Estate, North Phase, Pattravakam, Chennai - 98</p>
+              <i class="fas fa-map-marker-alt" style="margin-bottom: 55px;"></i> &nbsp; &nbsp;
+              <p><?php echo $data[0]['location'];?></p> 
             </div>
             <div class="information">
-              <i class="fas fa-envelope"></i> &nbsp; &nbsp;
-              <p>mail@stoneandmetal.in</p>
+              <i class="fas fa-envelope" style="margin-bottom: 20px;"></i>&nbsp;
+              <p><?php echo $data[0]['email_address'];?></p> 
             </div>
             <div class="information">
-              <i class="fas fa-phone"></i>&nbsp;&nbsp;
-              <p>044-48057448 | +91-8072671066</p>
+              <i class="fas fa-phone" style="margin-bottom:17px;"></i>&nbsp; 
+              <p><?php echo $data[0]['mobile_number'];?></p> 
             </div>
           </div>
 
           <div class="social-media">
             <p>Connect with us :</p>
             <div class="social-icons">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#">
-                <i class="fab fa-instagram"></i>
+            <a href="<?php echo $data[0]['facebook_url']; ?>">
+            <i class="fab fa-facebook-f"></i>
               </a>
               <!-- <a href="#">
-                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-twitter"></i>
               </a> -->
+              <a href="<?php echo $data[0]['instagram_url']; ?>">
+              <i class="fab fa-instagram"></i>
+              </a>
+              <a href="<?php echo $data[0]['linkedin_url']; ?>">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -72,42 +74,36 @@
         <div class="contact-form">
           <span class="circle one"></span>
           <span class="circle two"></span>
-
-          <form action="index.html" autocomplete="off">
+          <form action="pages/getdata_insert" autocomplete="off" method="post" >
             <h3 class="title">Contact us</h3>
+            <!-- <label for="" >Username</label> -->
             <div class="input-container">
-              <input type="text" name="name" class="input" />
-              <label for="">Username</label>
-              <span>Username</span>
+              <input type="text" name="name" class="input" placeholder="Username" />
+              
             </div>
             <div class="input-container">
-              <input type="email" name="email" class="input" />
-              <label for="">Email</label>
-              <span>Email</span>
+              <input type="email" name="email" class="input" placeholder="email" />
+              <!-- <label for="">Email</label> -->
+              <!-- <span>Email</span> -->
             </div>
             <div class="input-container">
-              <input type="tel" name="phone" class="input" />
-              <label for="">Phone</label>
-              <span>Phone</span>
+              <input type="number" name="phone" class="input" placeholder="phone" />
+              <!-- <label for="">Phone</label> -->
+              <!-- <span>Phone</span> -->
             </div>
             <div class="input-container textarea">
-              <textarea name="message" class="input"></textarea>
-              <label for="">Message</label>
-              <span>Message</span>
+              <textarea name="message" class="input" placeholder="Message"></textarea>
+              <!-- <label for="">Message</label> -->
+              <!-- <span>Message</span> -->
             </div>
             <input type="submit" value="Send" class="btn" />
           </form>
         </div>
       </div>
     </div>
-
-    <!-- <script src="app.js"></script> -->
   </body>
 </html>
-
-
-
-                            
+    
                             </div>
                          </div>
                      </div>
@@ -115,12 +111,7 @@
             </div>
         </div>  
         <!-- ABOUT SECTION  SECTION END -->       
-   
-
-        <style>
- 
- 
-
+<style>
 .form {
   width: 100%;
   max-width: 820px;
@@ -134,13 +125,13 @@
 }
 
 .contact-form {
-  background-color: #1abc9c;
+  background-color: #111111;
   position: relative;
 }
 
 .circle {
   border-radius: 50%;
-  background: linear-gradient(135deg, transparent 20%, #149279);
+  background: linear-gradient(135deg, transparent 20%, #6c757d);
   position: absolute;
 }
 
@@ -163,7 +154,7 @@
   position: absolute;
   width: 26px;
   height: 26px;
-  background-color: #1abc9c;
+  background-color: #6c757d;
   transform: rotate(45deg);
   top: 50px;
   left: -13px;
@@ -302,7 +293,7 @@ textarea.input {
 }
 
 .contact-info .title {
-  color: #1abc9c;
+  color: #111111;
 }
 
 .text {
@@ -319,7 +310,7 @@ textarea.input {
 }
 
 .information i {
-  color: #1ABC9C;
+  color: #6c757d;
 }
 
 .icon {
@@ -344,7 +335,7 @@ textarea.input {
   width: 35px;
   height: 35px;
   border-radius: 5px;
-  background: linear-gradient(45deg, #1abc9c, #149279);
+  background: linear-gradient(45deg, #111111, #6c757d);
   color: #fff;
   text-align: center;
   line-height: 35px;
@@ -361,23 +352,14 @@ textarea.input {
   position: absolute;
   width: 110px;
   height: 100px;
-  border: 22px solid #1abc9c;
+  border: 22px solid #6c757d;
   border-radius: 50%;
   bottom: -77px;
   right: 50px;
   opacity: 0.3;
 }
 
-/* .big-circle {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: linear-gradient(to bottom, #1cd4af, #159b80);
-  bottom: 50%;
-  right: 50%;
-  transform: translate(-40%, 38%);
-} */
+ 
 
 .big-circle:after {
   content: "";
@@ -486,25 +468,4 @@ textarea.input {
 }
 
         </style>
-
-<script>
-    const inputs = document.querySelectorAll(".input");
-
-function focusFunc() {
-  let parent = this.parentNode;
-  parent.classList.add("focus");
-}
-
-function blurFunc() {
-  let parent = this.parentNode;
-  if (this.value == "") {
-    parent.classList.remove("focus");
-  }
-}
-
-inputs.forEach((input) => {
-  input.addEventListener("focus", focusFunc);
-  input.addEventListener("blur", blurFunc);
-});
-
-</script>
+ 

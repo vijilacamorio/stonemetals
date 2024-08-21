@@ -527,8 +527,12 @@ class Pages extends CI_Controller {
 
          
         public function contact_us() {
+
             $menus = $this->home_model->getPages();
             $submenus = $this->home_model->getSubPages();
+            
+            $contactus = $this->pages_model->contactus();
+
              $menu_array = array();
             if($menus!=""){
                 foreach($menus as $mdata){
@@ -549,10 +553,43 @@ class Pages extends CI_Controller {
         
             $data = array(
                 'page_title' => 'Contact Us',
+                 'data' => $contactus
              );
             $this->load->view('layout/header',$header_data);
             $this->load->view('contact_us', $data);
             $this->load->view('layout/footer',$footer_data);
             }
+
+
+
+
+            
+            public function getdata_insert() {
+ 
+                // Load form validation library
+                $this->load->library('form_validation');
+                // Set validation rules
+                $this->form_validation->set_rules('name', 'Name', 'required|trim');
+                $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim');
+                $this->form_validation->set_rules('phone', 'Phone', 'required|trim');
+                $this->form_validation->set_rules('message', 'Message', 'required|trim');
+                if ($this->form_validation->run() === FALSE) {
+                    return array('status' => 'error', 'message' => validation_errors());
+                }
+                $data = array(
+                    'name' => $this->input->post('name', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                    'phone' => $this->input->post('phone', TRUE),
+                    'message' => $this->input->post('message', TRUE)
+                );
+                // print_r($data);  
+                if ($this->db->insert('contactus', $data)) {
+                    return array('status' => 'success', 'message' => 'Data inserted successfully.');
+                    
+                } else {
+                    return array('status' => 'error', 'message' => 'Data insertion failed.');
+                }
+            }
+            
 
 }
