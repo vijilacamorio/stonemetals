@@ -9,7 +9,10 @@ class Page extends CI_Controller {
         parent::__construct();
          $this->load->model('admin/category_model');
          $this->load->model('admin/page_model');
-
+		 if (!$this->session->userdata('admin_id')) {
+			// If user is not logged in, redirect to login page
+			redirect('admin');
+		}
 	}
     
     public function page_index()

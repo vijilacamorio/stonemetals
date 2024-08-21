@@ -72,7 +72,7 @@
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="<?php echo base_url(); ?>admin/user/login"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="<?php echo base_url(); ?>admin/user/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </div>
                     </li>
