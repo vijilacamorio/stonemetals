@@ -39,7 +39,7 @@
  
                                         <?php foreach ($pages_data as $page): ?>
                                                  <tr>
-                                                    <td><?php echo $page['category_name']; ?></td>
+                                                    <td><?php echo $page['cate_name']; ?></td>
                                                     <td><?php echo $page['subcategory_name']; ?></td>
                                                     <td><img src="<?php echo base_url(BANNER_IMG_PATH . $page['logo']); ?>" width="100px" alt="Banner Image"/></td>
                                                     <td><?php echo $page['meta_title']; ?></td>

@@ -28,6 +28,8 @@ class Home_model extends CI_Model {
             return $query->result_array();
         }
     }
+
+
     public function settingData(){
         $this->db->select('*');
         $this->db->from('settings');
@@ -36,4 +38,16 @@ class Home_model extends CI_Model {
             return $query->result_array();
         }
     }
+
+   public function blog(){
+        $this->db->select('*');
+        $this->db->from('blog');
+        $this->db->where('is_active',1);
+        $this->db->where('is_deleted',0);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
 }

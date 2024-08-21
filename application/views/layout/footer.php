@@ -3,7 +3,7 @@
         
 <!-- FOOTER BLOCKES START -->  
 <div class="footer-top bg-no-repeat bg-bottom-right" style="background-image:url(images/background/footer-bg.png)">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
         
             <div class="col-lg-5 col-md-12 col-sm-12"> 
@@ -12,69 +12,94 @@
                         <div class="logo-footer clearfix">
                             <a href="index.html"><img src="images/logo-4-light.png" alt="" ></a>
                         </div>
-                        <p>Over 15 year experience and knowledge international standards technologicaly changes our industrial systems, we are dedicated to provides the best solutions to our valued customers there are many variation solution we makes long-term investments goal in global companies in different sectors, mainly in USA and other countries</p>
+                        <p>Content -1</p>
                      </div>
                     <div class="widget recent-posts-entry">
                        <ul class="widget_address"> 
-                            <li><i class="fa fa-map-marker"></i><?php echo $settings[0]['location']; ?></li>
-                            <li><i class="fa fa-envelope"></i><?php echo $settings[0]['email_address']; ?></li>
-                            <li> <i class="fa fa-phone"></i><?php echo $settings[0]['mobile_number']; ?> </li>
+                            <li><i style="color:white;"  class="fa fa-map-marker"></i><?php echo $settings[0]['location']; ?></li>
+                            <li><i style="color:white;" class="fa fa-envelope"></i><?php echo $settings[0]['email_address']; ?></li>
+                            <li> <i style="color:white;" class="fa fa-phone"></i><?php echo $settings[0]['mobile_number']; ?> </li>
                         </ul>  
                     </div>
                     <ul class="social-icons  wt-social-links footer-social-icon">
-                        <li><a href="javascript:void(0);" class="fa fa-google"></a></li>
+                        <!-- <li><a  href="javascript:void(0);" class="fa fa-google"></a></li>
                         <li><a href="javascript:void(0);" class="fa fa-rss"></a></li>
                         <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
                         <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
-                        <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li>
+                        <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li> -->
                     </ul> 
                 </div>                              
                 
             </div> 
 
-            <div class="col-lg-7 col-md-12 col-sm-12">
-                <div class="row footer-h-right">
-                    <div class="col-lg-5 col-md-4">
-                        <div class="widget widget_services">
-                            <h3 class="widget-title">Useful links</h3>
-                            <ul>
-                                <li><a href="<?php echo base_url('about'); ?>">About</a></li>
-                                <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
-                                <li><a href="<?php echo base_url('services'); ?>">Services </a></li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="row footer-h-right">
+    <!-- First Column -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="widget widget_services" style="margin-left:15px;" >
+            <h3 class="widget-title" style="color:white;" >Useful links</h3>
+            <ul>
+                <li><a href="<?php echo base_url('home'); ?>">Home</a></li>
+                <li><a href="<?php echo base_url('about'); ?>">About</a></li>
+                <li><a href="<?php echo base_url('faq'); ?>">Gallery</a></li>
+                <li><a href="<?php echo base_url('faq'); ?>">Blog</a></li>
+                <li><a href="<?php echo base_url('faq'); ?>">FAQ</a></li>
+                <li><a href="<?php echo base_url('faq'); ?>">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
 
-                    <div class="col-lg-7 col-md-8">
-                        <div class="widget widget_services">
-                            <h3 class="widget-title">Our Services</h3>
-                            <ul>
-                              <?php foreach($menu_array as $menuval){ 
-                                if($menuval['slug'] == 'services'){
-                                    foreach($menuval['submenu'] as $ssmenu){ ?>
-                                <li><a href="<?php echo base_url('services#'.$ssmenu['slug']); ?>"><?php echo $ssmenu['name']; ?></a></li>
-                                <?php } 
-                                } 
-                              }?>
-                            </ul>
-                        </div>
-                    </div>                                
+    <!-- Second Column -->
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="widget widget_services" style="margin-left:15px;"  >
+            <h3 class="widget-title" style="color:white;" >Applications</h3>
+            <ul>
+                <li><a href="<?php echo base_url('about'); ?>">Metal screens / jalis</a></li>
+                <li><a href="<?php echo base_url('faq'); ?>">Wall art</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Stone Inlays/Medallions/Stone</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Borders</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Stone Water Features / Landscaping</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Metal Railings & Gates</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Metal & Stone Furniture</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Stone Ribbing/Flute</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Third Column -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="widget widget_services" style="margin-left:15px;"  >
+            <h3 class="widget-title" style="color:white;">Services</h3>
+            <ul>
+                <li><a href="<?php echo base_url('about'); ?>">Powder coating</a></li>
+                <li><a href="<?php echo base_url('faq'); ?>">Fabrication</a></li>
+                <li><a href="<?php echo base_url('services'); ?>">Services</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Fourth Column - Our Services -->
+    <div class="col-lg-2 col-md-6 col-sm-12">
+        <div class="widget widget_services" style="margin-left:15px;" >
+            <h3 class="widget-title" style="color:white;">Our Services</h3>
+            <ul>
+                <?php foreach($menu_array as $menuval) { 
+                    if($menuval['slug'] == 'services') {
+                        foreach($menuval['submenu'] as $ssmenu) { ?>
+                            <li><a href="<?php echo base_url('services#'.$ssmenu['slug']); ?>"><?php echo $ssmenu['name']; ?></a></li>
+                        <?php } 
+                    } 
+                } ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
                 
-                </div>
-                
-                <div class="widget widget_newsletter">
-                    <h3 class="widget-title">Newsletter</h3>
-                        <p>Subscribe to our newsletter to receive latest news on our services.</p>
-                        <div class="newsletter-input">
-                          <div class="input-group">
-                            <input id="email" type="text" class="form-control" name="email" placeholder="Enter your email">
-                            <div class="input-group-append">
-                              <button type="submit" class="input-group-text nl-search-btn text-black site-bg-primary title-style-2">Subscribe</button>
-                            </div>
-                          </div>
-                        </div>
-                </div>
-                
+             
             </div> 
 
         </div>
@@ -83,9 +108,9 @@
 <!-- FOOTER COPYRIGHT -->
 
 <div class="footer-bottom">
-  <div class="container">
+  <div class="container-fluid">
     <div class="wt-footer-bot-left d-flex justify-content-between">
-        <span class="copyrights-text">Copyright © <?php echo date('Y'); ?> <span class="site-text-primary">Amorio Technologies</span></span>
+        <span class="copyrights-text">Copyright © <?php echo date('Y'); ?> <span class="site-text-primary" style="color:white;">Amorio Technologies</span></span>
         <ul class="copyrights-nav"> 
             <li><a href="javascript:void(0);">Terms  &amp; Condition</a></li>
             <li><a href="javascript:void(0);">Privacy Policy</a></li>
