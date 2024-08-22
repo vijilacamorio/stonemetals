@@ -371,9 +371,9 @@ class Pages extends CI_Controller {
         'gallery_data' =>  $gallery
 
     );
-    $this->load->view('layout/header',$header_data);
-    $this->load->view('gallery', $data);
-    $this->load->view('layout/footer',$footer_data);
+     $this->load->view('layout/header',$header_data);
+     $this->load->view('gallery', $data);
+     $this->load->view('layout/footer',$footer_data);
     }
     public function patterns() {
         $menus = $this->home_model->getPages();
