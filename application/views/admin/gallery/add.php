@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo base_url('admin/banner'); ?>">Manage Banner</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url('admin/gallery'); ?>">Manage Gallery</a></li>
                 <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -23,29 +23,23 @@
                     <p class="text-muted m-b-30 font-13"></p>
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
-                        <form name="addbanner" method="post" class="addbanner" enctype="multipart/form-data">
+                        <form name="addgallery" method="post" class="addgallery" enctype="multipart/form-data">
                          <div class="displaymessage"></div>
                             <div class="form-group">
                                     <label for="exampleInput1">Title <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="inputText" name="banner_title" placeholder="Title">
+                                    <input type="text" class="form-control" id="inputText" name="gallery_name" placeholder="Name">
                                 </div>
 
  
-                                <div class="form-group">
-                                    <label for="exampleInput1">Subtitle <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="inputText" name="sub_title" placeholder="Subtitle">
-                                </div>
-
-
 
                                 <div class="form-group">
                                     <label for="exampleInput1">Content <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="banner_content" name="banner_content" placeholder="Content">
+                                    <input type="text" class="form-control" id="gallery_content" name="gallery_content" placeholder="Content">
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="exampleInput1">Image (1980px 1080px)<span class="text-danger">*</span></label>
+                                <label for="exampleInput1">Image (<?php echo GALLERY_IMG_WIDTH; ?>px * <?php echo GALLERY_IMG_HEIGHT; ?>px)<span class="text-danger">*</span></label>
                                     <input type="file" class="form-control" id="formFile" name="images"  >
                                 </div>
 
@@ -69,7 +63,7 @@
                                 </div>
                                 <br>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">Submit</button>
-                                <a href="<?php echo base_url('admin/banner'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
+                                <a href="<?php echo base_url('admin/gallery'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
                             </form>
                         </div>
                     </div>
@@ -81,11 +75,11 @@
 <?php $this->load->view('admin/layout/footer'); ?>
 
 <script>
-$('.addbanner').on('submit', function(event) {
+$('.addgallery').on('submit', function(event) {
 event.preventDefault(); 
 var formData = new FormData($(this)[0]);
 $.ajax({
-    url: '<?php echo base_url('admin/banner/create_banner'); ?>', 
+    url: '<?php echo base_url('admin/gallery/create_gallery'); ?>', 
     type: 'POST',
     data: formData,
     dataType:'json',
@@ -93,13 +87,13 @@ $.ajax({
     processData: false,
     success: function(response) {
         if(response.status =='success'){
-        $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+        $('.displaymessage').html('<div class="alert alert-success alert-rounded"><button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>'+response.msg+'</div>');
         setTimeout(function() {
         //   $('.addcategory')[0].reset();
-            window.location.href = '<?php echo base_url("admin/banner"); ?>';
+            window.location.href = '<?php echo base_url("admin/gallery"); ?>';
         }, 3000); 
         }else{
-        $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+        $('.displaymessage').html('<div class="alert alert-danger alert-rounded"><button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>'+response.msg+'</div>');
         }
     },
     error: function(xhr, status, error) {

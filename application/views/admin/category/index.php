@@ -41,7 +41,7 @@
                                                     
                                                     <td><?php echo $category['category_name']; ?></td>
                                                     <td><?php echo ($category['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                                    <td><?php echo $category['created_date']; ?></td>
+                                                    <td><?php echo date('d-m-Y H:i:s', strtotime($category['created_date'])); ?></td>
 
                                                     <td>
                                                         <a href="<?php echo base_url('admin/category/category_data_edit?id=' . $category['id']); ?>" 

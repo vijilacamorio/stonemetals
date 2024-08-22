@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                         <a href="<?php echo base_url('admin/page/page_create'); ?>" class="btn btn-primary">Add Page Content</a>
+                         <a href="<?php echo base_url('admin/page'); ?>" class="btn btn-primary">Add Page Content</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
@@ -44,7 +44,7 @@
                                                     <td><img src="<?php echo base_url(BANNER_IMG_PATH . $page['logo']); ?>" width="100px" alt="Banner Image"/></td>
                                                     <td><?php echo $page['meta_title']; ?></td>
                                                     <td><?php echo ($page['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                                    <td><?php echo $page['created_date']; ?></td>
+                                                    <td><?php echo date('d-m-Y H:i:s', strtotime($page['created_date'])); ?></td>
                                                     <td>
                                                         <a href="<?php echo base_url('admin/page/page_data_edit?id=' . $page['id']); ?>" 
                                                          class="table  table-striped"data-toggle="tooltip"  data-placement="left"> <i class="fa fa-pencil" aria-hidden="true"></i></a>

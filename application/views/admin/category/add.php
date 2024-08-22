@@ -64,7 +64,7 @@ $('.addcategory').on('submit', function(event) {
             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             setTimeout(function() {
               $('.addcategory')[0].reset();
-              window.location.href = '<?php echo base_url("admin/category/category_index"); ?>';
+              window.location.href = '<?php echo base_url("admin/category"); ?>';
             }, 3000); 
           }else{
             $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');

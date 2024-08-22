@@ -7,7 +7,7 @@
          </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/setting/setting_index'); ?>">Manage Setting</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/setting'); ?>">Manage Setting</a></li>
             <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -88,7 +88,7 @@
  
                                 <br>
                                 <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">Submit</button>
-                                <a href="<?php echo base_url('admin/setting/setting_index'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
+                                <a href="<?php echo base_url('admin/setting'); ?>" class="btn btn-inverse waves-effect waves-light">Cancel</a>
                                 </form>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ $('.editsetting').on('submit', function(event) {
           if(response.status =='success'){
             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             setTimeout(function() {
-               window.location.href = '<?php echo base_url("admin/setting/setting_index"); ?>';
+               window.location.href = '<?php echo base_url("admin/setting"); ?>';
             }, 3000); 
           }else{
             $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');

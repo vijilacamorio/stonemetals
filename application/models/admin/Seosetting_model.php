@@ -42,10 +42,13 @@ class Seosetting_model extends CI_Model {
 
     
     public function getseosetting_data( ){
-        $this->db->select('*');
+        $this->db->select('seosetting.*,categories.category_name as cat_name');
         $this->db->from('seosetting');
-        $this->db->where('is_deleted', 0);
-        $this->db->where('is_active', 1); 
+        $this->db->join('categories','categories.id = seosetting.category_name','left');
+        $this->db->where('seosetting.is_deleted', 0);
+        $this->db->where('seosetting.is_active', 1); 
+        $this->db->where('categories.is_active', 1); 
+        $this->db->where('categories.is_active', 1); 
         $query = $this->db->get();
          if ($query->num_rows() > 0) {
             return $query->result_array();

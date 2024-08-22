@@ -29,7 +29,7 @@ class Seosetting extends CI_Controller {
  
 
 
-   public function add_seosetting(){   
+   public function add(){   
 
         $categorydata = $this->seosetting_model->getcategory_data();
         $data = array(

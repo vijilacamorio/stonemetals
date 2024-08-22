@@ -117,7 +117,7 @@ $('.addpage').on('submit', function(event) {
           if(response.status =='success'){
             $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
             setTimeout(function() {
-               window.location.href = '<?php echo base_url("admin/page/page_index"); ?>';
+               window.location.href = '<?php echo base_url("admin/page"); ?>';
             }, 3000); 
           }else{
             $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');

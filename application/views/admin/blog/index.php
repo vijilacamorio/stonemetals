@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                      <a href="<?php echo base_url('admin/blog/add_blog'); ?>" class="btn btn-primary">Add Blog</a>
+                      <a href="<?php echo base_url('admin/blog/add'); ?>" class="btn btn-primary">Add Blog</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
@@ -42,7 +42,7 @@
                                                     <td><?php echo $data['title']; ?></td>
                                                     <td><img src="<?php echo base_url(BLOG_IMG_PATH . $data['featured_image']); ?>" width="100px" alt="Banner Image"/></td>
                                                     <td><?php echo ($data['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                                    <td><?php echo $data['created_date']; ?></td>
+                                                    <td><?php echo date('d-m-Y H:i:s', strtotime($data['created_date'])); ?></td>
                                                     <td>
                                                         <a href="<?php echo base_url('admin/blog/blog_data_edit?id=' . $data['id']); ?>" 
                                                          class="table  table-striped"data-toggle="tooltip"  data-placement="left"> <i class="fa fa-pencil" aria-hidden="true"></i></a>

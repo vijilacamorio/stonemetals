@@ -29,7 +29,7 @@ class Blog extends CI_Controller {
 	}
 
 
-	public function add_blog()
+	public function add()
 	{   
         $data = array('page_title' => 'Blog');
 		$this->load->view('admin/blog/add', $data);

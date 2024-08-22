@@ -3,11 +3,11 @@
 <div class="page-wrapper">
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Manage Banner</h3>
+            <h3 class="text-themecolor">Manage Gallery</h3>
         </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/banner'); ?>">Manage Banner</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/gallery'); ?>">Manage Gallery</a></li>
             <li class="breadcrumb-item active"><?php echo $page_title; ?></li>
             </ol>
         </div>
@@ -21,13 +21,13 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- <h4 class="card-title">Data Table</h4> -->
-                        <a href="<?php echo base_url('admin/banner/add'); ?>" class="btn btn-primary">Add Banner</a>
+                        <a href="<?php echo base_url('admin/gallery/add'); ?>" class="btn btn-primary">Add Gallery</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Subtitle </th>
+                                        <th>Content</th>
                                         <th>Image</th>
                                         <th>Status</th>
                                         <th>Created Date</th>
@@ -36,18 +36,18 @@
                                 </thead>
                                 <tbody>
                                
-                                <?php foreach ($bannerdata as $ban): ?>
+                                <?php foreach ($gallerydata as $gall): ?>
                                 <tr>
-                                    <td><?php echo $ban['banner_title']; ?></td>
-                                    <td><?php echo $ban['sub_title']; ?></td>
-                                    <td><img src="<?php echo base_url(BANNER_IMG_PATH . $ban['images']); ?>" width="100px" alt="Banner Image"/></td>
-                                    <td><?php echo ($ban['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                    <td><?php echo date('d-m-Y H:i:s', strtotime($ban['created_date'])); ?></td>
+                                    <td><?php echo $gall['gallery_name']; ?></td>
+                                    <td><?php echo $gall['gallery_content']; ?></td>
+                                    <td><img src="<?php echo base_url(GALLERY_IMG_PATH . $gall['images']); ?>" width="100px" alt="Banner Image"/></td>
+                                    <td><?php echo ($gall['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
+                                    <td><?php echo date('d-m-Y H:i:s', strtotime($gall['created_date'])); ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('admin/banner/editBanners?id=' . $ban['banner_id']); ?>" 
+                                        <a href="<?php echo base_url('admin/gallery/editGallery?id=' . $gall['id']); ?>" 
                                         class="table  table-striped" data-toggle="tooltip" data-placement="left"> 
                                         <i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <a onclick="deleteBanner(<?php echo $ban['banner_id']; ?>)" class="btnclr btn m-b-5 m-r-2">
+                                        <a onclick="deleteBanner(<?php echo $gall['id']; ?>)" class="btnclr btn m-b-5 m-r-2">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </td>  
                                 </tr>
@@ -82,7 +82,7 @@
                  // Proceed with deletion
                  $.ajax({
                      type: 'POST',
-                     url: '<?php echo base_url('admin/banner/deleteBanner'); ?>',
+                     url: '<?php echo base_url('admin/gallery/deleteBanner'); ?>',
                      data: {id: id},
                      dataType: 'json',
                      success: function(response) {

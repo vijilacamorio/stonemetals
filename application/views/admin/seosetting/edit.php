@@ -90,12 +90,12 @@ $('.editseosetting').on('submit', function(event) {
         dataType:'json',
         success: function(response) {
           if(response.status =='success'){
-            $('.displaymessage').html('<div class="alert alert-success alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+            $('.displaymessage').html('<div class="alert alert-success alert-rounded"><button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>'+response.msg+'</div>');
             setTimeout(function() {
                window.location.href = '<?php echo base_url("admin/seosetting"); ?>';
             }, 3000); 
           }else{
-            $('.displaymessage').html('<div class="alert alert-danger alert-rounded">'+response.msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button></div>');
+            $('.displaymessage').html('<div class="alert alert-danger alert-rounded"><button type="button" class="close mt-2" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>'+response.msg+'</div>');
           }
         },
         error: function(xhr, status, error) {
