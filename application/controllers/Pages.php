@@ -532,4 +532,35 @@ class Pages extends CI_Controller {
                 }
                 redirect('contact-us');  
             }
+
+
+
+            public function insertContact(){
+                
+  
+               
+                $response = array();
+         
+                $data = array(
+                    'name' => $this->input->post('name'),
+                    'email' => $this->input->post('email'),
+                    'phone' => $this->input->post('phone'),
+                    'message' => $this->input->post('message'),
+                );
+               
+                $result = $this->pages_model->insertcontacts($data);
+        
+                if ($result) {
+                    // $this->sendEmail($data);
+                    $response['status'] = 'success';
+                    $response['msg']     = 'Thank you for submitting. We will be in touch soon.';
+                } else {
+                    $response['status'] = 'failure';
+                    $response['msg']     = 'Something happened';
+                }
+        
+                header('Content-Type: application/json');
+                echo json_encode($response);
+            }
+        
 }

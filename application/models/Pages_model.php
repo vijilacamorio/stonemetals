@@ -30,4 +30,10 @@ class Pages_model extends CI_Model {
             return $query->result_array();
         }
     }
+
+    public function insertcontacts($data)
+    { 
+      return $this->db->insert('contactus', $data);
+    }
+
 }

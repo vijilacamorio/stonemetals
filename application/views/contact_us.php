@@ -4,38 +4,16 @@
         <br>
         <div style="background: black;height: 75px;padding-top: 20px;">
         <h3 style="text-align:center;color:white;"><?php echo $page_title; ?></h3>
-        </div>
+          </div>
             <div class="welcome-section-top bg-white   p-b50">
                 <div class="container" style="max-width: 2000px;!important  ">
                     <div class="row d-flex justify-content-center">
                         <div  >
                             <div class="welcom-to-section"  >
-                            <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Form</title>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
   <body> 
      <div class="container" >
-       <img src="<?php echo base_url();?>assets/img/news-5.jpg" alt="" style="height: 215px;width: 818px;" >
-      <br><br><br>
-      <?php if($this->session->flashdata('success')): ?>
-          <div class="alert alert-success">
-              <?php echo $this->session->flashdata('success'); ?>
-          </div>
-      <?php endif; ?>
-      <?php if($this->session->flashdata('error')): ?>
-          <div class="alert alert-danger">
-              <?php echo $this->session->flashdata('error'); ?>
-          </div>
-      <?php endif; ?>
+       <!-- <img src="<?php //echo base_url();?>assets/img/news-5.jpg" alt="" style="height: 215px;width: 818px;" > -->
+      <br><br> 
       <div class="form">
         <div class="contact-info">
           <h3 class="title">Let's get in touch</h3>
@@ -74,92 +52,56 @@
             </div>
           </div>
         </div>
-        <div class="contact-form">
-          <span class="circle one"></span>
-          <span class="circle two"></span>
-          <form action="pages/getdata_insert" autocomplete="off" method="post" >
-           <h3 class="title">Contact us</h3>
-              <div class="input-container">
-                <input type="text" name="name" class="input" placeholder="Name"  />
-              </div>
-              <div class="input-container">
-                <input type="email" name="email" class="input" placeholder="Email"  />
-              </div>
-               <div class="input-container">
-                <input type="number" name="phone" class="input" placeholder="Phone"  />
-              </div>
-              <div class="input-container textarea">
-                <textarea name="message" class="input" placeholder="Message"></textarea>
-              </div>
-            <input type="submit" value="Send" class="btn" />
-        </form>
-         </div>
-      </div>
-    </div>
-  </body>
-</html>
+    <div class="contact-form">
+      <span class="circle one"></span>
+      <span class="circle two"></span>
+              <div class="show"></div>
+                        <form data-aos="fade-up" data-aos-duration="1500" id="contactForm">
+                      <h3 class="title" style="text-align:center;">Contact us</h3>
+                      <div>
+                      <label for="name" style="color:white;" >Name *</label>
+                        <div>
+                            <input type="text" name="name" class="input"    />
+                          </div>
+                        </div>
+                      <br>
+                        <div>
+                            <label for="email" style="color:white;" >Email *</label>
+                              <div  >
+                              <input type="email" name="email" class="input"   />
+                          </div>
+                        </div>
+                        <br>
+                        <div>
+                          <label for="phone" style="color:white;" >Phone *</label>
+                          <div  >
+                            <input type="tel" name="phone" id="phone" class="input"    />
                             </div>
-                         </div>
-                     </div>
-                </div> 
+                          </div>
+                          <br>
+                          <div>
+                          <label for="phone" style="color:white;" >Message</label>
+                          <div class="textarea">
+                            <textarea name="message" class="input" placeholder="Message"></textarea>
+                          </div>
+                          </div>
+                          <button type="submit" class="button-submit ">Submit</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
             </div>
-        </div>  
-        <!-- ABOUT SECTION  SECTION END -->  
-        <script>
-$(document).ready(function() {
-  var succalert = '<div class="alert alert-success alert-dismissible" role="alert">';
-  var failalert = '<div class="alert alert-danger alert-dismissible" role="alert">';
-  $("#create_contactus").validate({
-    rules: {
-      name: "required",
-      email: {
-        required: true,
-        email: true
-      },
-      phone: "required"
-    },
-    messages: {
-      name: "Name is required",
-      email: {
-        required: "Email is required",
-        email: "Please enter a valid email address"
-      },
-      phone: "Phone is required"
-    },
-    submitHandler: function(form) {
-      var formData = new FormData(form);
-      formData.append(csrfName, csrfHash);
-      $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "<?php echo base_url('pages/getdata_insert'); ?>",
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(response) {
-          if (response.status == 'success') {
-            $('.error_display').html(succalert + response.msg + '</div>');
-          } else {
-            $('.error_display').html(failalert + response.msg + '</div>');
-          }
-        },
-        error: function(xhr, status, error) {
-          $('.error_display').html(failalert + 'An error occurred: ' + error + '</div>');
-        }
-      });
-    }
-  });
-});
- $(document).ready(function(){
-    setTimeout(function() {
-        $(".alert-success, .alert-danger").fadeOut('slow');
-    }, 500);  
-});
- </script>
+          </div> 
+        </div>
+      </div>  
+    <!-- ABOUT SECTION  SECTION END -->  
  <style>
+  .error{
+    color:red
+  }
 .form {
-  width: 100%;
-  max-width: 820px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
@@ -253,7 +195,7 @@ textarea.input {
   top: 1rem;
   transform: translateY(0);
 }
-.btn {
+.button-submit {
   padding: 0.6rem 1.3rem;
   background-color: #fff;
   border: 2px solid #fafafa;
@@ -267,7 +209,7 @@ textarea.input {
   margin: 0;
   width: 100%;
 }
-.btn:hover {
+.button-submit:hover {
   background-color: transparent;
   color: #fff;
 }
@@ -421,9 +363,6 @@ textarea.input {
   }
 }
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem;
-  }
   .contact-info:before {
     display: none;
   }
@@ -459,3 +398,95 @@ textarea.input {
   }
 }
         </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script type="text/javascript">
+ $.validator.addMethod("trimspaces", function(value, element) {
+    return this.optional(element) || $.trim(value).length > 0;
+}, "This field cannot be empty or filled with spaces");
+$("#contactForm").validate({
+    rules: {
+        name: {
+            required: true,
+            trimspaces: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        phone: {
+            required: true,
+            digits: true,
+            maxlength: 10
+        }
+    },
+    messages: {
+        name: "Please enter your name",
+        email: {
+            required: "Please enter your email address",
+            email: "Please enter a valid email address"
+        },
+        phone: {
+            required: "Please enter your phone number",
+            digits: "Please enter only numbers",
+            maxlength: "Phone number cannot exceed 10 digits"
+        }
+    },
+    submitHandler: function(form) {
+        var formData = $(form).serialize();
+        $('#load_text').css('display', 'block'); 
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url('pages/insertContact'); ?>',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                $('#load_text').css('display', 'none');
+                if (response.status === 'success') {
+                    $('.show').html(
+                        '<div class="alert alert-success alert-dismissible" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">×</span></button>' +
+                        response.msg + '</div>'
+                    );
+                    setTimeout(function() { 
+                        location.reload(); 
+                    }, 3000);
+                    setTimeout(function() {
+                        $('.show').modal('hide');
+                    }, 1500);
+                } else {
+                    $('.show').html(
+                        '<div class="alert alert-danger alert-dismissible" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">×</span></button>' +
+                        response.msg + '</div>'
+                    );
+                }
+            },
+            error: function(xhr, status, error) {
+                $('#load_text').css('display', 'none');
+                $('.show').html(
+                    '<div class="alert alert-danger alert-dismissible" role="alert">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                    '<span aria-hidden="true">×</span></button>' +
+                    'An error occurred: ' + error + '</div>'
+                );
+                console.log("Error: ", error);
+                console.log("Status: ", status);
+                console.log("XHR: ", xhr);
+            }
+        });
+        return false;
+    }
+});
+ function exitnumbers(input, maxLength) {
+    input.value = input.value.replace(/\D/g, '');
+    if (input.value.length > maxLength) {
+        input.value = input.value.slice(0, maxLength);
+    }
+}
+$('#phone').on('input', function() {
+    exitnumbers(this, 10);
+});
+</script>
