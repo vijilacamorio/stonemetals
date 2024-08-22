@@ -35,5 +35,18 @@ class Pages_model extends CI_Model {
     { 
       return $this->db->insert('contactus', $data);
     }
+    
+    public function get_galleries(){
+        $this->db->select('*');
+        $this->db->from('galleries');
+         $this->db->where('is_active',1);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+
+
 
 }

@@ -44,8 +44,7 @@ class Home_model extends CI_Model {
         $this->db->select('content');
         $this->db->from('pages');
         $this->db->where('is_active',1);
-        $this->db->where('is_active',1);
-        $this->db->where('category_name',12);
+         $this->db->where('category_name',12);
         $this->db->where('subcategory_name',13);
         $this->db->where('is_deleted',0);
         $query = $this->db->get();
@@ -54,8 +53,7 @@ class Home_model extends CI_Model {
         }
     }
 
-
-
+ 
 
 
 }
