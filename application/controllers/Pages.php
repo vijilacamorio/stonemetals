@@ -461,6 +461,9 @@ class Pages extends CI_Controller {
     public function faq() {
         $menus = $this->home_model->getPages();
         $submenus = $this->home_model->getSubPages();
+        $get_data = $this->pages_model->get_faq();
+
+        
          $menu_array = array();
         if($menus!=""){
             foreach($menus as $mdata){
@@ -480,8 +483,9 @@ class Pages extends CI_Controller {
         $footer_data['settings'] = $this->home_model->settingData();
         $data = array(
             'page_title' => 'FAQ',
+            'data' => $get_data
          );
-        $this->load->view('layout/header',$header_data);
+         $this->load->view('layout/header',$header_data);
         $this->load->view('faq', $data);
         $this->load->view('layout/footer',$footer_data);
         }

@@ -37,7 +37,7 @@ class Pages_model extends CI_Model {
     }
     
     public function get_galleries(){
-        $this->db->select('*');
+        $this->db->select('gallery_name,gallery_content,gallery_image');
         $this->db->from('galleries');
          $this->db->where('is_active',1);
         $query = $this->db->get();
@@ -47,6 +47,18 @@ class Pages_model extends CI_Model {
     }
 
 
+
+    public function get_faq(){
+        $this->db->select('faq_answer, faq_title');
+        $this->db->from('faq');
+        $this->db->where('is_active', 1);
+        $this->db->order_by('faq_title', 'asc');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }  
+    }
+    
 
 
 }
