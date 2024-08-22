@@ -345,6 +345,10 @@ class Pages extends CI_Controller {
     public function gallery() {
         $menus = $this->home_model->getPages();
         $submenus = $this->home_model->getSubPages();
+
+        $gallery = $this->pages_model->get_galleries();
+ 
+        
         $menu_array = array();
         if($menus!=""){
             foreach($menus as $mdata){
@@ -363,11 +367,13 @@ class Pages extends CI_Controller {
     $footer_data['menu_array'] = $menu_array;
     $footer_data['settings'] = $this->home_model->settingData();
     $data = array(
-        'page_title' => 'Gallery',
+        'page_title'   => 'Gallery',
+        'gallery_data' =>  $gallery
+
     );
-    $this->load->view('layout/header',$header_data);
-    $this->load->view('gallery', $data);
-    $this->load->view('layout/footer',$footer_data);
+     $this->load->view('layout/header',$header_data);
+     $this->load->view('gallery', $data);
+     $this->load->view('layout/footer',$footer_data);
     }
     public function patterns() {
         $menus = $this->home_model->getPages();
@@ -525,7 +531,7 @@ class Pages extends CI_Controller {
                     'phone' => $this->input->post('phone', TRUE),
                     'message' => $this->input->post('message', TRUE)
                 );
-                if ($this->db->insert('contactus', $data)) {
+                    if ($this->db->insert('contactus', $data)) {
                     $this->session->set_flashdata('success', 'Data inserted successfully.');
                 } else {
                     $this->session->set_flashdata('error', 'Data insertion failed.');
@@ -551,7 +557,7 @@ class Pages extends CI_Controller {
                 $result = $this->pages_model->insertcontacts($data);
         
                 if ($result) {
-                    // $this->sendEmail($data);
+                    $this->sendEmail($data);
                     $response['status'] = 'success';
                     $response['msg']     = 'Thank you for submitting. We will be in touch soon.';
                 } else {
@@ -563,4 +569,79 @@ class Pages extends CI_Controller {
                 echo json_encode($response);
             }
         
+
+
+
+
+ 
+            private function sendEmail($data)
+            {   
+                $name = htmlspecialchars(strip_tags($data['name']));
+                $email_address = htmlspecialchars(strip_tags($data['email']));
+                $phone = htmlspecialchars(strip_tags($data['phone']));
+                $message_content = nl2br(htmlspecialchars($data['message']));
+        
+                $name = str_replace(array('=', '?'), '', $name);
+                $email_address = str_replace(array('=', '?'), '', $email_address);
+                $phone = str_replace(array('=', '?'), '', $phone);
+                $message_content = str_replace(array('=', '?'), '', $message_content);
+        
+                $message =
+                    "<table style='width:50%'>
+                      <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td>{$name}</td>
+                      </tr>
+                      <tr>
+                        <td>Email Address</td>
+                        <td>:</td>
+                        <td>{$email_address}</td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number</td>
+                        <td>:</td>
+                        <td>{$phone}</td>
+                      </tr>
+                       <tr>
+                        <td>Message</td>
+                        <td>:</td>
+                        <td>{$message_content}</td>
+                      </tr>
+                    </table>";
+        
+                $this->load->library('email');
+                
+                $config = array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'mail.amoriotech.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => 'sales@amoriotech.com',
+                    'smtp_pass' => 'Amorio@2022',
+                    'smtp_crypto' => 'ssl',
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    // 'newline' => "\r\n"
+                );
+        
+                $this->email->initialize($config);
+                $this->email->from('ajith@amoriotech.com', $name);
+                $this->email->to('ajith@amoriotech.com');
+                // $this->email->cc('jayashree@amoriotech.com, madhu@amoriotech.com');
+                $this->email->subject('Stone & Metals Contact Us ..');
+                $this->email->message($message);
+        
+                if ($this->email->send()) {
+                    return true;
+                } else {
+                    return false; 
+                }
+            }
+
+
+
+
+
+
+
 }
