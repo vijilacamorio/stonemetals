@@ -11,7 +11,7 @@
                     <div class="container">
                      
 
-                       <div class="section-content">
+                       <div class="section-content" >
                             <div class="owl-carousel h3-project-slider  mfp-gallery">
                             <!-- COLUMNS 1 --> 
                             <div class="item">
@@ -21,18 +21,13 @@
                                         <div class="hover-effect-1">
                                             <div class="hover-effect-content text-white">
                                                 <h3 class="m-tb0 h-category">Name</h3>
-                                                <p>Lorem ipsum dolor sit amet,tetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                <a href="<?php echo base_url();?>assets/frontend/images/gallery/portrait-2/pic1.jpg" class="mfp-link"><i class="fa fa-search-plus"></i></a>
+                                                <p> </p>
+                                                <a href="<?php echo base_url();?>assets/frontend/images/gallery/portrait-3/npic1.JPEG" class="mfp-link"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                         </div>     
                                     </div>
                                 
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                             
@@ -50,12 +45,7 @@
                                         </div>                                           
                                     </div>
                                     
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
+                                    
                                    
                                 </div>
                             </div>
@@ -73,14 +63,7 @@
                                             </div>
                                         </div>                                              
                                     </div>
-                                   
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
-                                   
+                                
                                 </div>
                             </div>
                             
@@ -98,12 +81,6 @@
                                         </div>                                           
                                     </div>
                                     
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
                                    
                                 </div>
                             </div>
@@ -120,13 +97,7 @@
                                             </div>
                                         </div>                                          
                                     </div>
-                                    
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                             
@@ -142,13 +113,6 @@
                                                 <a href="images/gallery/portrait-2/pic1.jpg" class="mfp-link"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                         </div>                                           
-                                    </div>
-                                    
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
                                     </div>
                                    
                                 </div>
@@ -167,12 +131,6 @@
                                         </div>                                           
                                     </div>
                                    
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             
@@ -190,13 +148,6 @@
                                         </div>                                           
                                     </div>
                                     
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
-                                   
                                 </div>
                             </div>
 
@@ -214,16 +165,9 @@
                                         </div>                                           
                                     </div>
                                    
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            
-                            <!-- COLUMNS 6 --> 
+                             <!-- COLUMNS 6 --> 
                             <div class="item fadingcol restaurant-col">
                                 <div class="line-filter-outer">
                                     <div class="line-filter-media">                                
@@ -236,13 +180,7 @@
                                             </div>
                                         </div>                                            
                                     </div>
-                                  
-                                    <div class="line-filter  bg-white p-a30">
-                                        <div class="filter-content">
-                                            <h3 class="m-t0 m-b20 text-uppercase">Name</h3>
-                                            <a href="project-detail.html" class="site-button-link">Read More</a>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                     
