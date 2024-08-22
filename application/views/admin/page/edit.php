@@ -53,7 +53,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="exampleInput1">Banner Image (1980px 1080px)<span class="text-danger">*</span></label>
+                                    <label for="exampleInput1">Banner Image (<?php echo BANNER_IMG_WIDTH; ?>px <?php echo BANNER_IMG_HEIGHT; ?>px)</label>
                                         <div class="col-sm-6">
                                         <input class="form-control" type="file" name="images" id="formFile" style="width: 209%;margin-left: -14px;"  >
                                         <input type="hidden" name="old_image" value="<?php echo $settings[0]['logo'];?>">

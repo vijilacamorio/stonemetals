@@ -64,42 +64,44 @@ class Page extends CI_Controller {
 	        $is_active = $this->input->post('is_active');
 
 	        // Upload the image with specified width and height
+			if (!empty($_FILES['images']['name'])) {
 	        $image_upload = bannerImageUpload('images', BANNER_IMG_PATH, BANNER_IMG_WIDTH, BANNER_IMG_HEIGHT);
 
-	        if ($image_upload['error']) {
-	            $response['status'] = 'failure';
-	            $response['msg']    = $image_upload['error'];
-	        } else {
-	            $uploaded_image_path = BANNER_IMG_PATH . $image_upload['image_metadata']['file_name'];
-	            list($width, $height) = getimagesize($uploaded_image_path);
+				if ($image_upload['error']) {
+					$response['status'] = 'failure';
+					$response['msg']    = $image_upload['error'];
+				} else {
+					$uploaded_image_path = BANNER_IMG_PATH . $image_upload['image_metadata']['file_name'];
+					list($width, $height) = getimagesize($uploaded_image_path);
 
-	            if ($width > BANNER_IMG_WIDTH || $height > BANNER_IMG_HEIGHT) {
-	                unlink($uploaded_image_path);
-	                $response['status'] = 'failure';
-	                $response['msg']    = 'The image width and height should be '.BANNER_IMG_WIDTH.'*'.BANNER_IMG_HEIGHT;
-	            } else {
-	                $data = array(
-	                    'category_name' => $category_name,
-	                    'subcategory_name' => $subcategory_name,
-	                    'content' => $content,
-	                    'meta_title' => $title,
-                        'meta_description' => $description,
-	                    'meta_keywords' => $keyword,
-	                    'logo' => $image_upload['image_metadata']['file_name'],
-	                    'is_active' => $is_active
-	                );
- 
-                     $result = $this->page_model->insertpages('pages', $data);
+					if ($width > BANNER_IMG_WIDTH || $height > BANNER_IMG_HEIGHT) {
+						unlink($uploaded_image_path);
+						$response['status'] = 'failure';
+						$response['msg']    = 'The image width and height should be '.BANNER_IMG_WIDTH.'*'.BANNER_IMG_HEIGHT;
+					} else {
+						$data = array(
+							'category_name' => $category_name,
+							'subcategory_name' => $subcategory_name,
+							'content' => $content,
+							'meta_title' => $title,
+							'meta_description' => $description,
+							'meta_keywords' => $keyword,
+							'logo' => $image_upload['image_metadata']['file_name'],
+							'is_active' => $is_active
+						);
+	
+						$result = $this->page_model->insertpages('pages', $data);
 
-	                if ($result) {
-	                    $response['status'] = 'success';
-	                    $response['msg']    = 'Pagecontent has been added successfully';
-	                } else {
-	                    $response['status'] = 'failure';
-	                    $response['msg']    = 'Failed to add Pagecontent. Please try again.';
-	                }
-	            }
-	        }
+						if ($result) {
+							$response['status'] = 'success';
+							$response['msg']    = 'Pagecontent has been added successfully';
+						} else {
+							$response['status'] = 'failure';
+							$response['msg']    = 'Failed to add Pagecontent. Please try again.';
+						}
+					}
+				}
+			}
 	    }
 
 	    echo json_encode($response);

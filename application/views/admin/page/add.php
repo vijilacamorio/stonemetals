@@ -50,7 +50,7 @@
  
 
                                 <div class="form-group">
-                                    <label for="exampleInput1">Banner Image (1980px 1080px)<span class="text-danger">*</span></label>
+                                    <label for="exampleInput1">Banner Image (<?php echo BANNER_IMG_WIDTH; ?>px <?php echo BANNER_IMG_HEIGHT; ?>px)</label>
                                     <input type="file" class="form-control" id="formFile" name="images"  >
                                 </div>
 
