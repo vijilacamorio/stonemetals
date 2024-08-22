@@ -16,7 +16,6 @@ $route['pages/installation'] = 'pages/installation';
 $route['gallery'] = 'pages/gallery';
 $route['patterns'] = 'pages/patterns';
 $route['materials'] = 'pages/materials';
-$route['blog'] = 'pages/blog';
 $route['faq'] = 'pages/faq';
 $route['contact-us'] = 'pages/contact_us';
 

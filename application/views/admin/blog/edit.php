@@ -33,7 +33,10 @@
                                     <input type="hidden" class="form-control" id="blogid" name="blogid" value="<?php echo $getBlog[0]['id'];  ?>" >
 
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="meta_description">Short Description<span class="text-danger"></span></label>
+                                    <textarea class="form-control" id="short_description" name="short_description" placeholder="Short Description"><?php echo $getBlog[0]['short_description'];  ?></textarea>
+                                </div>
                                 <div class="form-group">
                                     <label for="title">Content <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
@@ -42,10 +45,10 @@
                                 </div>  
   
                                 <div class="form-group">
-                                    <label for="exampleInput1">Image (1200px 700px)<span class="text-danger">*</span></label>
+                                    <label for="exampleInput1">Image (<?php echo BLOG_IMG_WIDTH; ?>px <?php echo BLOG_IMG_HEIGHT; ?>px)<span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
                                         <input class="form-control" type="file" name="featured_image" id="formFile" style="width: 209%;margin-left: -14px;"  >
-                                        <input type="hidden" name="old_bannerimage" value="<?php echo $getBlog[0]['featured_image'];?>">
+                                        <input type="hidden" name="old_blogimage" value="<?php echo $getBlog[0]['featured_image'];?>">
                                         <br>
                                         <?php
                                         $image_url = !empty($getBlog[0]['featured_image']) ? base_url().BLOG_IMG_PATH.$getBlog[0]['featured_image'] : '';

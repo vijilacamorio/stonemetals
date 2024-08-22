@@ -31,7 +31,10 @@
                                     <label for="title">Title<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="title" name="title" placeholder="Title">
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="meta_description">Short Description<span class="text-danger"></span></label>
+                                    <textarea class="form-control" id="short_description" name="short_description" placeholder="Short Description"></textarea>
+                                </div>
                                 <div class="form-group">
                                     <label for="title">Content <span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
@@ -40,7 +43,7 @@
                                 </div>  
  
                                 <div class="form-group">
-                                    <label for="title">Image (1200px 700px)<span class="text-danger">*</span></label>
+                                    <label for="title">Image (<?php echo BLOG_IMG_WIDTH; ?>px <?php echo BLOG_IMG_HEIGHT; ?>px)<span class="text-danger">*</span></label>
                                      <input class="form-control" type="file" name="featured_image" id="formFile">
                                 </div>
 
