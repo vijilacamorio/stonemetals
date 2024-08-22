@@ -41,6 +41,7 @@ class Blog extends CI_Controller {
         $this->form_validation->set_rules('title', 'Title', 'required|trim');
         $this->form_validation->set_rules('content', 'Content', 'required|trim');
         $this->form_validation->set_rules('is_active', 'Blog Status', 'required');
+        $this->form_validation->set_rules('short_description', 'Short Description', 'required|trim');
         $this->form_validation->set_error_delimiters('', '<br/>');
     
         $response = array();
@@ -54,6 +55,7 @@ class Blog extends CI_Controller {
             $content = $this->input->post('content');
             $meta_title = $this->input->post('meta_title');
             $meta_description = $this->input->post('meta_description');
+            $shortdesc = $this->input->post('short_description');
             $meta_keywords = $this->input->post('meta_keywords');
             $is_active = $this->input->post('is_active');
     
@@ -75,7 +77,7 @@ class Blog extends CI_Controller {
                     return;
                 }
     
-                if ($width != BLOG_IMG_WIDTH || $height != BLOG_IMG_HEIGHT) {
+                if ($width > BLOG_IMG_WIDTH || $height > BLOG_IMG_HEIGHT) {
                     unlink($uploaded_image_path);
                     $response['status'] = 'failure';
                     $response['msg']    = 'The image dimensions should be ' . BLOG_IMG_WIDTH . 'x' . BLOG_IMG_HEIGHT . ' pixels.';
@@ -89,6 +91,7 @@ class Blog extends CI_Controller {
                         'meta_title' => $meta_title,
                         'meta_description' => $meta_description,
                         'meta_keywords' => $meta_keywords,
+                        'short_description' => $shortdesc,
                         'is_active' => $is_active
                     );
     
@@ -130,6 +133,7 @@ class Blog extends CI_Controller {
 	    // Set validation rules
 	   $this->form_validation->set_rules('title', 'Title', 'required|trim');
 	   $this->form_validation->set_rules('content', 'Content', 'required|trim');
+	   $this->form_validation->set_rules('short_description', 'Short Description', 'required|trim');
 	   $this->form_validation->set_rules('is_active', 'Blog Status', 'required');
 	   $this->form_validation->set_error_delimiters('', '<br/>');
 
@@ -139,50 +143,51 @@ class Blog extends CI_Controller {
 	        $response['msg']    = validation_errors();
 	    } else {
 	    	   $blogid = $this->input->post('blogid');
-	         $title = $this->input->post('title');
+	            $title = $this->input->post('title');
 				$slug = url_title($title, 'dash', TRUE);
 				$content = $this->input->post('content');
+				$shortdesc = $this->input->post('short_description');
 				$meta_title = $this->input->post('meta_title');
 				$meta_description = $this->input->post('meta_description');
 				$meta_keywords = $this->input->post('meta_keywords');
 				$isactive = $this->input->post('is_active');
+                $data = array(
+                    'title' => $title,
+                    'slug' => $slug,
+                    'short_description' => $shortdesc,
+                    'content' => $content,
+                    'meta_title' => $meta_title,
+                    'meta_description' => $meta_description,
+                    'meta_keywords' => $meta_keywords,
+                    'is_active' => $isactive
+                  );
+                $image_name = $this->input->post('old_blogimage'); 
+                if (!empty($_FILES['featured_image']['name'])) {
+                    $image_upload = blogImageUpload('featured_image', BLOG_IMG_PATH, BLOG_IMG_WIDTH, BLOG_IMG_HEIGHT);
 
-	        $image_name = $this->input->post('old_blogimage'); 
-	        if (!empty($_FILES['featured_image']['name'])) {
-	            $image_upload = blogImageUpload('featured_image', BLOG_IMG_PATH, BLOG_IMG_WIDTH, BLOG_IMG_HEIGHT);
+                    if ($image_upload['error']) {
+                        $response['status'] = 'failure';
+                        $response['msg']    = $image_upload['error'];
+                        echo json_encode($response);
+                        return;
+                    }
 
-	            if ($image_upload['error']) {
-	                $response['status'] = 'failure';
-	                $response['msg']    = $image_upload['error'];
-	                echo json_encode($response);
-	                return;
-	            }
+                    $uploaded_image_path = BLOG_IMG_PATH . $image_upload['image_metadata']['file_name'];
+                    list($width, $height) = getimagesize($uploaded_image_path);
 
-	            $uploaded_image_path = BLOG_IMG_PATH . $image_upload['image_metadata']['file_name'];
-	            list($width, $height) = getimagesize($uploaded_image_path);
+                    if ($width > BLOG_IMG_WIDTH || $height > BLOG_IMG_HEIGHT) {
+                        unlink($uploaded_image_path);
+                        $response['status'] = 'failure';
+                        $response['msg']    = 'The image width and height should be ' . BLOG_IMG_WIDTH . '*' . BLOG_IMG_HEIGHT;
+                        echo json_encode($response);
+                        return;
+                    }
 
-	            if ($width != BLOG_IMG_WIDTH || $height != BLOG_IMG_HEIGHT) {
-	                unlink($uploaded_image_path);
-	                $response['status'] = 'failure';
-	                $response['msg']    = 'The image width and height should be ' . BLOG_IMG_WIDTH . '*' . BLOG_IMG_HEIGHT;
-	                echo json_encode($response);
-	                return;
-	            }
+                    $image_name = $image_upload['image_metadata']['file_name'];
+                    $data['featured_image'] = $image_name;
+                }
 
-	            $image_name = $image_upload['image_metadata']['file_name'];
-	        }
-
-	         $data = array(
-              'title' => $title,
-              'slug' => $slug,
-              'content' => $content,
-              'featured_image' => $image_name,
-              'meta_title' => $meta_title,
-              'meta_description' => $meta_description,
-              'meta_keywords' => $meta_keywords,
-              'is_active' => $isactive
- 
-            );
+	         
 
 	        $result = $this->blog_model->update_blogs($blogid, $data, 'blog');
 

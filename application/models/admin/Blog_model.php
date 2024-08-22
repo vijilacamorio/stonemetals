@@ -16,12 +16,15 @@ class Blog_model extends CI_Model {
     }
 
     
-    public function get_dataforindex()
+    public function get_dataforindex($frontend='')
     { 
       $this->db->select('*');
       $this->db->from('blog');
       $this->db->where('is_deleted', 0);
-      $this->db->where('is_active', 1); 
+      if($frontend !=""){
+        $this->db->where('is_active', 1); 
+      }
+      $this->db->order_by('modified_date','desc');
       $query = $this->db->get();
       if ($query->num_rows() > 0) {
           return $query->result_array();
@@ -36,7 +39,6 @@ class Blog_model extends CI_Model {
       $this->db->from('blog');
       $this->db->where('id', $blog_id); 
       $this->db->where('is_deleted', 0);
-      $this->db->where('is_active', 1); 
       $query = $this->db->get();
       if ($query->num_rows() > 0) {
           return $query->result_array();
