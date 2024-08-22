@@ -1,45 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- ABOUT SECTION START -->
     <div class="section-full welcome-section-outer">
         <br>
         <div style="background: black;height: 75px;padding-top: 20px;">
         <h3 style="text-align:center;color:white;"><?php echo $page_title; ?></h3>
-        </div>
-        
-            <div class="welcome-section-top bg-white p-t80 p-b50">
-                <div class="container">
+          </div>
+            <div class="welcome-section-top bg-white   p-b50">
+                <div class="container" style="max-width: 2000px;!important  ">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-lg-7 col-md-12 m-b30">
+                        <div  >
                             <div class="welcom-to-section"  >
-                 
-
-                            <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Form</title>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-  <!-- assets\img -->
-    <div class="container">
-       <!-- <img src="img/shape.png" class="square" alt="" /> -->
-      <img src="<?php echo base_url();?>assets/img/news-5.jpg" alt="" style="height: 215px;width: 600px;" >
-      <br><br><br>
+  <body> 
+     <div class="container" >
+       <!-- <img src="<?php //echo base_url();?>assets/img/news-5.jpg" alt="" style="height: 215px;width: 818px;" > -->
+      <br><br> 
       <div class="form">
         <div class="contact-info">
           <h3 class="title">Let's get in touch</h3>
           <p class="text">
             Stone & Metals
           </p>
-
           <div class="info">
             <div class="information">
-              <i class="fas fa-map-marker-alt" style="margin-bottom: 55px;"></i> &nbsp; &nbsp;
+              <i class="fas fa-map-marker-alt" style="margin-bottom:42px;"></i> &nbsp; &nbsp;
               <p><?php echo $data[0]['location'];?></p> 
             </div>
             <div class="information">
@@ -51,7 +34,6 @@
               <p><?php echo $data[0]['mobile_number'];?></p> 
             </div>
           </div>
-
           <div class="social-media">
             <p>Connect with us :</p>
             <div class="social-icons">
@@ -70,51 +52,56 @@
             </div>
           </div>
         </div>
-
-        <div class="contact-form">
-          <span class="circle one"></span>
-          <span class="circle two"></span>
-          <form action="pages/getdata_insert" autocomplete="off" method="post" >
-            <h3 class="title">Contact us</h3>
-            <!-- <label for="" >Username</label> -->
-            <div class="input-container">
-              <input type="text" name="name" class="input" placeholder="Username" />
-              
-            </div>
-            <div class="input-container">
-              <input type="email" name="email" class="input" placeholder="email" />
-              <!-- <label for="">Email</label> -->
-              <!-- <span>Email</span> -->
-            </div>
-            <div class="input-container">
-              <input type="number" name="phone" class="input" placeholder="phone" />
-              <!-- <label for="">Phone</label> -->
-              <!-- <span>Phone</span> -->
-            </div>
-            <div class="input-container textarea">
-              <textarea name="message" class="input" placeholder="Message"></textarea>
-              <!-- <label for="">Message</label> -->
-              <!-- <span>Message</span> -->
-            </div>
-            <input type="submit" value="Send" class="btn" />
-          </form>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-    
+    <div class="contact-form">
+      <span class="circle one"></span>
+      <span class="circle two"></span>
+              <div class="show"></div>
+                        <form data-aos="fade-up" data-aos-duration="1500" id="contactForm">
+                      <h3 class="title" style="text-align:center;">Contact us</h3>
+                      <div>
+                      <label for="name" style="color:white;" >Name *</label>
+                        <div>
+                            <input type="text" name="name" class="input"    />
+                          </div>
+                        </div>
+                      <br>
+                        <div>
+                            <label for="email" style="color:white;" >Email *</label>
+                              <div  >
+                              <input type="email" name="email" class="input"   />
+                          </div>
+                        </div>
+                        <br>
+                        <div>
+                          <label for="phone" style="color:white;" >Phone *</label>
+                          <div  >
+                            <input type="tel" name="phone" id="phone" class="input"    />
                             </div>
-                         </div>
-                     </div>
-                </div> 
+                          </div>
+                          <br>
+                          <div>
+                          <label for="phone" style="color:white;" >Message</label>
+                          <div class="textarea">
+                            <textarea name="message" class="input" placeholder="Message"></textarea>
+                          </div>
+                          </div>
+                          <button type="submit" class="button-submit ">Submit</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
             </div>
-        </div>  
-        <!-- ABOUT SECTION  SECTION END -->       
-<style>
+          </div> 
+        </div>
+      </div>  
+    <!-- ABOUT SECTION  SECTION END -->  
+ <style>
+  .error{
+    color:red
+  }
 .form {
-  width: 100%;
-  max-width: 820px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
@@ -123,32 +110,27 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-
 .contact-form {
   background-color: #111111;
   position: relative;
 }
-
 .circle {
   border-radius: 50%;
   background: linear-gradient(135deg, transparent 20%, #6c757d);
   position: absolute;
 }
-
 .circle.one {
   width: 130px;
   height: 130px;
   top: 130px;
   right: -40px;
 }
-
 .circle.two {
   width: 80px;
   height: 80px;
   top: 10px;
   right: 30px;
 }
-
 .contact-form:before {
   content: "";
   position: absolute;
@@ -159,14 +141,12 @@
   top: 50px;
   left: -13px;
 }
-
 form {
   padding: 2.3rem 2.2rem;
   z-index: 10;
   overflow: hidden;
   position: relative;
 }
-
 .title {
   color: #fff;
   font-weight: 500;
@@ -174,12 +154,10 @@ form {
   line-height: 1;
   margin-bottom: 0.7rem;
 }
-
 .input-container {
   position: relative;
   margin: 1rem 0;
 }
-
 .input {
   width: 100%;
   outline: none;
@@ -193,7 +171,6 @@ form {
   border-radius: 5px;
   transition: 0.3s;
 }
-
 textarea.input {
   padding: 0.8rem 1.2rem;
   min-height: 150px;
@@ -201,7 +178,6 @@ textarea.input {
   resize: none;
   overflow-y: auto;
 }
-
 .input-container label {
   position: absolute;
   top: 50%;
@@ -215,13 +191,11 @@ textarea.input {
   z-index: 1000;
   transition: 0.5s;
 }
-
 .input-container.textarea label {
   top: 1rem;
   transform: translateY(0);
 }
-
-.btn {
+.button-submit {
   padding: 0.6rem 1.3rem;
   background-color: #fff;
   border: 2px solid #fafafa;
@@ -235,12 +209,10 @@ textarea.input {
   margin: 0;
   width: 100%;
 }
-
-.btn:hover {
+.button-submit:hover {
   background-color: transparent;
   color: #fff;
 }
-
 .input-container span {
   position: absolute;
   top: 0;
@@ -252,7 +224,6 @@ textarea.input {
   pointer-events: none;
   z-index: 500;
 }
-
 .input-container span:before,
 .input-container span:after {
   content: "";
@@ -265,42 +236,34 @@ textarea.input {
   top: 50%;
   transform: translateY(-50%);
 }
-
 .input-container span:before {
   left: 50%;
 }
-
 .input-container span:after {
   right: 50%;
 }
-
 .input-container.focus label {
   top: 0;
   transform: translateY(-50%);
   left: 25px;
   font-size: 0.8rem;
 }
-
 .input-container.focus span:before,
 .input-container.focus span:after {
   width: 50%;
   opacity: 1;
 }
-
 .contact-info {
   padding: 2.3rem 2.2rem;
   position: relative;
 }
-
 .contact-info .title {
   color: #111111;
 }
-
 .text {
   color: #333;
   margin: 1.5rem 0 2rem 0;
 }
-
 .information {
   display: flex;
   color: #555;
@@ -308,29 +271,23 @@ textarea.input {
   align-items: center;
   font-size: 0.95rem;
 }
-
 .information i {
   color: #6c757d;
 }
-
 .icon {
   width: 28px;
   margin-right: 0.7rem;
 }
-
 .social-media {
   padding: 2rem 0 0 0;
 }
-
 .social-media p {
   color: #333;
 }
-
 .social-icons {
   display: flex;
   margin-top: 0.5rem;
 }
-
 .social-icons a {
   width: 35px;
   height: 35px;
@@ -342,11 +299,9 @@ textarea.input {
   margin-right: 0.5rem;
   transition: 0.3s;
 }
-
 .social-icons a:hover {
   transform: scale(1.05);
 }
-
 .contact-info:before {
   content: "";
   position: absolute;
@@ -358,9 +313,6 @@ textarea.input {
   right: 50px;
   opacity: 0.3;
 }
-
- 
-
 .big-circle:after {
   content: "";
   position: absolute;
@@ -371,7 +323,6 @@ textarea.input {
   top: calc(50% - 180px);
   left: calc(50% - 180px);
 }
-
 .square {
   position: absolute;
   height: 400px;
@@ -380,92 +331,162 @@ textarea.input {
   transform: translate(181%, 11%);
   opacity: 0.2;
 }
-
 @media (max-width: 850px) {
   .form {
     grid-template-columns: 1fr;
   }
-
   .contact-info:before {
     bottom: initial;
     top: -75px;
     right: 65px;
     transform: scale(0.95);
   }
-
   .contact-form:before {
     top: -13px;
     left: initial;
     right: 70px;
   }
-
   .square {
     transform: translate(140%, 43%);
     height: 350px;
   }
-
   .big-circle {
     bottom: 75%;
     transform: scale(0.9) translate(-40%, 30%);
     right: 50%;
   }
-
   .text {
     margin: 1rem 0 1.5rem 0;
   }
-
   .social-media {
     padding: 1.5rem 0 0 0;
   }
 }
-
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem;
-  }
-
   .contact-info:before {
     display: none;
   }
-
   .square,
   .big-circle {
     display: none;
   }
-
   form,
   .contact-info {
     padding: 1.7rem 1.6rem;
   }
-
   .text,
   .information,
   .social-media p {
     font-size: 0.8rem;
   }
-
   .title {
     font-size: 1.15rem;
   }
-
   .social-icons a {
     width: 30px;
     height: 30px;
     line-height: 30px;
   }
-
   .icon {
     width: 23px;
   }
-
   .input {
     padding: 0.45rem 1.2rem;
   }
-
   .btn {
     padding: 0.45rem 1.2rem;
   }
 }
-
         </style>
- 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script type="text/javascript">
+ $.validator.addMethod("trimspaces", function(value, element) {
+    return this.optional(element) || $.trim(value).length > 0;
+}, "This field cannot be empty or filled with spaces");
+$("#contactForm").validate({
+    rules: {
+        name: {
+            required: true,
+            trimspaces: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        phone: {
+            required: true,
+            digits: true,
+            maxlength: 10
+        }
+    },
+    messages: {
+        name: "Please enter your name",
+        email: {
+            required: "Please enter your email address",
+            email: "Please enter a valid email address"
+        },
+        phone: {
+            required: "Please enter your phone number",
+            digits: "Please enter only numbers",
+            maxlength: "Phone number cannot exceed 10 digits"
+        }
+    },
+    submitHandler: function(form) {
+        var formData = $(form).serialize();
+        $('#load_text').css('display', 'block'); 
+        $.ajax({
+            type: 'POST',
+            url: '<?= base_url('pages/insertContact'); ?>',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                $('#load_text').css('display', 'none');
+                if (response.status === 'success') {
+                    $('.show').html(
+                        '<div class="alert alert-success alert-dismissible" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">×</span></button>' +
+                        response.msg + '</div>'
+                    );
+                    setTimeout(function() { 
+                        location.reload(); 
+                    }, 3000);
+                    setTimeout(function() {
+                        $('.show').modal('hide');
+                    }, 1500);
+                } else {
+                    $('.show').html(
+                        '<div class="alert alert-danger alert-dismissible" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">×</span></button>' +
+                        response.msg + '</div>'
+                    );
+                }
+            },
+            error: function(xhr, status, error) {
+                $('#load_text').css('display', 'none');
+                $('.show').html(
+                    '<div class="alert alert-danger alert-dismissible" role="alert">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                    '<span aria-hidden="true">×</span></button>' +
+                    'An error occurred: ' + error + '</div>'
+                );
+                console.log("Error: ", error);
+                console.log("Status: ", status);
+                console.log("XHR: ", xhr);
+            }
+        });
+        return false;
+    }
+});
+ function exitnumbers(input, maxLength) {
+    input.value = input.value.replace(/\D/g, '');
+    if (input.value.length > maxLength) {
+        input.value = input.value.slice(0, maxLength);
+    }
+}
+$('#phone').on('input', function() {
+    exitnumbers(this, 10);
+});
+</script>

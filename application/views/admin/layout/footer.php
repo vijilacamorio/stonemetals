@@ -29,6 +29,7 @@
     <script src="<?php echo base_url(); ?>backend/assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/t6d9eb3gnmp6qwcugj346vj2ks5n3l1duwo3gmx8ltgjd3n0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="<?php echo base_url();?>backend/main/js/sweetalert.min.js"></script>
+  
     <script>
     $(document).ready(function() {
         $('#myTable').DataTable();

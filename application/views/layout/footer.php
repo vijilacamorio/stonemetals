@@ -1,11 +1,8 @@
 <footer class="site-footer footer-large footer-dark text-white footer-style1" >
-
-        
 <!-- FOOTER BLOCKES START -->  
 <div class="footer-top bg-no-repeat bg-bottom-right" style="background-image:url(images/background/footer-bg.png)">
     <div class="container-fluid">
         <div class="row">
-        
             <div class="col-lg-5 col-md-12 col-sm-12"> 
                 <div class="footer-h-left"> 
                     <div class="widget widget_about">
@@ -29,9 +26,7 @@
                         <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li> -->
                     </ul> 
                 </div>                              
-                
             </div> 
-
             <div class="row footer-h-right">
     <!-- First Column -->
     <div class="col-lg-3 col-md-6 col-sm-12">
@@ -47,7 +42,6 @@
             </ul>
         </div>
     </div>
-
     <!-- Second Column -->
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="widget widget_services" style="margin-left:15px;"  >
@@ -64,7 +58,6 @@
             </ul>
         </div>
     </div>
-
     <!-- Third Column -->
     <div class="col-lg-3 col-md-6 col-sm-12">
         <div class="widget widget_services" style="margin-left:15px;"  >
@@ -76,7 +69,6 @@
             </ul>
         </div>
     </div>
-
     <!-- Fourth Column - Our Services -->
     <div class="col-lg-2 col-md-6 col-sm-12">
         <div class="widget widget_services" style="margin-left:15px;" >
@@ -93,37 +85,25 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-                
-             
             </div> 
-
         </div>
     </div>
 </div>
 <!-- FOOTER COPYRIGHT -->
-
 <div class="footer-bottom">
   <div class="container-fluid">
     <div class="wt-footer-bot-left d-flex justify-content-between">
         <span class="copyrights-text">Copyright © <?php echo date('Y'); ?> <span class="site-text-primary" style="color:white;">Amorio Technologies</span></span>
-        <ul class="copyrights-nav"> 
-            <li><a href="javascript:void(0);">Terms  &amp; Condition</a></li>
-            <li><a href="javascript:void(0);">Privacy Policy</a></li>
-            <li><a href="contact-1.html">Contact Us</a></li>
+        <ul class="copyrights-nav"  > 
+            <li><a  style="color:white;" href="javascript:void(0);">Terms  &amp; Condition</a></li>
+            <li><a  style="color:white;" href="javascript:void(0);">Privacy Policy</a></li>
+            <li><a  style="color:white;" href="contact-1.html">Contact Us</a></li>
         </ul>     
     </div>
   </div>   
 </div>   
-
-
 </footer>
 <!-- FOOTER END -->
-
 <!-- Get In Touch -->                            
 <div class="contact-slide-hide bg-cover bg-no-repeat" style="background-image:url(images/background/bg-7.jpg)"> 
 <div class="contact-nav">
@@ -150,35 +130,29 @@
                                             <input name="username" type="text" required class="form-control" placeholder="Name">
                                         </div>
                                     </div>
-                                    
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
                                            <input name="email" type="text" class="form-control" required placeholder="Email">
                                         </div>
                                     </div>
-                                    
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <input name="phone" type="text" class="form-control" required placeholder="Phone">
                                          </div>
                                     </div>
-                                    
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
                                              <input name="subject" type="text" class="form-control" required placeholder="Subject">
                                          </div>
                                     </div>
-                                    
                                     <div class="col-md-12">
                                         <div class="form-group">
                                            <textarea name="message" class="form-control" rows="4" placeholder="Message"></textarea>
                                          </div>
                                     </div>
-                                    
                                    <div class="col-md-12">
                                         <button type="submit" class="site-button site-btn-effect">Submit Now</button>
                                     </div>
-                                    
                                 </div>
                         </div>
                     </form>
@@ -216,23 +190,16 @@
                 </div>
             </div>
         </div>
-                                                                            
      </div>
 </div> 
 </div>     
-
 <!-- BUTTON TOP START -->
 <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
-
-
-
 </div>
-
 <!-- LOADING AREA START ===== -->
 <div class="loading-area">
 <div class="loading-box"></div>
 <div class="loading-pic">
-
 <div class="loader">
 <span class="block-1"></span>
 <span class="block-2"></span>
@@ -254,7 +221,6 @@
 </div>
 </div>
 <!-- LOADING AREA  END ====== -->
-
 <!-- JAVASCRIPT  FILES ========================================= --> 
 <script  src="<?php echo base_url(); ?>assets/frontend/js/jquery-2.2.0.min.js"></script><!-- JQUERY.MIN JS -->
 <script  src="<?php echo base_url(); ?>assets/frontend/js/popper.min.js"></script><!-- POPPER.MIN JS -->
@@ -272,50 +238,18 @@
 <script  src="<?php echo base_url(); ?>assets/frontend/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
 <script  src="<?php echo base_url(); ?>assets/frontend/js/lc_lightbox.lite.js" ></script><!-- IMAGE POPUP -->
 <script  src="<?php echo base_url(); ?>assets/frontend/js/switcher.js"></script><!-- SHORTCODE FUCTIONS  -->
-
 <!-- REVOLUTION JS FILES -->
-
 <script  src="<?php echo base_url(); ?>assets/frontend/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
 <script  src="<?php echo base_url(); ?>assets/frontend/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
-
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->    
 <script  src="<?php echo base_url(); ?>assets/frontend/plugins/revolution/revolution/js/extensions/revolution-plugin.js"></script>
-
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
 <script  src="<?php echo base_url(); ?>assets/frontend/js/rev-script-5.js"></script>
-
-
-<!-- STYLE SWITCHER  ======= --> 
-<div class="styleswitcher">
-
-<div class="switcher-btn-bx">
-<a class="switch-btn">
-<span class="fa fa-cog fa-spin"></span>
-</a>
-</div>
-
-<div class="styleswitcher-inner">
-
-<h6 class="switcher-title">Color Skin</h6>
-<ul class="color-skins">
-<li><a class="theme-skin skin-1" href="?theme=css/skin/skin-1"></a></li>
-<li><a class="theme-skin skin-2" href="?theme=css/skin/skin-2"></a></li>
-<li><a class="theme-skin skin-3" href="?theme=css/skin/skin-3"></a></li>
-<li><a class="theme-skin skin-4" href="?theme=css/skin/skin-4"></a></li>
-<li><a class="theme-skin skin-5" href="?theme=css/skin/skin-5"></a></li>
-<li><a class="theme-skin skin-6" href="?theme=css/skin/skin-6"></a></li>
-<li><a class="theme-skin skin-7" href="?theme=css/skin/skin-7"></a></li>
-<li><a class="theme-skin skin-8" href="?theme=css/skin/skin-8"></a></li>
-<li><a class="theme-skin skin-9" href="?theme=css/skin/skin-9"></a></li>
-<li><a class="theme-skin skin-10" href="?theme=css/skin/skin-10"></a></li>
-<li><a class="theme-skin skin-11" href="?theme=css/skin/skin-11"></a></li>
-<li><a class="theme-skin skin-12" href="?theme=css/skin/skin-12"></a></li>
-</ul>           
-
-</div>    
-</div>
-<!-- STYLE SWITCHER END ==== -->
-
+<!-- <script  src="<?php echo base_url(); ?>assets/frontend/js/jquery-3.6.0.min.js"></script> 
+<script  src="<?php echo base_url(); ?>assets/frontend/js/jquery.validate.min.js"></script>  -->
+<!-- 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+ -->
 </body>
-
 </html>
