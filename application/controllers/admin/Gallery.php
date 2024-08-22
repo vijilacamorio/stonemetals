@@ -184,11 +184,11 @@ public function updateGallery()
 	{
 	  $bannerid = $this->input->post('id');
       $data = array('is_deleted' => 1);
-	   $result = $this->gallery_model->update_homebanners($bannerid, $data, 'banner_images');
+	   $result = $this->gallery_model->updateGallery($bannerid, $data);
 	   if ($result) {
 	      $response = array(
 	         'success' => true,
-	         'message' => 'Banner deleted successfully.'
+	         'message' => 'Gallery has been deleted successfully.'
 	      );
 	   } else {
 	      $response = array(

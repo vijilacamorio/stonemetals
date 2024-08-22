@@ -29,10 +29,12 @@
                 <li> <a class="waves-effect waves-dark <?php echo $this->uri->segment(2) =='blog' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/blog" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Blog</span></a>   
                 </li>
 
-
+               <?php /*
                 <li> <a class="waves-effect waves-dark <?php echo $this->uri->segment(2) =='banner' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/banner" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Banners</span></a>
-                </li>
+                </li> */ ?>
                 <li> <a class="waves-effect waves-dark <?php echo $this->uri->segment(2) =='gallery' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/gallery" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Galleries</span></a>
+                </li>
+                <li> <a class="waves-effect waves-dark <?php echo $this->uri->segment(2) =='faq' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/faq" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Faq</span></a>
                 </li>
                 <li> <a class="waves-effect waves-dark <?php echo $this->uri->segment(2) =='seosetting' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/seosetting" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Seo Settings</span></a>
                 </li>
