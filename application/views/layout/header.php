@@ -9,8 +9,8 @@
       <meta name="robots" content="" />
       <meta name="description" content="" />
       <!-- FAVICONS ICON -->
-      <link rel="icon" href="<?php echo base_url(); ?>assets/frontend/images/favicon.ico" type="image/x-icon" />
-      <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url(); ?>assets/frontend/images/favicon.png" />
+      <link rel="icon" href="<?php echo base_url(); ?>assets/frontend/images/" type="image/x-icon" />
+      <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url().LOGO_IMG_PATH.$settings[0]['logo']; ?>">
       <!-- PAGE TITLE HERE -->
       <title>Stone & Metal</title>
       <!-- MOBILE SPECIFIC -->

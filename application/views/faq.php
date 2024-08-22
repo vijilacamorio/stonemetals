@@ -4,202 +4,130 @@
         <div style="background: black;height: 75px;padding-top: 20px;">
         <h3 style="text-align:center;color:white;"><?php echo $page_title; ?></h3>
         </div>
-        
-            <div class="welcome-section-top bg-white p-t80 p-b50">
+            <div class="welcome-section-top bg-white  p-b50">
                 <div class="container">
-                    <div >
-                      
-
-
-                        <section class="faq-section">
-<div class="container">
-  <div class="row">
-                    <!-- ***** FAQ Start ***** -->
-                    <div class="col-md-6 offset-md-3">
-
-                        <div class="faq-title text-center pb-3">
-                            <h2>FAQ</h2>
-                        </div>
+                    <div >                  
+                    <br>
+                <div class="container">
+                    <div class="accordion">
+                        <?php foreach ($data as $index => $faq_item): ?>
+                            <div class="accordion-item">
+                                <button id="accordion-button-<?= $index + 1 ?>" aria-expanded="false">
+                                    <span class="accordion-title"><?= htmlspecialchars($faq_item['faq_title']) ?></span>
+                                    <span class="icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="accordion-content">
+                                    <p><?= htmlspecialchars($faq_item['faq_answer']) ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                    <div class="col-md-6 offset-md-3">
-                        <div class="faq" id="accordion">
-                            <div class="card">
-                                <div class="card-header" id="faqHeading-1">
-                                    <div class="mb-0">
-                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
-                                            <span class="badge">1</span>What is Lorem Ipsum?
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="card">
-                                <div class="card-header" id="faqHeading-2">
-                                    <div class="mb-0">
-                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="false" data-aria-controls="faqCollapse-2">
-                                            <span class="badge">2</span> Where does it come from?
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            
-                            <div class="card">
-                                <div class="card-header" id="faqHeading-7">
-                                    <div class="mb-0">
-                                        <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-7" data-aria-expanded="false" data-aria-controls="faqCollapse-7">
-                                            <span class="badge">7</span> Why do we use it?
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div id="faqCollapse-7" class="collapse" aria-labelledby="faqHeading-7" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
                 </div>
-                </section>
-
-
-
-                            
-                    </div>
-                </div> 
             </div>
-        </div>  
-        <!-- ABOUT SECTION  SECTION END -->       
-
-        <style>
-
- 
-.faq-section {
-    background: #fdfdfd;
-    /* min-height: 100vh; */
-    padding: 10vh 0 0;
+        </div> 
+    </div>
+</div>  
+<!-- ABOUT SECTION  SECTION END -->       
+<style>
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+.accordion .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
 }
-.faq-title h2 {
+.accordion .accordion-item button[aria-expanded='true'] {
+  border-bottom: 1px solid #000000;
+}
+.accordion button {
   position: relative;
-  margin-bottom: 45px;
-  display: inline-block;
-  font-weight: 600;
-  line-height: 1;
-}
-.faq-title h2::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 60px;
-    height: 2px;
-    background: #E91E63;
-    bottom: -25px;
-    margin-left: -30px;
-}
-.faq-title p {
-  padding: 0 190px;
-  margin-bottom: 10px;
-}
-
-.faq {
-  background: #FFFFFF;
-  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-}
-
-.faq .card {
-  border: none;
-  background: none;
-  border-bottom: 1px dashed #CEE1F8;
-}
-
-.faq .card .card-header {
-  padding: 0px;
-  border: none;
-  background: none;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-.faq .card .card-header:hover {
-    background: rgba(233, 30, 99, 0.1);
-    padding-left: 10px;
-}
-.faq .card .card-header .faq-title {
-  width: 100%;
+  display: block;
   text-align: left;
-  padding: 0px;
-  padding-left: 30px;
-  padding-right: 30px;
+  width: 100%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.15rem;
   font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 1px;
-  color: #3B566E;
-  text-decoration: none !important;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  border: none;
+  background: none;
+  outline: none;
+}
+.accordion button:hover,
+.accordion button:focus {
   cursor: pointer;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  color: #000000;
 }
-
-.faq .card .card-header .faq-title .badge {
+.accordion button:hover::after,
+.accordion button:focus::after {
+  cursor: pointer;
+  color: #000000;
+  border: 1px solid #000000;
+}
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em 0;
+}
+.accordion button .icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 14px;
-  float: left;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
-  text-align: center;
-  background: #E91E63;
-  color: #fff;
-  font-size: 12px;
-  margin-right: 20px;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
 }
-
-.faq .card .card-body {
-  padding: 30px;
-  padding-left: 35px;
-  padding-bottom: 16px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #6F8BA4;
-  line-height: 28px;
-  letter-spacing: 1px;
-  border-top: 1px solid #F3F8FF;
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
 }
-
-.faq .card .card-body p {
-  margin-bottom: 14px;
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
 }
-
-@media (max-width: 991px) {
-  .faq {
-    margin-bottom: 30px;
+.accordion button[aria-expanded='true'] {
+  color: #000000;
+}
+.accordion button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded='true'] + .accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2em 0;
+}
+</style>
+<script>
+const items = document.querySelectorAll('.accordion button');
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
   }
-  .faq .card .card-header .faq-title {
-    line-height: 26px;
-    margin-top: 10px;
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
   }
-}        </style>
+}
+items.forEach((item) => item.addEventListener('click', toggleAccordion));
+</script>
