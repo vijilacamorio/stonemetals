@@ -58,11 +58,12 @@ class Page_model extends CI_Model {
         }
     }
     public function getallpages_data(){
-        $this->db->select('pages.*,categories.category_name as cate_name');
+        $this->db->select('pages.*,categories.category_name as cate_name, subcategories.subcategory_name as subcat_name','left');
         $this->db->from('pages');
         $this->db->join('categories', 'categories.id = pages.category_name','left');
+        $this->db->join('subcategories', 'subcategories.id = pages.subcategory_name','left');
         $this->db->where('pages.is_deleted', 0);
-        $this->db->where('pages.is_active', 1); 
+        //$this->db->where('pages.is_active', 1); 
         $this->db->where('categories.is_deleted', 0);
         $this->db->where('categories.is_active', 1); 
         $query = $this->db->get();
