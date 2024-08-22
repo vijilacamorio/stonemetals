@@ -19,7 +19,9 @@ class User extends CI_Controller {
 	
 	public function dashboard()
 	{   
+		$this->load->model('admin/contact_model');
         $data = array('page_title' => 'Dashboard');
+		$data['contacts']		= $this->contact_model->getContacts('yes');
 		$this->load->view('admin/dashboard', $data);
 	}
     

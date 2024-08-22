@@ -41,7 +41,8 @@
 
                 <li> <a class="has-arrow waves-effect waves-dark <?php echo $this->uri->segment(2) =='setting' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/setting" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Setting</span></a> 
                  </li>
-
+                 <li> <a class="has-arrow waves-effect waves-dark <?php echo $this->uri->segment(2) =='contacts' ? 'active' : ''; ?>" href="<?php echo base_url(); ?>admin/contacts" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Contacts</span></a> 
+                 </li>
  
              </ul>
         </nav>

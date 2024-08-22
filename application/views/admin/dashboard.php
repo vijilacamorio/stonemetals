@@ -18,20 +18,45 @@
 
    
    
-    <div class="container-fluid" style=" width: 600px; margin-right: 1050px;">
+    <div class="container-fluid" >
         <div class="card-group">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="m-b-0"><i class="mdi mdi-briefcase-check text-info"></i></h2>
-                            <h3 class="">0000</h3>
-                            <h6 class="card-subtitle">New Projects</h6></div>
-                        <div class="col-12">
-                            <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 85%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <h6 class="card-subtitle">Recent Contacts</h6></div>
+                            <div class="col-12">
+                                <table class="table table-bordered table-striped dataTable no-footer">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Message</th>
+                                        <th>Date</th>
+                                    </tr>
+                                    <?php
+                                    if(!empty($contacts)){
+                                        foreach($contacts as $cdata){
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $cdata['name']; ?></td>
+                                                <td><?php echo $cdata['phone']; ?></td>
+                                                <td><?php echo $cdata['email']; ?></td>
+                                                <td><?php echo $cdata['message']; ?></td>
+                                                <td><?php echo date('d-m-Y H:i:s',strtotime($cdata['created_date'])); ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }else{
+                                        ?>
+                                        <tr>
+                                            <td colspan="5">No contacts available</td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
+                                </table>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
