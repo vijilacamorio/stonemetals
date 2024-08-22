@@ -8912,6 +8912,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 	position: relative;
 	padding: 0px;
 	z-index: 10;
+	margin-top: -50px;
 }
 
 .header-nav .nav {
@@ -9420,7 +9421,7 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 
 .header-style-1 .header-nav .nav > li{margin:0px;padding:0px;}
 .header-style-1 .header-nav .nav > li > a{margin:0px; padding:14px 10px;}
-.header-style-1 .header-nav{float:left;}
+/* .header-style-1 .header-nav{float:left;} */
 
 .header-style-1 .header-nav-request{float:right;}
 .header-style-1 .header-nav-request a{background-color:#ff5e15;display: block;color:#fff;padding:12px 20px 13px 20px; text-transform:uppercase;}

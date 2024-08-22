@@ -1,11 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Pages_model extends CI_Model {
-
     public function __construct() {
-
         parent::__construct();
-  
     }
     public function getPageContent($menu,$submenu=""){
         $this->db->select('pages.*');
@@ -24,15 +20,12 @@ class Pages_model extends CI_Model {
             return $query->result_array();
         }
     }
-
-
     public function contactus(){
         $this->db->select('email_address,mobile_number,location,facebook_url,instagram_url,linkedin_url');
         $this->db->from('settings');
         $this->db->where('is_deleted', 0);
         $this->db->where('is_active', 1); 
         $query = $this->db->get();
-
         if ($query->num_rows() > 0) {
             return $query->result_array();
         }

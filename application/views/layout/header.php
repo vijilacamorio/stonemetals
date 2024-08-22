@@ -53,7 +53,7 @@
         <!-- HEADER START -->
         <header class="site-header header-style-1 mobile-sider-drawer-menu">
             <!-- SITE Search -->
-            <div id="search-toggle-block">
+            <!-- <div id="search-toggle-block">
                 <div id="search"> 
                     <form role="search" id="searchform" action="/search" method="get" class="radius-xl">
                         <div class="input-group">
@@ -83,54 +83,71 @@
                         <div style="color:white;" >
                         <span class="icon-cell"><i class="far fa-envelope" style="font-size: 15px"></i> </span>
                         &nbsp;<span><a style="color:white;"  href=""><?php echo $settings[0]['email_address']; ?></a></span>   
-                        </div>                 
+ 
+                    </div>                 
                         </li>
                     </ul>
                 </div> 
-           </div>
+           </div> -->
+
+
+
+
             <div class="sticky-header main-bar-wraper  navbar-expand-lg">
-                <div class="main-bar">                       
-                       <div class="container clearfix" >                       
-                            <!-- NAV Toggle Button -->
-                            <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar icon-bar-first"></span>
-                                <span class="icon-bar icon-bar-two"></span>
-                                <span class="icon-bar icon-bar-three"></span>
-                            </button>
-                            <!-- MAIN Vav -->
-                            <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center" style="margin-left:175px;">
-                                <ul class=" nav navbar-nav">
-                                  <?php  foreach($menu_array as $menu_val){ ?>
-                                    <li>
-                                    <?php $menu_link = !empty($menu_val['submenu']) && $menu_val['slug']!='applications' ? 'javascript:void;' : base_url($menu_val['slug']); ?>
-                                    <a href="<?php echo $menu_link;?>"><?php echo $menu_val['name']; ?></a>
-                                     <?php
-                                        if($menu_val['submenu']){
-                                            if($menu_val['submenu'] =='applications'){
-                                                ?>
-                                                <ul class="sub-menu">
-                                                <?php  foreach($menu_val['submenu'] as $submemu){
-                                                                echo '<li class="active"><a href="' . base_url('applications/#') . $submemu['slug'] . '">' . $submemu['name'] . '</a></li>';
-                                                } ?>
-                                                </ul>
-                                            <?php  }else{
-                                                ?>
-                                                <ul class="sub-menu">
-                                                <?php  foreach($menu_val['submenu'] as $submemu){
-                                                                echo '<li class="active"><a href="' . base_url('pages/') . $submemu['slug'] . '">' . $submemu['name'] . '</a></li>';
-                                                } ?>
-                                                </ul>
-                                                <?php
-                                            }
-                                            }
-                                        ?>
-                                       
-                                    </li>
-                                    <?php  } ?>                             
-                                </ul>  
-                            </div>
-                        </div>    
+                <div class="main-bar">   
+                    
+                <div class="logo-header-inner logo-header-one">
+                        <a href="<?php echo base_url(); ?>">
+                         <img style="height:50px; width:100px" src ="<?php echo base_url().LOGO_IMG_PATH.$settings[0]['logo']; ?>" alt="Stone & Metal"/>
+                        </a>
+                    </div>
+
+
+                    <div class="container clearfix">                       
+    <!-- NAV Toggle Button -->
+    <button id="mobile-side-drawer" data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggler collapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar icon-bar-first"></span>
+        <span class="icon-bar icon-bar-two"></span>
+        <span class="icon-bar icon-bar-three"></span>
+    </button>
+
+    <!-- MAIN NAV -->
+    <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
+        <ul class="nav navbar-nav">
+            <?php foreach ($menu_array as $menu_val): ?>
+                <li>
+                    <?php 
+                    $menu_link = !empty($menu_val['submenu']) && $menu_val['slug'] != 'applications'
+                        ? 'javascript:void(0);' 
+                        : base_url($menu_val['slug']); 
+                    ?>
+                    <a href="<?php echo $menu_link; ?>"><?php echo htmlspecialchars($menu_val['name']); ?></a>
+                    <?php if (!empty($menu_val['submenu'])): ?>
+                        <ul class="sub-menu">
+                            <?php foreach ($menu_val['submenu'] as $submenu): ?>
+                                <?php
+                                $submenu_link = $menu_val['slug'] == 'applications'
+                                    ? base_url('applications/#' . $submenu['slug'])
+                                    : base_url('pages/' . $submenu['slug']);
+                                ?>
+                                <li class="active">
+                                    <a href="<?php echo $submenu_link; ?>"><?php echo htmlspecialchars($submenu['name']); ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?> 
+        </ul>
+    </div>
+
+    <!-- <div>
+        <?php echo htmlspecialchars($settings[0]['email_address']); ?> 
+        <?php echo htmlspecialchars($settings[0]['mobile_number']); ?>
+    </div> -->
+</div>
+  
                     </div>
                 </div>
         </header>
