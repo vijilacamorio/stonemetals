@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                         <a href="<?php echo base_url('admin/page'); ?>" class="btn btn-primary">Add Page Content</a>
+                         <a href="<?php echo base_url('admin/page/page_create'); ?>" class="btn btn-primary">Add Page Content</a>
                         <div class="table-responsive">
                             <table id="myTable" class="table table-bordered table-striped">
                                 <thead>
@@ -40,7 +40,7 @@
                                         <?php foreach ($pages_data as $page): ?>
                                                  <tr>
                                                     <td><?php echo $page['cate_name']; ?></td>
-                                                    <td><?php echo $page['subcategory_name']; ?></td>
+                                                    <td><?php echo $page['subcat_name']; ?></td>
                                                     <td><img src="<?php echo base_url(BANNER_IMG_PATH . $page['logo']); ?>" width="100px" alt="Banner Image"/></td>
                                                     <td><?php echo $page['meta_title']; ?></td>
                                                     <td><?php echo ($page['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>

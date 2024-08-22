@@ -73,7 +73,7 @@ class Page extends CI_Controller {
 	            $uploaded_image_path = BANNER_IMG_PATH . $image_upload['image_metadata']['file_name'];
 	            list($width, $height) = getimagesize($uploaded_image_path);
 
-	            if ($width != 1980 || $height != 1080) {
+	            if ($width > BANNER_IMG_WIDTH || $height > BANNER_IMG_HEIGHT) {
 	                unlink($uploaded_image_path);
 	                $response['status'] = 'failure';
 	                $response['msg']    = 'The image width and height should be '.BANNER_IMG_WIDTH.'*'.BANNER_IMG_HEIGHT;
@@ -182,7 +182,7 @@ class Page extends CI_Controller {
 	            $uploaded_image_path = BANNER_IMG_PATH . $image_upload['image_metadata']['file_name'];
 	            list($width, $height) = getimagesize($uploaded_image_path);
 
-	            if ($width != BANNER_IMG_WIDTH || $height != BANNER_IMG_HEIGHT) {
+	            if ($width > BANNER_IMG_WIDTH || $height > BANNER_IMG_HEIGHT) {
 	                unlink($uploaded_image_path);
 	                $response['status'] = 'failure';
 	                $response['msg']    = 'The image width and height should be ' . BANNER_IMG_WIDTH . '*' . BANNER_IMG_HEIGHT;
@@ -211,18 +211,6 @@ class Page extends CI_Controller {
 
 	    echo json_encode($response);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function deletepage()
 	{
