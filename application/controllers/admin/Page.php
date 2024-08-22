@@ -62,7 +62,16 @@ class Page extends CI_Controller {
             $description = $this->input->post('description');
 	        $keyword = $this->input->post('keyword');
 	        $is_active = $this->input->post('is_active');
-
+			$data = array(
+				'category_name' => $category_name,
+				'subcategory_name' => $subcategory_name,
+				'content' => $content,
+				'meta_title' => $title,
+				'meta_description' => $description,
+				'meta_keywords' => $keyword,
+				'logo' => $image_upload['image_metadata']['file_name'],
+				'is_active' => $is_active
+			);
 	        // Upload the image with specified width and height
 			if (!empty($_FILES['images']['name'])) {
 	        $image_upload = bannerImageUpload('images', BANNER_IMG_PATH, BANNER_IMG_WIDTH, BANNER_IMG_HEIGHT);
@@ -78,33 +87,22 @@ class Page extends CI_Controller {
 						unlink($uploaded_image_path);
 						$response['status'] = 'failure';
 						$response['msg']    = 'The image width and height should be '.BANNER_IMG_WIDTH.'*'.BANNER_IMG_HEIGHT;
-					} else {
-						$data = array(
-							'category_name' => $category_name,
-							'subcategory_name' => $subcategory_name,
-							'content' => $content,
-							'meta_title' => $title,
-							'meta_description' => $description,
-							'meta_keywords' => $keyword,
-							'logo' => $image_upload['image_metadata']['file_name'],
-							'is_active' => $is_active
-						);
-	
-						$result = $this->page_model->insertpages('pages', $data);
-
-						if ($result) {
-							$response['status'] = 'success';
-							$response['msg']    = 'Pagecontent has been added successfully';
-						} else {
-							$response['status'] = 'failure';
-							$response['msg']    = 'Failed to add Pagecontent. Please try again.';
-						}
 					}
 				}
+				$image_name = $image_upload['image_metadata']['file_name'];
+				$data['logo'] = $image_name;
 			}
-	    }
+			$result = $this->page_model->insertpages('pages', $data);
 
-	    echo json_encode($response);
+			if ($result) {
+				$response['status'] = 'success';
+				$response['msg']    = 'Pagecontent has been added successfully';
+			} else {
+				$response['status'] = 'failure';
+				$response['msg']    = 'Failed to add Pagecontent. Please try again.';
+			}
+		}
+		echo json_encode($response);
 	}
 
 
