@@ -102,5 +102,5 @@ define('LOGO_IMG_WIDTH','500');
 define('LOGO_IMG_HEIGHT','500');
 
 define('GALLERY_IMG_PATH','./uploads/galleries/');
-define('GALLERY_IMG_WIDTH','564');
-define('GALLERY_IMG_HEIGHT','752');
+define('GALLERY_IMG_WIDTH','600');
+define('GALLERY_IMG_HEIGHT','800');

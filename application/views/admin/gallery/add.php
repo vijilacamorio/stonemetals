@@ -23,7 +23,7 @@
                     <p class="text-muted m-b-30 font-13"></p>
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
-                        <form name="addgallery" method="post" class="addgallery" enctype="multipart/form-data">
+                        <form name="addgallery" method="post" id="addgallery" class="addgallery" enctype="multipart/form-data">
                          <div class="displaymessage"></div>
                             <div class="form-group">
                                     <label for="exampleInput1">Title <span class="text-danger">*</span></label>
@@ -40,15 +40,9 @@
 
                                 <div class="form-group">
                                 <label for="exampleInput1">Image (<?php echo GALLERY_IMG_WIDTH; ?>px * <?php echo GALLERY_IMG_HEIGHT; ?>px)<span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" id="formFile" name="images"  >
+                                    <input type="file" class="form-control" id="formFile" name="gallery_image"  >
                                 </div>
 
-
-
-                                <div class="form-group">
-                                    <label for="exampleInput1">Url <span class="text-danger"></span></label>
-                                    <input type="text" class="form-control" id="inputText" name="button_url" placeholder="Url">
-                                </div>
 
  
 
@@ -79,7 +73,7 @@ $('.addgallery').on('submit', function(event) {
 event.preventDefault(); 
 var formData = new FormData($(this)[0]);
 $.ajax({
-    url: '<?php echo base_url('admin/gallery/create_gallery'); ?>', 
+    url: '<?php echo base_url('admin/gallery/createGallery'); ?>', 
     type: 'POST',
     data: formData,
     dataType:'json',

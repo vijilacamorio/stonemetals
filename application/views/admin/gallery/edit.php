@@ -28,7 +28,7 @@
                             <div class="form-group">
                                     <label for="exampleInput1">Title <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="inputText" name="gallery_name" value="<?php echo $getBanners[0]['gallery_name']; ?>" >
-                                    <input type="hidden" name="gallery_id" value="<?php echo $getBanners[0]['id']; ?>">
+                                    <input type="hidden" name="gallery_id" id="gallery_id" value="<?php echo $getBanners[0]['id']; ?>">
 
                                 </div>
 
@@ -41,25 +41,17 @@
                                 <div class="form-group">
                                     <label for="exampleInput1">Image (<?php echo GALLERY_IMG_WIDTH; ?>px * <?php echo GALLERY_IMG_HEIGHT; ?>px)<span class="text-danger">*</span></label>
                                     <div class="col-sm-6">
-                                            <input class="form-control" type="file" name="images" id="formFile" style="width: 209%;margin-left: -14px;"  >
-                                            <input type="hidden" name="old_bannerimage" value="<?php echo $getBanners[0]['images'];?>">
+                                            <input class="form-control" type="file" name="gallery_image" id="formFile" style="width: 209%;margin-left: -14px;"  >
+                                            <input type="hidden" name="old_bannerimage" value="<?php echo $getBanners[0]['gallery_image'];?>">
                                             <br>
                                             <?php
-                                            $image_url = !empty($getBanners[0]['images']) ? base_url().BANNER_IMG_PATH.$getBanners[0]['images'] : '';
-                                            $alt_text = !empty($getBanners[0]['images']) ? $getBanners[0]['gallery_name'] : '';
+                                            $image_url = !empty($getBanners[0]['gallery_image']) ? base_url().GALLERY_IMG_PATH.$getBanners[0]['gallery_image'] : '';
+                                            $alt_text = !empty($getBanners[0]['gallery_image']) ? $getBanners[0]['gallery_name'] : '';
                                             ?>
                                             <img src="<?php echo $image_url; ?>" alt="<?php echo $alt_text; ?>" width="100">
                                   </div>
                                 </div>
 
-
-
-                                <div class="form-group">
-                                    <label for="exampleInput1">Url <span class="text-danger"></span></label>
-                                    <input type="text" class="form-control" id="inputText" name="button_url"  value="<?php echo $getBanners[0]['button_url']; ?>" >
-                                </div>
-
- 
 
 
                                 <div class="form-group">
@@ -88,7 +80,7 @@ $('.editgallery').on('submit', function(event) {
     event.preventDefault(); 
     var formData = new FormData($(this)[0]);
     $.ajax({
-        url: '<?php echo base_url('admin/gallery/updateBanners'); ?>', 
+        url: '<?php echo base_url('admin/gallery/updateGallery'); ?>', 
         type: 'POST',
         data: formData,
         dataType:'json',

@@ -40,9 +40,9 @@
                                 <tr>
                                     <td><?php echo $gall['gallery_name']; ?></td>
                                     <td><?php echo $gall['gallery_content']; ?></td>
-                                    <td><img src="<?php echo base_url(GALLERY_IMG_PATH . $gall['images']); ?>" width="100px" alt="Banner Image"/></td>
+                                    <td><img src="<?php echo base_url(GALLERY_IMG_PATH . $gall['gallery_image']); ?>" width="100px" alt="Banner Image"/></td>
                                     <td><?php echo ($gall['is_active'] == 1) ? 'Active' : 'Inactive'; ?></td>
-                                    <td><?php echo date('d-m-Y H:i:s', strtotime($gall['created_date'])); ?></td>
+                                    <td><?php echo date('d-m-Y H:i:s', strtotime($gall['modified_date'])); ?></td>
                                     <td>
                                         <a href="<?php echo base_url('admin/gallery/editGallery?id=' . $gall['id']); ?>" 
                                         class="table  table-striped" data-toggle="tooltip" data-placement="left"> 

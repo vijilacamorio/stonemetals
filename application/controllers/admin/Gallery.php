@@ -40,7 +40,7 @@ class Gallery extends CI_Controller {
     
 
 
-	public function create_banner()
+	public function createGallery()
 	{
 	    // Set validation rules
 	    $this->form_validation->set_rules('gallery_name', 'Title', 'required|trim');
@@ -55,11 +55,10 @@ class Gallery extends CI_Controller {
 	    } else {
 	        $title = $this->input->post('gallery_name');
 	        $gallery_content = $this->input->post('gallery_content');
-	        $url = $this->input->post('button_url');
 	        $is_active = $this->input->post('is_active');
 
 	        // Upload the image with specified width and height
-	        $image_upload = bannerImageUpload('galleries', GALLERY_IMG_PATH, GALLERY_IMG_WIDTH, GALLERY_IMG_HEIGHT);
+	        $image_upload = bannerImageUpload('gallery_image', GALLERY_IMG_PATH, GALLERY_IMG_WIDTH, GALLERY_IMG_HEIGHT);
 
 	        if ($image_upload['error']) {
 	            $response['status'] = 'failure';
@@ -68,7 +67,7 @@ class Gallery extends CI_Controller {
 	            $uploaded_image_path = GALLERY_IMG_PATH . $image_upload['image_metadata']['file_name'];
 	            list($width, $height) = getimagesize($uploaded_image_path);
 
-	            if ($width != 1980 || $height != 1080) {
+	            if ($width > GALLERY_IMG_WIDTH || $height > GALLERY_IMG_HEIGHT) {
 	                unlink($uploaded_image_path);
 	                $response['status'] = 'failure';
 	                $response['msg']    = 'The image width and height should be '.GALLERY_IMG_WIDTH.'*'.GALLERY_IMG_HEIGHT;
@@ -76,19 +75,19 @@ class Gallery extends CI_Controller {
 	                $data = array(
 	                    'gallery_name' => $title,
 	                    'gallery_content' => $gallery_content,
-	                    'button_url' => $url,
-	                    'images' => $image_upload['image_metadata']['file_name'],
+	                    'gallery_image' => $image_upload['image_metadata']['file_name'],
+						'created_date'	=> date('Y-m-d H:i:s'),
 	                    'is_active' => $is_active
 	                );
 
-	                $result = $this->gallery_model->insertBanners($data);
+	                $result = $this->gallery_model->insertGallery($data);
 
 	                if ($result) {
 	                    $response['status'] = 'success';
-	                    $response['msg']    = 'Banner has been added successfully';
+	                    $response['msg']    = 'Gallery has been added successfully';
 	                } else {
 	                    $response['status'] = 'failure';
-	                    $response['msg']    = 'Failed to add banner. Please try again.';
+	                    $response['msg']    = 'Failed to add gallery. Please try again.';
 	                }
 	            }
 	        }
@@ -105,7 +104,7 @@ class Gallery extends CI_Controller {
       $id = $_GET['id'];
       $get_bannerdata = $this->gallery_model->get_banner($id);
       $data = array(
-         'page_title' => 'Edit Banners',
+         'page_title' => 'Edit Gallery',
          'getBanners' => $get_bannerdata
     	);
 		$this->load->view('admin/gallery/edit', $data);
@@ -118,9 +117,7 @@ class Gallery extends CI_Controller {
 public function updateGallery()
 	{
  	    $this->form_validation->set_rules('gallery_name', 'Title', 'required|trim');
-	    $this->form_validation->set_rules('sub_title', 'Subtitle', 'required|trim');
-	    // $this->form_validation->set_rules('gallery_content', 'Content', 'required|trim');
-	    $this->form_validation->set_rules('button_url', 'Url', 'required|trim|valid_url');
+	    $this->form_validation->set_rules('gallery_content', 'Content', 'required|trim');
 	    $this->form_validation->set_rules('is_active', 'Banner Status', 'required');
 	    $this->form_validation->set_error_delimiters('', '<br/>');
 
@@ -129,15 +126,18 @@ public function updateGallery()
 	        $response['status'] = 'failure';
 	        $response['msg']    = validation_errors();
 	    } else {
-	    	$bannerid = $this->input->post('bannerId');
+	    	$gallery_id = $this->input->post('gallery_id');
 	        $title = $this->input->post('gallery_name');
 	        $gallery_content = $this->input->post('gallery_content');
-	        $url = $this->input->post('button_url');
 	        $is_active = $this->input->post('is_active');
-	        $image_name = $this->input->post('old_bannerimage'); 
-	     
-			if (!empty($_FILES['images']['name'])) {
-	            $image_upload = bannerImageUpload('images', GALLERY_IMG_PATH, GALLERY_IMG_WIDTH, GALLERY_IMG_HEIGHT);
+			$data = array(
+	            'gallery_name' 		=> $title,
+	            'gallery_content' 	=> $gallery_content,
+	            'is_active' 		=> $is_active,
+				'modified_by' 		=> $this->session->userdata('admin_id')
+	        );
+			if (!empty($_FILES['gallery_image']['name'])) {
+	            $image_upload = bannerImageUpload('gallery_image', GALLERY_IMG_PATH, GALLERY_IMG_WIDTH, GALLERY_IMG_HEIGHT);
 	            if ($image_upload['error']) {
 	                $response['status'] = 'failure';
 	                $response['msg']    = $image_upload['error'];
@@ -146,33 +146,29 @@ public function updateGallery()
 	            }
 	            $uploaded_image_path = GALLERY_IMG_PATH . $image_upload['image_metadata']['file_name'];
 	            list($width, $height) = getimagesize($uploaded_image_path);
-	            if ($width != GALLERY_IMG_WIDTH || $height != GALLERY_IMG_HEIGHT) {
+	            if ($width > GALLERY_IMG_WIDTH || $height > GALLERY_IMG_HEIGHT) {
 	                unlink($uploaded_image_path);
 	                $response['status'] = 'failure';
 	                $response['msg']    = 'The image width and height should be ' . GALLERY_IMG_WIDTH . '*' . GALLERY_IMG_HEIGHT;
 	                echo json_encode($response);
 	                return;
-	            }
+	            }else{
+					unlink(base_url().GALLERY_IMG_PATH.$this->input->post('old_bannerimage'));
+				}
 	            $image_name = $image_upload['image_metadata']['file_name'];
+				$data['gallery_image'] = $image_name;
 	        }
 
-	        $data = array(
-	            'gallery_name' => $title,
-	            'sub_title' => $subtitle,
-	            'gallery_content' => $gallery_content,
-	            'button_url' => $url,
-	            'images' => $image_name,
-	            'is_active' => $is_active,
-	        );
+	        
 
-	        $result = $this->gallery_model->update_homebanners($bannerid, $data, 'banner_images');
+	        $result = $this->gallery_model->updateGallery($gallery_id, $data);
 
 	        if ($result) {
 	            $response['status'] = 'success';
-	            $response['msg']    = 'Banner has been updated successfully';
+	            $response['msg']    = 'Gallery has been updated successfully';
 	        } else {
 	            $response['status'] = 'failure';
-	            $response['msg']    = 'Failed to add banner. Please try again.';
+	            $response['msg']    = 'Failed to add gallery. Please try again.';
 	        }
 	    }
 
